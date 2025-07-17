@@ -1,0 +1,28 @@
+.ImageDesktop {
+    position: relative;
+}
+
+.cornerUpper {
+    position: absolute !important;
+    left: -5px;
+    top: -5px;
+}
+
+.cornerLower {
+    position: absolute !important;
+    bottom: -5px;
+    right: -5px;
+}
+
+.arrowUpper {
+    position: absolute !important;
+    right: -12px;
+    top: -12px;
+}
+
+.arrowLower {
+    position: absolute !important;
+    bottom: -12px;
+    left: -12px;
+}
+

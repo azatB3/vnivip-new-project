@@ -1,0 +1,36 @@
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/accessibility";
+
+body {
+    position: relative;
+}
+
+#root {
+
+}
+
+.app_desktop {
+    min-width: 1440px;
+    position: relative;
+    background: var(--white);
+}
+
+.app_mobile {
+    min-width: 320px;
+    position: relative;
+    background: var(--white);
+}
+
+.menu-open-body {
+    overflow-y: hidden;
+}
+
+.burger-menu-open-body {
+    overflow-y: hidden;
+}
+
+.is-loading-body {
+    overflow-y: hidden;
+}

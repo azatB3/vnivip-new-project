@@ -1,46 +1,33 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { HTMLAttributes, memo, RefObject } from 'react';
+import React, { FC, memo, SVGAttributes } from 'react';
 import cls from './Icon.module.scss';
 
 export enum IconTheme {
     CLEAN = 'clean',
-    MENU_ARROW = 'menu_arrow',
 }
 
-interface IconProps extends HTMLAttributes<HTMLDivElement> {
-    className?: string;
+interface IconProps extends SVGAttributes<HTMLOrSVGElement> {
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
-    HoveredSvg?: React.VFC<React.SVGProps<SVGSVGElement>>;
-    theme: IconTheme;
-    onClick?: () => void;
-    isClickable?: boolean;
+    theme?: IconTheme;
 }
 
-export const Icon = memo((props: IconProps) => {
+export const Icon: FC<IconProps> = memo((props) => {
     const {
         className,
         Svg,
-        HoveredSvg,
-        theme,
-        isClickable = false,
+        theme = IconTheme.CLEAN,
         ...otherProps
     } = props;
 
     const classes = [
         className,
         cls[theme],
-        HoveredSvg ? cls.isNotPassive : undefined,
-        isClickable ? cls.isClickable : undefined,
     ];
 
     return (
-        <div
-            role={HoveredSvg ? 'button' : undefined}
+        <Svg
             className={classNames(cls.Icon, {}, classes)}
             {...otherProps}
-        >
-            <Svg className={cls.svg} />
-            {HoveredSvg && <HoveredSvg className={cls.hoveredSvg} />}
-        </div>
+        />
     );
 });

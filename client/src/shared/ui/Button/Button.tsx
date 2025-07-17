@@ -4,17 +4,19 @@ import cls from './Button.module.scss';
 
 export enum ButtonTheme {
     CLEAN = 'clean',
+    PRIMARY = 'primary',
+    WHITE = 'white'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-    theme: ButtonTheme;
+    theme?: ButtonTheme;
 }
 
 export const Button: FC<ButtonProps> = memo((props) => {
     const {
         className,
         children,
-        type,
+        type = 'button',
         theme = ButtonTheme.CLEAN,
         ...otherProps
     } = props;

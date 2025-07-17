@@ -13,11 +13,18 @@ export enum AppRoutes {
     ADMIN = 'admin',
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.NOT_FOUND]: '*',
+export enum AppPaths {
+    MAIN = '/',
+    NOT_FOUND = '*',
     // Админам
-    [AppRoutes.ADMIN]: '/admin',
+    ADMIN = '/admin',
+}
+
+export const RoutePath: Record<AppRoutes, AppPaths> = {
+    [AppRoutes.MAIN]: AppPaths.MAIN,
+    [AppRoutes.NOT_FOUND]: AppPaths.NOT_FOUND,
+    // Админам
+    [AppRoutes.ADMIN]: AppPaths.ADMIN,
 };
 
 export const routeConfigDesktop: Record<AppRoutes, AppRoutesProps> = {

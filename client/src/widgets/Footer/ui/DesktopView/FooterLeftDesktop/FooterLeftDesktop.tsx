@@ -41,7 +41,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                             theme={IconTheme.CLEAN}
                         />
                         <Text
-                            theme={TextTheme.BLUE_GREY}
+                            theme={TextTheme.WHITE}
                             size={TextSize.BODY_FOOTER_DESKTOP}
                             className={cls.textMinistry}
                         >
@@ -56,7 +56,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                             theme={IconTheme.CLEAN}
                         />
                         <Text
-                            theme={TextTheme.BLUE_GREY}
+                            theme={TextTheme.WHITE}
                             size={TextSize.BODY_FOOTER_DESKTOP}
                             className={cls.textMinistry}
                         >
@@ -71,7 +71,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                             theme={IconTheme.CLEAN}
                         />
                         <Text
-                            theme={TextTheme.BLUE_GREY}
+                            theme={TextTheme.WHITE}
                             size={TextSize.BODY_FOOTER_DESKTOP}
                             className={cls.textMinistry}
                         >
@@ -82,7 +82,6 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                 <Text
                     theme={TextTheme.WHITE}
                     size={TextSize.BODY_DESKTOP}
-                    opacity="60"
                 >
                     {t('2025 © СПБГУВМ. Все права защищены')}
                 </Text>

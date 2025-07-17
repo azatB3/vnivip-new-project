@@ -91,7 +91,7 @@ export const Input = memo((props: InputProps) => {
                         />
                     )}
                     <Text
-                        theme={TextTheme.GREY}
+                        theme={TextTheme.WHITE}
                         size={TextSize.BODY_S_MEDIUM_DESKTOP}
                         className={cls.requiredText}
                     >

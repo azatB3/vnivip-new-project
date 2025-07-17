@@ -1,3 +1,11 @@
 .HeaderDesktop {
+    height: var(--header-desktop-height);
+    display: flex;
+    padding-inline: 55px;
+    background: transparent;
+}
 
+
+.btns {
+    margin-left: auto;
 }

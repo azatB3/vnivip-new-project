@@ -120,8 +120,8 @@ export const Text = memo((props: TextProps) => {
     ];
 
     const style: CSSProperties = {
-        width: width && `${width}px`,
-        height: height && `${height}px`,
+        width: width!! && width.includes('%') ? width : `${width}px`,
+        height: height!! && height.includes('%') ? height : `${height}px`,
         display: isInline ? 'inline' : undefined,
     };
 

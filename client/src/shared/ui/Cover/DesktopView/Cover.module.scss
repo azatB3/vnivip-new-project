@@ -1,0 +1,67 @@
+.Cover {
+    position: relative;
+    overflow: hidden;
+}
+
+.bgImg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bgImg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    backdrop-filter: blur(8px);
+}
+
+.bgImg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-opacity);
+    z-index: 3;
+}
+
+.skew {
+    position: absolute;
+    width: 500px;
+    margin-left: auto;
+    height: 100%;
+    right: 5%;
+    transform: skew(12deg);
+}
+
+.skewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 85% 0;
+}
+
+
+.content {
+    position: absolute;
+    z-index: 4;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    padding-inline: 55px;
+}
+
+.small {
+    height: 155px;
+}
+
+.large {
+    height: 100vh;
+}
+

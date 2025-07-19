@@ -7,7 +7,7 @@
             opacity: 1;
             pointer-events: auto;
         }
-        z-index: 3;
+        z-index: var(--dropdown-z-index);
     }
 }
 
@@ -69,7 +69,7 @@
 .section {
     display: flex;
     align-items: center;
-    z-index: 2;
+    z-index: 5;
     position: relative;
     cursor: pointer;
     color: var(--white4);

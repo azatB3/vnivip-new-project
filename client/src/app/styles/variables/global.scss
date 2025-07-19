@@ -9,9 +9,9 @@
     --font-numbers-desktop: 400 var(--font-size-numbers-desktop) / var(--font-line-numbers-desktop) var(--font-family-main);
 
     // H1
-    --font-size-h1-desktop: 70px;
-    --font-line-h1-desktop: 77px;
-    --font-h1-desktop: 400 var(--font-size-h1-desktop) / var(--font-line-h1-desktop) var(--font-family-main);
+    --font-size-h1-desktop: 60px;
+    --font-line-h1-desktop: 66px;
+    --font-h1-desktop: 500 var(--font-size-h1-desktop) / var(--font-line-h1-desktop) var(--font-family-main);
 
     // H2
     --font-size-h2-desktop: 45px;
@@ -162,12 +162,7 @@
     --header-mobile-height: 60px;
 
     // z - Индексы
-    --header-z-index: 25;
-    --header-smallscreen-z-index: 15;
-    --header-mobile-z-index: 15;
-    --menu-z-index: 20;
-    --burger-menu-z-index: 20;
-    --languages-z-index: 30;
+    --dropdown-z-index: 20;
 
     // Цвета
     --red-error: #E30000;

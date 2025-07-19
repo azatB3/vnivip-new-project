@@ -81,15 +81,14 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             className={classNames(cls.HeaderDesktop, {}, [className])}
             id={HEADER_ID}
         >
-
+            <Icon
+                Svg={mainLogo}
+            />
             <HStack
                 gap="50"
                 maxH
                 align="center"
             >
-                <Icon
-                    Svg={mainLogo}
-                />
                 <Dropdown
                     sectionName={t('Об институте')}
                     sectionPath={RoutePath.main}

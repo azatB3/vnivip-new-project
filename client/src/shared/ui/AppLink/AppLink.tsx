@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
-import { FC, memo } from 'react';
+import React, { FC, memo } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -10,13 +10,15 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme;
+    Svg?: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
 export const AppLink: FC<AppLinkProps> = memo((props) => {
     const {
         to,
         className,
-        children,
+        children = null,
+        Svg,
         theme = AppLinkTheme.CLEAN,
         ...otherProps
     } = props;
@@ -27,6 +29,7 @@ export const AppLink: FC<AppLinkProps> = memo((props) => {
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
             {...otherProps}
         >
+            {Svg ? <Svg /> : null}
             {children}
         </Link>
     );

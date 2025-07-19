@@ -11,4 +11,8 @@
 
 .white {
     color: var(--white4);
+    transition: opacity 0.2s ease-in;
+    &:hover {
+        opacity: 0.6;
+    }
 }

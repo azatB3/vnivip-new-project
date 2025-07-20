@@ -1,90 +1,84 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { CSSProperties, memo } from 'react';
-import photoFrameLowerBlueCorner from 'shared/assets/icons/photo-frame-lower-blue-corner.svg';
-import photoFrameUpperBlueCorner from 'shared/assets/icons/photo-frame-upper-blue-corner.svg';
-import photoFrameLowerWhiteCorner from 'shared/assets/icons/photo-frame-lower-white-corner.svg';
-import photoFrameUpperWhiteCorner from 'shared/assets/icons/photo-frame-upper-white-corner.svg';
-import photoFrameLowerBlueSmallArrow from 'shared/assets/icons/photo-frame-lower-blue-small-arrow.svg';
-import photoFrameUpperBlueSmallArrow from 'shared/assets/icons/photo-frame-upper-blue-small-arrow.svg';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import React, { CSSProperties, FC, memo } from 'react';
 import cls from './ImageMobile.module.scss';
 
-export enum ImageMobileFrames {
-    ARROW = 'arrow',
-    CORNER_BLUE = 'corner_blue',
-    CORNER_WHITE = 'corner_white',
+type ImageNumbers =
+    4
+    | 8
+    | 16
+    | 32
+    | 64
+    | 128
+    | 10
+    | 20
+    | 30
+    | 40
+    | 50
+    | 60
+    | 70
+    | 80
+    | 90
+    | 100
+    | 110
+    | 120;
+
+const borderRClasses: Record<ImageNumbers, string> = {
+    4: cls.borderR4,
+    8: cls.borderR8,
+    16: cls.borderR16,
+    32: cls.borderR32,
+    64: cls.borderR64,
+    128: cls.borderR128,
+    10: cls.borderR10,
+    20: cls.borderR20,
+    30: cls.borderR30,
+    40: cls.borderR40,
+    50: cls.borderR50,
+    60: cls.borderR60,
+    70: cls.borderR70,
+    80: cls.borderR80,
+    90: cls.borderR90,
+    100: cls.borderR100,
+    110: cls.borderR110,
+    120: cls.borderR120,
+};
+
+interface ImageMobileProps extends React.ImgHTMLAttributes<HTMLImageElement>{
+    borderR?: ImageNumbers;
+    maxW?: boolean;
+    width?: number;
+    height?: number;
 }
 
-interface ImageMobileProps {
-    className?: string;
-    width?: string;
-    height?: string;
-    frames?: ImageMobileFrames;
-    src: string;
-    posY?: string;
-    posX?: string;
-}
-
-export const ImageMobile = memo((props: ImageMobileProps) => {
+export const ImageMobile: FC<ImageMobileProps> = memo((props) => {
     const {
         className,
-        width = '100',
-        height = '100',
-        frames,
+        alt = '',
         src,
-        posY,
-        posX,
+        borderR,
+        maxW,
+        height = 200,
+        width = 200,
     } = props;
-    const { t } = useTranslation();
 
-    const mapSvgToImageFrames: Record<ImageMobileFrames, any> = {
-        [ImageMobileFrames.CORNER_WHITE]: {
-            upper: photoFrameUpperWhiteCorner,
-            lower: photoFrameLowerWhiteCorner,
-        },
-        [ImageMobileFrames.CORNER_BLUE]: {
-            upper: photoFrameUpperBlueCorner,
-            lower: photoFrameLowerBlueCorner,
-        },
-        [ImageMobileFrames.ARROW]: {
-            upper: photoFrameUpperBlueSmallArrow,
-            lower: photoFrameLowerBlueSmallArrow,
-        },
-    };
+    const classes: (string | undefined)[] = [
+        className,
+        borderR && borderRClasses[borderR],
+        maxW ? cls.maxW : undefined,
+    ];
 
     const style: CSSProperties = {
         width: `${width}px`,
         height: `${height}px`,
-        backgroundImage: `url(${src})`,
-        backgroundSize: 'cover',
-        backgroundPositionY: posY ? `${posY}%` : 'center',
-        backgroundPositionX: posY ? `${posX}%` : 'center',
     };
 
     return (
-        <div
+        <img
+            alt={alt}
             style={style}
-            className={classNames(cls.ImageMobile, {}, [className, cls.switched])}
-        >
-            {frames && (
-                <Icon
-                    Svg={mapSvgToImageFrames[frames].upper}
-                    theme={IconTheme.CLEAN}
-                    className={frames === ImageMobileFrames.ARROW
-                        ? cls.arrowUpper
-                        : cls.cornerUpper}
-                />
-            )}
-            {frames && (
-                <Icon
-                    Svg={mapSvgToImageFrames[frames].lower}
-                    theme={IconTheme.CLEAN}
-                    className={frames === ImageMobileFrames.ARROW
-                        ? cls.arrowLower
-                        : cls.cornerLower}
-                />
-            )}
-        </div>
+            src={src}
+            className={classNames(cls.ImageDesktop, {}, classes)}
+        />
     );
 });

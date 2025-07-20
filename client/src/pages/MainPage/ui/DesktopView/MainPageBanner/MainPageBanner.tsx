@@ -20,15 +20,15 @@ export const MainPageBanner = memo(() => {
             src={cover2Img}
         >
             <VStack
-                gap="100"
+                gap={100}
             >
                 <VStack
-                    className={cls.coverText}
+                    paddingL={130}
                 >
                     <Text
                         theme={TextTheme.WHITE}
                         size={TextSize.H1_DESKTOP}
-                        width="70%"
+                        className={cls.instituteName}
                     >
                         {t('Всероссийский научно-исследовательский ветеринарный институт птицеводства')}
                     </Text>
@@ -51,7 +51,7 @@ export const MainPageBanner = memo(() => {
                         {t('К новостям')}
                     </AppLink>
                     <HStack
-                        gap="10"
+                        gap={16}
                     >
                         <AppLink
                             to="#"
@@ -64,6 +64,7 @@ export const MainPageBanner = memo(() => {
                             Svg={vkIcon}
                         />
                         <AppLink
+                            className={cls.youtubeIcon}
                             to="#"
                             theme={AppLinkTheme.WHITE}
                             Svg={youtubeIcon}

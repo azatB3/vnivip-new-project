@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, {
-    CSSProperties, HTMLAttributes, memo, ReactNode,
-} from 'react';
+import React, { HTMLAttributes, memo, ReactNode } from 'react';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
     WHITE = 'white',
+    DARK = 'dark',
+    DARK2 = 'dark2',
 }
 
 export enum TextAlign {
@@ -55,9 +55,7 @@ interface TextProps extends HTMLAttributes<HTMLDivElement>{
     theme: TextTheme;
     align?: TextAlign;
     size: TextSize;
-    width?: string;
-    height?: string;
-    isInline?: boolean;
+    textIndent?: boolean;
 }
 
 type TextTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'p'
@@ -104,9 +102,7 @@ export const Text = memo((props: TextProps) => {
         align = TextAlign.LEFT,
         size,
         children,
-        width,
-        height,
-        isInline,
+        textIndent = false,
         ...otherProps
     } = props;
 
@@ -117,18 +113,12 @@ export const Text = memo((props: TextProps) => {
         cls[theme],
         cls[size],
         cls[align],
+        textIndent ? cls.textIndent : undefined,
     ];
-
-    const style: CSSProperties = {
-        width: width!! && width.includes('%') ? width : `${width}px`,
-        height: height!! && height.includes('%') ? height : `${height}px`,
-        display: isInline ? 'inline' : undefined,
-    };
 
     return (
         <TextTag
             className={classNames(cls.Text, {}, classes)}
-            style={style}
             {...otherProps}
         >
             {children}

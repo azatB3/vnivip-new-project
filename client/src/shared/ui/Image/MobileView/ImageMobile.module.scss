@@ -1,28 +1,80 @@
 .ImageMobile {
-    position: relative;
+    object-fit: cover;
+    object-position: center;
 }
 
-.cornerUpper {
-    position: absolute !important;
-    left: -5px;
-    top: -5px;
+.maxW {
+    width: 100%;
 }
 
-.cornerLower {
-    position: absolute !important;
-    bottom: -5px;
-    right: -5px;
+.borderR4 {
+    border-radius: 4px;
 }
 
-.arrowUpper {
-    position: absolute !important;
-    right: -8px;
-    top: -8px;
+.borderR8 {
+    border-radius: 8px;
 }
 
-.arrowLower {
-    position: absolute !important;
-    bottom: -9px;
-    left: -9px;
+.borderR16 {
+    border-radius: 16px;
 }
 
+.borderR32 {
+    border-radius: 32px;
+}
+
+.borderR64 {
+    border-radius: 64px;
+}
+
+.borderR128 {
+    border-radius: 128px;
+}
+
+.borderR10 {
+    border-radius: 10px;
+}
+
+.borderR20 {
+    border-radius: 20px;
+}
+
+.borderR30 {
+    border-radius: 30px;
+}
+
+.borderR40 {
+    border-radius: 40px;
+}
+
+.borderR50 {
+    border-radius: 50px;
+}
+
+.borderR60 {
+    border-radius: 60px;
+}
+
+.borderR70 {
+    border-radius: 70px;
+}
+
+.borderR80 {
+    border-radius: 80px;
+}
+
+.borderR90 {
+    border-radius: 90px;
+}
+
+.borderR100 {
+    border-radius: 100px;
+}
+
+.borderR110 {
+    border-radius: 110px;
+}
+
+.borderR120 {
+    border-radius: 120px;
+}

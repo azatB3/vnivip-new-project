@@ -14,7 +14,7 @@ body {
 .app_desktop {
     min-width: 1420px;
     position: relative;
-    background: var(--black-opacity);
+    background: var(--white);
 }
 
 .app_mobile {
@@ -34,3 +34,4 @@ body {
 .is-loading-body {
     overflow-y: hidden;
 }
+

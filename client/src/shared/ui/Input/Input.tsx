@@ -60,7 +60,7 @@ export const Input = memo((props: InputProps) => {
     return (
         <VStack
             className={classNames(cls.Input, mods, [className])}
-            gap="4"
+            gap={4}
         >
             {isNumber && (
                 <Icon
@@ -81,7 +81,7 @@ export const Input = memo((props: InputProps) => {
             />
             {isRequired && (
                 <HStack
-                    gap="4"
+                    gap={4}
                     align="start"
                 >
                     {isRed && (

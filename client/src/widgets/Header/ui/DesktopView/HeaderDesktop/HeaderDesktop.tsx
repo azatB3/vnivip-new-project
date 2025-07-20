@@ -77,15 +77,18 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
     ];
 
     return (
-        <header
+        <HStack
             className={classNames(cls.HeaderDesktop, {}, [className])}
             id={HEADER_ID}
+            ContentTag="header"
+            justify="between"
+            align="center"
         >
             <Icon
                 Svg={mainLogo}
             />
             <HStack
-                gap="50"
+                gap={50}
                 maxH
                 align="center"
             >
@@ -118,7 +121,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                 </AppLink>
             </HStack>
             <HStack
-                gap="30"
+                gap={30}
                 className={cls.btns}
                 maxH
                 align="center"
@@ -128,6 +131,6 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                     Svg={searchIcon}
                 />
             </HStack>
-        </header>
+        </HStack>
     );
 });

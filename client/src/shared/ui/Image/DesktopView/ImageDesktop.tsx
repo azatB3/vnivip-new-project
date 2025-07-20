@@ -1,90 +1,80 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import React, { CSSProperties, memo, useEffect } from 'react';
-import photoFrameLowerBlueCorner from 'shared/assets/icons/photo-frame-lower-blue-corner.svg';
-import photoFrameUpperBlueCorner from 'shared/assets/icons/photo-frame-upper-blue-corner.svg';
-import photoFrameLowerWhiteCorner from 'shared/assets/icons/photo-frame-lower-white-corner.svg';
-import photoFrameUpperWhiteCorner from 'shared/assets/icons/photo-frame-upper-white-corner.svg';
-import photoFrameLowerBlueLargeArrow from 'shared/assets/icons/photo-frame-lower-blue-large-arrow.svg';
-import photoFrameUpperBlueLargeArrow from 'shared/assets/icons/photo-frame-upper-blue-large-arrow.svg';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import React, { CSSProperties, FC, memo } from 'react';
 import cls from './ImageDesktop.module.scss';
 
-export enum ImageDesktopFrames {
-    ARROW = 'arrow',
-    CORNER_BLUE = 'corner_blue',
-    CORNER_WHITE = 'corner_white',
+type ImageNumbers =
+    4
+    | 8
+    | 16
+    | 32
+    | 64
+    | 128
+    | 10
+    | 20
+    | 30
+    | 40
+    | 50
+    | 60
+    | 70
+    | 80
+    | 90
+    | 100
+    | 110
+    | 120;
+
+const borderRClasses: Record<ImageNumbers, string> = {
+    4: cls.borderR4,
+    8: cls.borderR8,
+    16: cls.borderR16,
+    32: cls.borderR32,
+    64: cls.borderR64,
+    128: cls.borderR128,
+    10: cls.borderR10,
+    20: cls.borderR20,
+    30: cls.borderR30,
+    40: cls.borderR40,
+    50: cls.borderR50,
+    60: cls.borderR60,
+    70: cls.borderR70,
+    80: cls.borderR80,
+    90: cls.borderR90,
+    100: cls.borderR100,
+    110: cls.borderR110,
+    120: cls.borderR120,
+};
+
+interface ImageDesktopProps extends React.ImgHTMLAttributes<HTMLImageElement>{
+    borderR?: ImageNumbers;
+    width?: number | string;
+    height?: number | string;
 }
 
-interface ImageDesktopProps {
-    className?: string;
-    width?: string;
-    height?: string;
-    frames?: ImageDesktopFrames;
-    src: string;
-    posY?: string;
-    posX?: string;
-}
-
-export const ImageDesktop = memo((props: ImageDesktopProps) => {
+export const ImageDesktop: FC<ImageDesktopProps> = memo((props) => {
     const {
         className,
-        width = '100',
-        height = '100',
-        frames,
+        alt = '',
         src,
-        posY,
-        posX,
+        borderR,
+        height = 'auto',
+        width = 'auto',
     } = props;
-    const { t } = useTranslation();
 
-    const mapSvgToImageFrames: Record<ImageDesktopFrames, any> = {
-        [ImageDesktopFrames.CORNER_WHITE]: {
-            upper: photoFrameUpperWhiteCorner,
-            lower: photoFrameLowerWhiteCorner,
-        },
-        [ImageDesktopFrames.CORNER_BLUE]: {
-            upper: photoFrameUpperBlueCorner,
-            lower: photoFrameLowerBlueCorner,
-        },
-        [ImageDesktopFrames.ARROW]: {
-            upper: photoFrameUpperBlueLargeArrow,
-            lower: photoFrameLowerBlueLargeArrow,
-        },
-    };
+    const classes: (string | undefined)[] = [
+        className,
+        borderR && borderRClasses[borderR],
+    ];
 
     const style: CSSProperties = {
-        width: `${width}px`,
-        height: `${height}px`,
-        backgroundImage: `url(${src})`,
-        backgroundSize: 'cover',
-        backgroundPositionY: posY ? `${posY}%` : 'center',
-        backgroundPositionX: posY ? `${posX}%` : 'center',
+        width: typeof width === 'string' ? width : `${width}px`,
+        height: typeof height === 'string' ? height : `${height}px`,
     };
 
     return (
-        <div
+        <img
+            alt={alt}
+            src={src}
+            className={classNames(cls.ImageDesktop, {}, classes)}
             style={style}
-            className={classNames(cls.ImageDesktop, {}, [className, cls.switched])}
-        >
-            {frames && (
-                <Icon
-                    Svg={mapSvgToImageFrames[frames].upper}
-                    theme={IconTheme.CLEAN}
-                    className={frames === ImageDesktopFrames.ARROW
-                        ? cls.arrowUpper
-                        : cls.cornerUpper}
-                />
-            )}
-            {frames && (
-                <Icon
-                    Svg={mapSvgToImageFrames[frames].lower}
-                    theme={IconTheme.CLEAN}
-                    className={frames === ImageDesktopFrames.ARROW
-                        ? cls.arrowLower
-                        : cls.cornerLower}
-                />
-            )}
-        </div>
+        />
     );
 });

@@ -28,13 +28,13 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                 theme={IconTheme.CLEAN}
             />
             <VStack
-                gap="40"
+                gap={40}
             >
                 <VStack
-                    gap="10"
+                    gap={10}
                 >
                     <VStack
-                        gap="10"
+                        gap={10}
                     >
                         <Icon
                             Svg={logoMinistyAgriculture}
@@ -49,7 +49,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                         </Text>
                     </VStack>
                     <VStack
-                        gap="10"
+                        gap={10}
                     >
                         <Icon
                             Svg={logoMinistyEducation}
@@ -64,7 +64,7 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
                         </Text>
                     </VStack>
                     <VStack
-                        gap="10"
+                        gap={10}
                     >
                         <Icon
                             Svg={logoMinistyHigherEducation}

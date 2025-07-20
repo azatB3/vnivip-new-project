@@ -15,7 +15,7 @@ export const FooterMenuDesktop = memo((props: FooterMenuDesktopProps) => {
     return (
         <VStack
             className={classNames(cls.FooterMenuDesktop, {}, [className])}
-            gap="40"
+            gap={40}
         >
             menu
         </VStack>

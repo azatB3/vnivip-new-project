@@ -1,2 +1,2 @@
-export { ImageDesktop, ImageDesktopFrames } from './DesktopView/ImageDesktop';
-export { ImageMobile, ImageMobileFrames } from './MobileView/ImageMobile';
+export { ImageDesktop } from './DesktopView/ImageDesktop';
+export { ImageMobile } from './MobileView/ImageMobile';

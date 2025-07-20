@@ -1,5 +1,5 @@
 .Text {
-    user-select: none;
+    white-space: pre-wrap;
 }
 
 .left {
@@ -14,9 +14,13 @@
     text-align: center;
 }
 
+.textIndent {
+    text-indent: 40px;
+}
 
 
-// desktop and smallScreen
+
+// desktop and mobile
 
 .numbers_desktop {
     font: var(--font-numbers-desktop);
@@ -144,3 +148,10 @@
     color: var(--white4);
 }
 
+.dark {
+    color: var(--dark);
+}
+
+.dark2 {
+    color: var(--dark2);
+}

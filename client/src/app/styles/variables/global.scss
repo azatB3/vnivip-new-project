@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: "Montserrat", "Times New Roman", sans-serif;
+    --font-family-main: "Ubuntu", "Times New Roman", sans-serif;
 
     // -------------------------------- DESKTOP FONTS -------------------------------------------------
 
@@ -44,23 +44,23 @@
     --font-h4-italic-desktop: 400 italic var(--font-size-h4-italic-desktop) / var(--font-line-h4-italic-desktop) var(--font-family-main);
 
     // BodyL
-    --font-size-body-l-desktop: 20px;
-    --font-line-body-l-desktop: 22px;
+    --font-size-body-l-desktop: 25px;
+    --font-line-body-l-desktop: 27.5px;
     --font-body-l-desktop: 400 var(--font-size-body-l-desktop) / var(--font-line-body-l-desktop) var(--font-family-main);
 
     // Body
-    --font-size-body-desktop: 16px;
-    --font-line-body-desktop: 19.2px;
+    --font-size-body-desktop: 20px;
+    --font-line-body-desktop: 22px;
     --font-body-desktop: 400 var(--font-size-body-desktop) / var(--font-line-body-desktop) var(--font-family-main);
 
     // BodyS
-    --font-size-body-s-desktop: 14px;
-    --font-line-body-s-desktop: 18.2px;
+    --font-size-body-s-desktop: 16px;
+    --font-line-body-s-desktop: 19.2px;
     --font-body-s-desktop: 400 var(--font-size-body-s-desktop) / var(--font-line-body-s-desktop) var(--font-family-main);
 
     // BodyS-MEDIUM
-    --font-size-body-s-medium-desktop: 14px;
-    --font-line-body-s-medium-desktop: 18.2px;
+    --font-size-body-s-medium-desktop: 16px;
+    --font-line-body-s-medium-desktop: 19.2px;
     --font-body-s-medium-desktop: 500 var(--font-size-body-s-medium-desktop) / var(--font-line-body-s-medium-desktop) var(--font-family-main);
 
     // Body-FOOTER

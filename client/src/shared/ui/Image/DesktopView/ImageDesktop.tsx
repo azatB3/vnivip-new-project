@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { CSSProperties, FC, memo } from 'react';
+import React, { FC, memo } from 'react';
 import cls from './ImageDesktop.module.scss';
 
 type ImageNumbers =
@@ -45,8 +45,6 @@ const borderRClasses: Record<ImageNumbers, string> = {
 
 interface ImageDesktopProps extends React.ImgHTMLAttributes<HTMLImageElement>{
     borderR?: ImageNumbers;
-    width?: number | string;
-    height?: number | string;
 }
 
 export const ImageDesktop: FC<ImageDesktopProps> = memo((props) => {
@@ -55,8 +53,6 @@ export const ImageDesktop: FC<ImageDesktopProps> = memo((props) => {
         alt = '',
         src,
         borderR,
-        height = 'auto',
-        width = 'auto',
     } = props;
 
     const classes: (string | undefined)[] = [
@@ -64,17 +60,11 @@ export const ImageDesktop: FC<ImageDesktopProps> = memo((props) => {
         borderR && borderRClasses[borderR],
     ];
 
-    const style: CSSProperties = {
-        width: typeof width === 'string' ? width : `${width}px`,
-        height: typeof height === 'string' ? height : `${height}px`,
-    };
-
     return (
         <img
             alt={alt}
             src={src}
             className={classNames(cls.ImageDesktop, {}, classes)}
-            style={style}
         />
     );
 });

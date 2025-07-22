@@ -27,7 +27,7 @@ const MainPageDesktop = (props: MainPageDesktopProps) => {
                     paddingL={50}
                     paddingR={50}
                     maxW
-                    gap={70}
+                    gap={100}
                 >
                     <MainPageAboutUs />
                     <MainPageGallery />

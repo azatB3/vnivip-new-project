@@ -6,6 +6,8 @@ import CornerUpperIcon from 'shared/assets/icons/corner-upper-50-50-black.svg';
 import CornerLowerIcon from 'shared/assets/icons/corner-lower-50-50-black.svg';
 import ArrowRightIcon from 'shared/assets/icons/arrow-right-50-39-black.svg';
 import ArrowLeftIcon from 'shared/assets/icons/arrow-left-50-39-black.svg';
+import { VStack } from 'shared/ui/Stack';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Slider.module.scss';
 
 interface SliderImage {
@@ -38,55 +40,71 @@ export const Slider: FC<SliderDesktopProps> = memo((props) => {
                 className={cls.sliderWrapper}
             >
                 <div
-                    className={cls.imgWrapper}
+                    className={cls.imgWrapper1}
                 >
                     <CornerUpperIcon
                         className={cls.cornerUpper}
                     />
                     <div
-                        className={cls.imagesWrapper}
-                        style={{
-                            left: `-${currentSlide * 100}%`,
-                        }}
+                        className={cls.imgWrapper2}
                     >
-                        {images?.map(({ src, alt }) => (
-                            <img
-                                alt={alt}
-                                src={src}
-                                className={cls.img}
-                            />
-                        ))}
+                        <div
+                            className={cls.imagesWrapper}
+                            style={{
+                                left: `-${currentSlide * 100}%`,
+                            }}
+                        >
+                            {images?.map(({ src, alt }) => (
+                                <img
+                                    alt={alt}
+                                    src={src}
+                                    className={cls.img}
+                                />
+                            ))}
+                        </div>
+
                     </div>
                     <CornerLowerIcon
                         className={cls.cornerLower}
                     />
                 </div>
-                <div
-                    className={cls.arrowsWrapper}
+                <VStack
+                    justify="between"
+                    maxH
                 >
-                    <ArrowLeftIcon
-                        style={currentSlide === 0
-                            ? {
-                                pointerEvents: 'none',
-                                opacity: '0.5',
-                                cursor: 'auto',
-                            }
-                            : undefined}
-                        onClick={OnLeftClick}
-                        className={cls.arrow}
-                    />
-                    <ArrowRightIcon
-                        style={currentSlide + 1 === images?.length
-                            ? {
-                                pointerEvents: 'none',
-                                opacity: '0.5',
-                                cursor: 'auto',
-                            }
-                            : undefined}
-                        onClick={OnRightClick}
-                        className={cls.arrow}
-                    />
-                </div>
+                    <Text
+                        theme={TextTheme.DARK2}
+                        size={TextSize.NUMBERS_DESKTOP}
+                    >
+                        {`${currentSlide + 1}/${images?.length}`}
+                    </Text>
+                    <div
+                        className={cls.arrowsWrapper}
+                    >
+                        <ArrowLeftIcon
+                            style={currentSlide === 0
+                                ? {
+                                    pointerEvents: 'none',
+                                    opacity: '0.5',
+                                    cursor: 'auto',
+                                }
+                                : undefined}
+                            onClick={OnLeftClick}
+                            className={cls.arrow}
+                        />
+                        <ArrowRightIcon
+                            style={currentSlide + 1 === images?.length
+                                ? {
+                                    pointerEvents: 'none',
+                                    opacity: '0.5',
+                                    cursor: 'auto',
+                                }
+                                : undefined}
+                            onClick={OnRightClick}
+                            className={cls.arrow}
+                        />
+                    </div>
+                </VStack>
             </div>
         </div>
     );

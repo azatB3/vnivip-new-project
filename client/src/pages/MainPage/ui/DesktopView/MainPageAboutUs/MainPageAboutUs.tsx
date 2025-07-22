@@ -5,6 +5,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ImageDesktop } from 'shared/ui/Image';
 import laboratoryImg from 'shared/assets/images/laboratory1.jpg';
+import cls from './MainPageAboutUs.module.scss';
 
 export const MainPageAboutUs = memo(() => {
     const { t } = useTranslation('mainPage');
@@ -50,8 +51,7 @@ export const MainPageAboutUs = memo(() => {
                 <ImageDesktop
                     src={laboratoryImg}
                     borderR={50}
-                    width="50%"
-                    height="70vh"
+                    className={cls.img}
                 />
                 <Text
                     size={TextSize.BODY_DESKTOP}

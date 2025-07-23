@@ -6,7 +6,8 @@ import laboratory3Img from 'shared/assets/images/laboratory3.jpg';
 import laboratory4Img from 'shared/assets/images/laboratory4.jpg';
 import laboratory2Img from 'shared/assets/images/laboratory2.jpg';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './MainPageGallery.module.scss';
 
 export const MainPageGallery = memo(() => {
@@ -55,7 +56,9 @@ export const MainPageGallery = memo(() => {
                 >
                     {t('слайдер текст нижний')}
                 </Text>
-                <Button>
+                <Button
+                    theme={ButtonTheme.PRIMARY}
+                >
                     {t('Об институте')}
                 </Button>
             </HStack>

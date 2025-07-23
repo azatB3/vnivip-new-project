@@ -4,6 +4,7 @@ import cls from './Icon.module.scss';
 
 export enum IconTheme {
     CLEAN = 'clean',
+    CLICKABLE = 'clickable',
 }
 
 interface IconProps extends SVGAttributes<HTMLOrSVGElement> {

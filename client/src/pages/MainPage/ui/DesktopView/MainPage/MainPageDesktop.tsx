@@ -31,8 +31,8 @@ const MainPageDesktop = (props: MainPageDesktopProps) => {
                     gap={100}
                 >
                     <MainPageAboutUs />
-                    <MainPageGallery />
                     <MainPageNews />
+                    <MainPageGallery />
                 </VStack>
             </VStack>
         </Page>

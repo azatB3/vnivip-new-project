@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, HTMLAttributes, memo } from 'react';
+import {
+    CSSProperties, FC, HTMLAttributes, memo,
+} from 'react';
 import cls from './Card.module.scss';
 
 type CardNumbers =

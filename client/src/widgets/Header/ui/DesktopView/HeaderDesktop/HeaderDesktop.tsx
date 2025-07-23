@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import mainLogo from 'shared/assets/icons/main-logo.svg';
 import searchIcon from 'shared/assets/icons/search-24-24-white.svg';
 import { HStack } from 'shared/ui/Stack';
@@ -129,6 +129,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                 <LangSwitcher />
                 <Icon
                     Svg={searchIcon}
+                    theme={IconTheme.CLICKABLE}
                 />
             </HStack>
         </HStack>

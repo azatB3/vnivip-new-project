@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    CSSProperties, DetailedHTMLProps, HTMLAttributes, memo, ReactNode,
+    DetailedHTMLProps, HTMLAttributes, memo, ReactNode,
 } from 'react';
 import cls from './Flex.module.scss';
 
@@ -227,6 +227,7 @@ export const Flex = memo((props: FlexProps) => {
         paddingL,
         paddingB,
         ContentTag = 'div',
+        style,
         ...otherProps
     } = props;
 
@@ -237,6 +238,9 @@ export const Flex = memo((props: FlexProps) => {
         directionClasses[direction],
         gap && gapClasses[gap],
         wrapClasses[wrap],
+        grow ? cls.grow : undefined,
+        maxW ? cls.maxW : undefined,
+        maxH ? cls.maxH : undefined,
 
         // padding
         padding && paddingClasses[padding],
@@ -245,12 +249,6 @@ export const Flex = memo((props: FlexProps) => {
         paddingB && paddingBClasses[paddingB],
         paddingL && paddingLClasses[paddingL],
     ];
-
-    const style: CSSProperties = {
-        flexGrow: grow ? '1' : undefined,
-        width: maxW ? '100%' : undefined,
-        height: maxH ? '100%' : undefined,
-    };
 
     return (
         <ContentTag

@@ -42,9 +42,12 @@
     width: 100%;
 }
 
-
 .maxH {
     height: 100%;
+}
+
+.grow {
+    flex-grow: 1;
 }
 
 .flexWrap {

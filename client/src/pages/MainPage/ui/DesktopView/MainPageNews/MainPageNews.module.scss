@@ -1,0 +1,20 @@
+.titleWrapper {
+    padding-bottom: 150px;
+    padding-top: 50px;
+    border-bottom: 1px solid var(--grey4);
+}
+
+.titleText {
+    letter-spacing: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    position: relative;
+}
+
+.spinner {
+    top: -112px;
+    left: -30px;
+}

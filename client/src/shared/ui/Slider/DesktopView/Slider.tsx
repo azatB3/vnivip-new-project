@@ -74,7 +74,7 @@ export const Slider: FC<SliderDesktopProps> = memo((props) => {
                 >
                     <Text
                         theme={TextTheme.DARK2}
-                        size={TextSize.NUMBERS_DESKTOP}
+                        size={TextSize.LARGE_DESKTOP}
                     >
                         {`${currentSlide + 1}/${images?.length}`}
                     </Text>

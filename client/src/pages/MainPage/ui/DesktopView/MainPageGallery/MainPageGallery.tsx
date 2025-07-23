@@ -7,7 +7,6 @@ import laboratory4Img from 'shared/assets/images/laboratory4.jpg';
 import laboratory2Img from 'shared/assets/images/laboratory2.jpg';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './MainPageGallery.module.scss';
 
 export const MainPageGallery = memo(() => {

@@ -17,7 +17,7 @@ export enum TextAlign {
 
 export enum TextSize {
     // desktop
-    NUMBERS_DESKTOP = 'numbers_desktop',
+    LARGE_DESKTOP = 'large_desktop',
     H1_DESKTOP = 'h1_desktop',
     H2_DESKTOP = 'h2_desktop',
     H2_LIGHT_DESKTOP = 'h2_light_desktop',
@@ -63,7 +63,7 @@ type TextTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'p'
 
 const mapSizeToTextTag: Record<TextSize, TextTagType> = {
     // desktop
-    [TextSize.NUMBERS_DESKTOP]: 'h1',
+    [TextSize.LARGE_DESKTOP]: 'h1',
     [TextSize.H1_DESKTOP]: 'h1',
     [TextSize.H2_DESKTOP]: 'h2',
     [TextSize.H2_LIGHT_DESKTOP]: 'h2',

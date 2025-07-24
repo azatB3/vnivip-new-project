@@ -62,6 +62,10 @@
     font: var(--font-body-desktop);
 }
 
+.body_medium_desktop {
+    font: var(--font-body-medium-desktop);
+}
+
 .body_s_desktop {
     font: var(--font-body-s-desktop);
 }
@@ -158,4 +162,9 @@
 
 .grey {
     color: var(--grey);
+}
+
+
+.grey3 {
+    color: var(--grey3);
 }

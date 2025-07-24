@@ -5,6 +5,7 @@ import cls from './Icon.module.scss';
 export enum IconTheme {
     CLEAN = 'clean',
     CLICKABLE = 'clickable',
+    BLUE = 'blue',
 }
 
 interface IconProps extends SVGAttributes<HTMLOrSVGElement> {
@@ -26,9 +27,11 @@ export const Icon: FC<IconProps> = memo((props) => {
     ];
 
     return (
-        <Svg
+        <div
             className={classNames(cls.Icon, {}, classes)}
             {...otherProps}
-        />
+        >
+            <Svg className={cls.svg} />
+        </div>
     );
 });

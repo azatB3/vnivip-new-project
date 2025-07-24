@@ -7,6 +7,7 @@ export enum TextTheme {
     DARK = 'dark',
     DARK2 = 'dark2',
     GREY = 'grey',
+    GREY3 = 'grey3',
 }
 
 export enum TextAlign {
@@ -27,6 +28,7 @@ export enum TextSize {
     H4_ITALIC_DESKTOP = 'h4_italic_desktop',
     BODY_L_DESKTOP = 'body_l_desktop',
     BODY_DESKTOP = 'body_desktop',
+    BODY_MEDIUM_DESKTOP = 'body_medium_desktop',
     BODY_S_DESKTOP = 'body_s_desktop',
     BODY_S_MEDIUM_DESKTOP = 'body_s_medium_desktop',
     BODY_FOOTER_DESKTOP = 'body_footer_desktop',
@@ -73,6 +75,7 @@ const mapSizeToTextTag: Record<TextSize, TextTagType> = {
     [TextSize.H4_ITALIC_DESKTOP]: 'h4',
     [TextSize.BODY_L_DESKTOP]: 'p',
     [TextSize.BODY_DESKTOP]: 'p',
+    [TextSize.BODY_MEDIUM_DESKTOP]: 'p',
     [TextSize.BODY_S_DESKTOP]: 'p',
     [TextSize.BODY_S_MEDIUM_DESKTOP]: 'p',
     [TextSize.BODY_FOOTER_DESKTOP]: 'p',

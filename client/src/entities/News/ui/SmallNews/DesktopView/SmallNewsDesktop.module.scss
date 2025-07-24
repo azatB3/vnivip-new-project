@@ -1,0 +1,24 @@
+.SmallNewsDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 20vh;
+    width: 18%;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    &:hover {
+        transform: scale(1.03);
+    }
+}
+
+.title {
+    width: 100%;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

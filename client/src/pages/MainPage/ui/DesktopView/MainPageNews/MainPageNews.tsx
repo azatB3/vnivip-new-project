@@ -1,10 +1,13 @@
 import { memo } from 'react';
-import { VStack } from 'shared/ui/Stack';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Spinner } from 'shared/ui/Spinner/Spinner';
 import { MainNewsDesktop, News } from 'entities/News';
 import testImg from 'shared/assets/images/test.jpg';
+import { SmallNewsDesktop } from 'entities/News/ui/SmallNews/DesktopView/SmallNewsDesktop';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import ArrowRightIcon from 'shared/assets/icons/arrow-right-50-39-white.svg';
 import cls from './MainPageNews.module.scss';
 
 const mainNews: News = {
@@ -53,9 +56,44 @@ export const MainPageNews = memo(() => {
                     />
                 </div>
             </VStack>
-            <MainNewsDesktop
-                data={mainNews}
-            />
+            <VStack
+                className={cls.newsWrapper}
+                gap={30}
+            >
+                <MainNewsDesktop
+                    data={mainNews}
+                />
+                <HStack
+                    maxW
+                    align="center"
+                    gap={30}
+                >
+                    <SmallNewsDesktop
+                        data={mainNews}
+                    />
+                    <SmallNewsDesktop
+                        data={mainNews}
+                    />
+                    <SmallNewsDesktop
+                        data={mainNews}
+                    />
+                    <SmallNewsDesktop
+                        data={mainNews}
+                    />
+                    <HStack
+                        maxH
+                        justify="center"
+                        align="center"
+                        className={cls.arrowWrapper}
+                    >
+                        <Icon
+                            theme={IconTheme.BLUE}
+                            Svg={ArrowRightIcon}
+                            className={cls.arrow}
+                        />
+                    </HStack>
+                </HStack>
+            </VStack>
         </VStack>
     );
 });

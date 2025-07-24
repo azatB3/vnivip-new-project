@@ -38,15 +38,17 @@ export const MainNewsDesktop: FC<MainNewsDesktopProps> = memo((props: MainNewsDe
             <VStack
                 className={cls.content}
                 maxW
+                maxH
                 paddingL={30}
                 paddingR={30}
-                paddingT={20}
-                paddingB={80}
-                gap={50}
+                paddingT={10}
+                paddingB={30}
+                justify="between"
             >
                 <HStack
                     maxW
                     justify="between"
+                    align="center"
                 >
                     <Text
                         theme={TextTheme.WHITE}

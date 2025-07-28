@@ -1,13 +1,7 @@
-<table align="center"><tr><td align="center" width="9999">
-
-<img src="https://nestjs.com/img/logo_text.svg" width="4000" height="200" alt="Nest Logo" />
+<center>
 
 # Vnivip Server
-
-Documentation
-</td></tr></table>
-
-
+</center>
 
 ### Running the app
 

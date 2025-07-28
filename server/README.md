@@ -1,10 +1,17 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+<table align="center"><tr><td align="center" width="9999">
+<img src="https://nestjs.com/img/logo_text.svg" width="200" alt="Nest Logo" />
 
-## Running the app
+# Vnivip Server
+
+Documentation
+</td></tr></table>
+
+
+
+### Running the app
 
 ```bash
+
 # development
 $ npm run start
 

@@ -1,0 +1,12 @@
+.Link {
+    text-decoration: none;
+}
+
+.white {
+    color: var(--white4);
+    font: var(--font-menu-desktop);
+    transition: opacity 0.2s ease-in;
+    &:hover {
+        opacity: 0.6;
+    }
+}

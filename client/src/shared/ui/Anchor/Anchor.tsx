@@ -1,30 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { CSSProperties, memo, ReactNode } from 'react';
+import React, { FC, memo } from 'react';
 import cls from './Link.module.scss';
 
 export enum LinkTheme {
+    WHITE = 'white',
     CLEAN = 'clean',
-    AUTHOR = 'author',
 }
 
-interface LinkProps {
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     className?: string;
     theme?: LinkTheme;
-    children: ReactNode;
-    href?: string;
-    target?: string;
-    style?: CSSProperties;
 }
 
-export const Link = memo((props: LinkProps) => {
+export const Link: FC<LinkProps> = memo((props) => {
     const {
         className,
         children,
-        href,
+        href = '#',
         target = '_blank',
         theme = LinkTheme.CLEAN,
-        style,
         ...otherProps
     } = props;
     const { t } = useTranslation();
@@ -35,7 +30,6 @@ export const Link = memo((props: LinkProps) => {
             className={classNames(cls.Link, {}, [className, cls[theme]])}
             href={href}
             target={target}
-            style={style}
         >
             {children}
         </a>

@@ -1,7 +1,7 @@
-<center>
+<div align="center">
 
 # Vnivip Server
-</center>
+</div>
 
 ### Running the app
 

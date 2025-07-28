@@ -1,25 +1,27 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { FC, memo } from 'react';
-import cls from './Link.module.scss';
+import cls from './Anchor.module.scss';
 
-export enum LinkTheme {
+export enum AnchorTheme {
     WHITE = 'white',
     CLEAN = 'clean',
 }
 
-interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     className?: string;
-    theme?: LinkTheme;
+    theme?: AnchorTheme;
+    Svg?: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-export const Link: FC<LinkProps> = memo((props) => {
+export const Anchor: FC<AnchorProps> = memo((props) => {
     const {
         className,
         children,
         href = '#',
         target = '_blank',
-        theme = LinkTheme.CLEAN,
+        theme = AnchorTheme.CLEAN,
+        Svg,
         ...otherProps
     } = props;
     const { t } = useTranslation();
@@ -27,10 +29,11 @@ export const Link: FC<LinkProps> = memo((props) => {
     return (
         <a
             {...otherProps}
-            className={classNames(cls.Link, {}, [className, cls[theme]])}
+            className={classNames(cls.Anchor, {}, [className, cls[theme]])}
             href={href}
             target={target}
         >
+            {Svg ? <Svg /> : null}
             {children}
         </a>
     );

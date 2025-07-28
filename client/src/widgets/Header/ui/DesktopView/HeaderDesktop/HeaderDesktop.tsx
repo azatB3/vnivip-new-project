@@ -86,6 +86,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
         >
             <Icon
                 Svg={mainLogo}
+                theme={IconTheme.CLICKABLE}
             />
             <HStack
                 gap={50}

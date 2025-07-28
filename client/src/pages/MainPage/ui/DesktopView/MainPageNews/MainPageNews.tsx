@@ -35,6 +35,8 @@ export const MainPageNews = memo(() => {
             ContentTag="section"
             gap={20}
             align="center"
+            id="news"
+            className={cls.MainPageNews}
         >
             <VStack
                 className={cls.titleWrapper}

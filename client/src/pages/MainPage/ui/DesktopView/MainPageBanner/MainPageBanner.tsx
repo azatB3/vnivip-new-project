@@ -9,6 +9,7 @@ import telegramIcon from 'shared/assets/icons/telegram-32-32-white.svg';
 import vkIcon from 'shared/assets/icons/vk-32-32-white.svg';
 import youtubeIcon from 'shared/assets/icons/youtube-32-32-white.svg';
 import { useTranslation } from 'react-i18next';
+import { Anchor, AnchorTheme } from 'shared/ui/Anchor/Anchor';
 import cls from './MainPageBanner.module.scss';
 
 export const MainPageBanner = memo(() => {
@@ -43,13 +44,14 @@ export const MainPageBanner = memo(() => {
                     maxW
                     justify="between"
                 >
-                    <AppLink
-                        to="#"
-                        theme={AppLinkTheme.WHITE}
+                    <Anchor
+                        href="#news"
+                        target="_self"
+                        theme={AnchorTheme.WHITE}
                         Svg={arrowDownIcon}
                     >
                         {t('К новостям')}
-                    </AppLink>
+                    </Anchor>
                     <HStack
                         gap={16}
                     >

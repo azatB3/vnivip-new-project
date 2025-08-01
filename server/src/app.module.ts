@@ -1,36 +1,48 @@
 import {Module} from "@nestjs/common";
 import {SequelizeModule} from "@nestjs/sequelize";
-import {ConfigModule} from "@nestjs/config";
-import {UsersModule} from './users/users.module';
 import * as process from "node:process";
-import {User} from "./users/users.model";
-import {RolesModule} from './roles/roles.module';
-import {Role} from "./roles/roles.model";
-import {UserRoles} from "./roles/user-roles.model";
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-import { AuthModule } from './auth/auth.module';
+import {ServeStaticModule} from "@nestjs/serve-static";
+import {NewsModule} from './news/news.module';
+import {ParagraphsModule} from './paragraphs/paragraphs.module';
+import * as path from "node:path";
+import {News} from "./news/news.model";
+import {Paragraph} from "./paragraphs/paragraphs.model";
+import {FilesModule} from "./files/files.module";
+import {ThrottlerGuard, ThrottlerModule} from "@nestjs/throttler";
+import {APP_GUARD} from "@nestjs/core";
 
 @Module({
     controllers: [],
-    providers: [],
+    providers: [
+        {
+            provide: APP_GUARD,
+            useClass: ThrottlerGuard,
+        },
+    ],
     imports: [
-        ConfigModule.forRoot({
-            envFilePath: `.${process.env.NODE_ENV}.env`
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, 'static'),
+            serveStaticOptions: {
+                index: false,
+            },
         }),
         SequelizeModule.forRoot({
-            dialect: 'postgres',
+            dialect: process.env.DB_DIALECT as undefined,
             host: process.env.POSTGRES_HOST,
             port: Number(process.env.POSTGRES_PORT),
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
-            models: [User, Role, UserRoles],
+            models: [News, Paragraph],
             autoLoadModels: true,
         }),
-        UsersModule,
-        RolesModule,
-        AuthModule,
+        ThrottlerModule.forRoot({
+            ttl: 60,
+            limit: 30,
+        }),
+        ParagraphsModule,
+        NewsModule,
+        FilesModule,
     ]
 })
 export class AppModule {

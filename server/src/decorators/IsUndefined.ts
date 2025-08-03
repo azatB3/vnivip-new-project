@@ -3,7 +3,7 @@ import {registerDecorator, ValidationArguments, ValidationOptions} from "class-v
 export function IsUndefined(validationOptions?: ValidationOptions) {
     return function (object: Object, propertyName: string) {
         return registerDecorator({
-            name: 'isFile',
+            name: 'IsUndefined',
             target: object.constructor,
             propertyName: propertyName,
             constraints: [],

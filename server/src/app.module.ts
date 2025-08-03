@@ -20,8 +20,12 @@ import {APP_GUARD} from "@nestjs/core";
         },
     ],
     imports: [
+        ParagraphsModule,
+        NewsModule,
+        FilesModule,
         ServeStaticModule.forRoot({
             rootPath: path.resolve(__dirname, 'static'),
+            exclude: ['/api*'],
             serveStaticOptions: {
                 index: false,
             },
@@ -40,9 +44,6 @@ import {APP_GUARD} from "@nestjs/core";
             ttl: 60,
             limit: 30,
         }),
-        ParagraphsModule,
-        NewsModule,
-        FilesModule,
     ]
 })
 export class AppModule {

@@ -16,7 +16,7 @@ export class NewsService {
             description: dto.description,
         }
         if (coverImg) {
-            data.coverImg = await this.fileService.createFile(coverImg);
+            data.coverImg = await this.fileService.createImage(coverImg);
         }
         const news = await this.newsRepository.create(data);
         return news;
@@ -24,6 +24,10 @@ export class NewsService {
 
     async getAll() {
         return await this.newsRepository.findAll({include: {all: true}});
+    }
+
+    async getPart() {
+        return await this.newsRepository.findAll();
     }
 
     async findOne(newsId: number) {

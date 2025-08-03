@@ -15,5 +15,10 @@ export class CreateParagraphDto {
     @IsUndefined({message: 'can be only image in form-data'})
     img?: string;
 
+    @IsUndefined({message: 'can be only video in form-data'})
+    video?: string;
+
     position?: number;
+
+    firstElement?: string;
 }

@@ -19,10 +19,16 @@ export class Paragraph extends Model<Paragraph, ParagraphCreationAttrs> {
     @Column({type: DataType.STRING, allowNull: true})
     img: string;
 
-    @Column({type: DataType.INTEGER})
+    @Column({type: DataType.STRING, allowNull: true})
+    video: string;
+
+    @Column({type: DataType.INTEGER, allowNull: false})
     position: number;
 
+    @Column({type: DataType.STRING, allowNull: false})
+    firstElement: string;
+
     @ForeignKey(() => News)
-    @Column({type: DataType.INTEGER})
+    @Column({type: DataType.INTEGER, allowNull: false})
     newsId: number;
 }

@@ -10,7 +10,6 @@ import {VideoValidationPipe} from "../pipes/video-validation.pipe";
 export class ParagraphsController {
 
     constructor(private paragraphsService: ParagraphsService) {}
-
     @Post()
     @UseInterceptors(FileFieldsInterceptor([
         { name: 'img', maxCount: 1 },

@@ -22,14 +22,18 @@ export class NewsService {
         return news;
     }
 
+
+    // Полные данные
     async getAll() {
         return await this.newsRepository.findAll({include: {all: true}});
     }
 
+    // Данные без объединения
     async getPart() {
         return await this.newsRepository.findAll();
     }
 
+    // Одна полная сущность
     async findOne(newsId: number) {
         return this.newsRepository.findOne({ where: { id: newsId }, include: {all: true}});
     }

@@ -15,6 +15,7 @@ export class ParagraphsService {
         const img = files.img?.[0];
         const video = files.video?.[0];
 
+        // Проверки
         if (dto.text || img || video) {
             const data: CreateParagraphDto = {
                 newsId: dto.newsId,
@@ -33,7 +34,7 @@ export class ParagraphsService {
 
 
 
-
+            // Обработка
             if (img) {
                 data.img = await this.fileService.createImage(img);
             }

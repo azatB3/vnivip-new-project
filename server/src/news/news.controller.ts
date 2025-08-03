@@ -1,9 +1,11 @@
-import {Body, Controller, Get, Post, UploadedFile, UseInterceptors, UsePipes} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Patch, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {NewsService} from "./news.service";
 import {CreateNewsDto} from "./dto/create-news.dto";
-import {FileFieldsInterceptor, FileInterceptor} from "@nestjs/platform-express";
+import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {ImageValidationPipe} from "../pipes/image-validation.pipe";
 import {BodyValidationPipe} from "../pipes/body-validation.pipe";
+import {PublishNewsDto} from "./dto/publish-news.dto";
+import {DeleteNewsDto} from "./dto/delete-news.dto";
 
 @Controller('news')
 export class NewsController {
@@ -20,18 +22,28 @@ export class NewsController {
         return this.newsService.getPart();
     }
 
+    @Patch('/publish')
+    publish(@Body() dto: PublishNewsDto) {
+        return this.newsService.publish(dto);
+    }
+
+    @Delete()
+    delete(@Body() dto: DeleteNewsDto) {
+        return this.newsService.delete(dto);
+    }
+
     @Post()
     @UseInterceptors(FileFieldsInterceptor([
         { name: 'coverImg', maxCount: 1 },
     ]))
-    create(@Body(new BodyValidationPipe()) dto: CreateNewsDto,
-           @UploadedFile(
+    create(@Body() dto: CreateNewsDto,
+           @UploadedFiles(
                new ImageValidationPipe({
                    maxSize: 50,
                    fieldName: 'coverImg',
                    types: ['jpeg', 'png', 'jpg'],
                }),
-           ) coverImg: Express.Multer.File) {
-        return this.newsService.create(dto, coverImg);
+           ) files: { coverImg: Express.Multer.File[] }) {
+        return this.newsService.create(dto, files);
     }
 }

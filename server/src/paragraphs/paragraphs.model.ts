@@ -13,7 +13,7 @@ export class Paragraph extends Model<Paragraph, ParagraphCreationAttrs> {
     @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
     id: number;
 
-    @Column({type: DataType.STRING, allowNull: true})
+    @Column({type: DataType.TEXT, allowNull: true})
     text: string;
 
     @Column({type: DataType.STRING, allowNull: true})

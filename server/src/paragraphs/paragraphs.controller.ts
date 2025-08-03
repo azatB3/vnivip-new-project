@@ -1,21 +1,26 @@
-import {Body, Controller, Post, UploadedFiles, UseInterceptors, UsePipes} from '@nestjs/common';
+import {Body, Controller, Get, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {ParagraphsService} from "./paragraphs.service";
 import {CreateParagraphDto} from "./dto/create-paragraph.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {ImageValidationPipe} from "../pipes/image-validation.pipe";
-import {BodyValidationPipe} from "../pipes/body-validation.pipe";
 import {VideoValidationPipe} from "../pipes/video-validation.pipe";
 
 @Controller('paragraphs')
 export class ParagraphsController {
 
     constructor(private paragraphsService: ParagraphsService) {}
+
+    @Get()
+    getAll() {
+        return this.paragraphsService.getAll();
+    }
+
     @Post()
     @UseInterceptors(FileFieldsInterceptor([
         { name: 'img', maxCount: 1 },
         { name: 'video', maxCount: 1 },
     ]))
-    create(@Body(new BodyValidationPipe()) dto: CreateParagraphDto,
+    create(@Body() dto: CreateParagraphDto,
            @UploadedFiles(
                new VideoValidationPipe({
                    maxSize: 100,

@@ -3,6 +3,7 @@ import {NestFactory} from "@nestjs/core";
 import {AppModule} from "./app.module";
 import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
 import * as express from 'express';
+import {BodyValidationPipe} from "./pipes/body-validation.pipe";
 
 async function start() {
     const PORT = process.env.PORT || 5000;
@@ -16,6 +17,8 @@ async function start() {
             return res.status(413).send({ statusCode: 413, message: 'The request size includes the allowed limit (10 KB)'});
         }
     });
+
+    app.useGlobalPipes(new BodyValidationPipe());
 
     const config = new DocumentBuilder()
         .setTitle('Vnivip API')

@@ -23,6 +23,7 @@ export class ParagraphsService {
                 firstElement: 'text',
             }
 
+
             if(img && video) {
                 throw new HttpException('only one video or image required', HttpStatus.BAD_REQUEST)
             }
@@ -55,5 +56,9 @@ export class ParagraphsService {
         }
 
         throw new HttpException('text or image or video required', HttpStatus.BAD_REQUEST)
+    }
+
+    async getAll() {
+        return await this.paragraphsRepository.findAll();
     }
 }

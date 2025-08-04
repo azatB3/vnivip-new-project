@@ -3,11 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import mainLogoLargeIcon from 'shared/assets/icons/main-logo-large.svg';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import logoLightDesktop from 'shared/assets/icons/logo-light-desktop.svg';
-import logoMinistyAgriculture from 'shared/assets/icons/logo-ministry-agriculture.svg';
-import logoMinistyEducation from 'shared/assets/icons/logo-ministry-education.svg';
-import logoMinistyHigherEducation from 'shared/assets/icons/logo-ministry-higher-education.svg';
 import cls from './FooterLeftDesktop.module.scss';
 
 interface FooterLeftDesktopProps {
@@ -22,70 +19,19 @@ export const FooterLeftDesktop = memo((props: FooterLeftDesktopProps) => {
         <VStack
             className={classNames(cls.FooterLeftDesktop, {}, [className])}
             justify="between"
+            align="center"
+            maxH
         >
             <Icon
-                Svg={logoLightDesktop}
+                Svg={mainLogoLargeIcon}
                 theme={IconTheme.CLEAN}
             />
-            <VStack
-                gap={40}
+            <Text
+                theme={TextTheme.GREY}
+                size={TextSize.BODY_S_DESKTOP}
             >
-                <VStack
-                    gap={10}
-                >
-                    <VStack
-                        gap={10}
-                    >
-                        <Icon
-                            Svg={logoMinistyAgriculture}
-                            theme={IconTheme.CLEAN}
-                        />
-                        <Text
-                            theme={TextTheme.WHITE}
-                            size={TextSize.BODY_FOOTER_DESKTOP}
-                            className={cls.textMinistry}
-                        >
-                            {t('Министерство сельского хозяйства Российской Федерации')}
-                        </Text>
-                    </VStack>
-                    <VStack
-                        gap={10}
-                    >
-                        <Icon
-                            Svg={logoMinistyEducation}
-                            theme={IconTheme.CLEAN}
-                        />
-                        <Text
-                            theme={TextTheme.WHITE}
-                            size={TextSize.BODY_FOOTER_DESKTOP}
-                            className={cls.textMinistry}
-                        >
-                            {t('Министерство просвещения Российской Федерации')}
-                        </Text>
-                    </VStack>
-                    <VStack
-                        gap={10}
-                    >
-                        <Icon
-                            Svg={logoMinistyHigherEducation}
-                            theme={IconTheme.CLEAN}
-                        />
-                        <Text
-                            theme={TextTheme.WHITE}
-                            size={TextSize.BODY_FOOTER_DESKTOP}
-                            className={cls.textMinistry}
-                        >
-                            {t('Министерство науки и высшего образования Российской Федерации')}
-                        </Text>
-                    </VStack>
-                </VStack>
-                <Text
-                    theme={TextTheme.WHITE}
-                    size={TextSize.BODY_DESKTOP}
-                >
-                    {t('2025 © СПБГУВМ. Все права защищены')}
-                </Text>
-            </VStack>
+                {t('Права защищены')}
+            </Text>
         </VStack>
     );
 });

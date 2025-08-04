@@ -3,7 +3,6 @@ import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
 import cover2Img from 'shared/assets/images/cover2.jpg';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import arrowDownIcon from 'shared/assets/icons/arrow-down-24-24-white.svg';
 import telegramIcon from 'shared/assets/icons/telegram-32-32-white.svg';
 import vkIcon from 'shared/assets/icons/vk-32-32-white.svg';
@@ -19,6 +18,7 @@ export const MainPageBanner = memo(() => {
         <Cover
             size={CoverSize.LARGE}
             src={cover2Img}
+            className={cls.cover}
         >
             <VStack
                 gap={100}
@@ -55,20 +55,20 @@ export const MainPageBanner = memo(() => {
                     <HStack
                         gap={16}
                     >
-                        <AppLink
-                            to="#"
-                            theme={AppLinkTheme.WHITE}
+                        <Anchor
+                            href="#"
+                            theme={AnchorTheme.WHITE}
                             Svg={telegramIcon}
                         />
-                        <AppLink
-                            to="#"
-                            theme={AppLinkTheme.WHITE}
+                        <Anchor
+                            href="#"
+                            theme={AnchorTheme.WHITE}
                             Svg={vkIcon}
                         />
-                        <AppLink
+                        <Anchor
                             className={cls.youtubeIcon}
-                            to="#"
-                            theme={AppLinkTheme.WHITE}
+                            href="#"
+                            theme={AnchorTheme.WHITE}
                             Svg={youtubeIcon}
                         />
                     </HStack>

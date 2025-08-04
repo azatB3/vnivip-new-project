@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: "Ubuntu", "Times New Roman", sans-serif;
+    --font-family-main: "Roboto", "Times New Roman", sans-serif;
 
     // -------------------------------- DESKTOP FONTS -------------------------------------------------
 
@@ -69,8 +69,8 @@
     --font-body-s-medium-desktop: 500 var(--font-size-body-s-medium-desktop) / var(--font-line-body-s-medium-desktop) var(--font-family-main);
 
     // Body-FOOTER
-    --font-size-body-footer-desktop: 10px;
-    --font-line-body-footer-desktop: 11px;
+    --font-size-body-footer-desktop: 12px;
+    --font-line-body-footer-desktop: 13.2px;
     --font-body-footer-desktop: 400 var(--font-size-body-footer-desktop) / var(--font-line-body-footer-desktop) var(--font-family-main);
 
     // BUTTON

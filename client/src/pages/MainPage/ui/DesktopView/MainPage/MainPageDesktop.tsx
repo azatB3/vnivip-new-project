@@ -7,6 +7,7 @@ import { MainPageNews } from 'pages/MainPage/ui/DesktopView/MainPageNews/MainPag
 import { MainPageBanner } from '../MainPageBanner/MainPageBanner';
 import cls from './MainPageDesktop.module.scss';
 import { MainPageAboutUs } from '../MainPageAboutUs/MainPageAboutUs';
+import { MainPagePartners } from '../MainPagePartners/MainPagePartners';
 
 interface MainPageDesktopProps {
     className?: string;
@@ -34,6 +35,7 @@ const MainPageDesktop = (props: MainPageDesktopProps) => {
                     <MainPageNews />
                     <MainPageGallery />
                 </VStack>
+                <MainPagePartners />
             </VStack>
         </Page>
     );

@@ -18,7 +18,8 @@
     bottom: 0;
     left: 0;
     height: 100%;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px) brightness(20%);
+    animation: LighteningBg 1s ease-in forwards;
 }
 
 .bgImg::after {
@@ -36,16 +37,31 @@
     position: absolute;
     width: 500px;
     margin-left: auto;
-    height: 100%;
+    top: 0;
+    bottom: 0;
     right: 5%;
     transform: skew(12deg);
+}
+
+.skew::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    backdrop-filter: brightness(30%);
+    animation: Lightening 0.5s 1s ease-in forwards;
 }
 
 .skewImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 85% 0;
+    object-position: 70% 200px;
+    background: var(--black);
+    animation: Insert 0.7s ease-in forwards;
 }
 
 
@@ -66,3 +82,29 @@
     height: 100vh;
 }
 
+@keyframes Lightening {
+    from {
+        backdrop-filter: brightness(30%);
+    }
+    to {
+        backdrop-filter: brightness(100%);
+    }
+}
+
+@keyframes LighteningBg {
+    from {
+        backdrop-filter: blur(8px) brightness(20%);
+    }
+    to {
+        backdrop-filter: blur(8px) brightness(100%);
+    }
+}
+
+@keyframes Insert {
+    from {
+        object-position: 70% 200px;
+    }
+    to {
+        object-position: 85% 0;
+    }
+}

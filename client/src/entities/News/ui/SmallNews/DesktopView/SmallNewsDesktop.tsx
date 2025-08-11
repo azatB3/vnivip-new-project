@@ -6,6 +6,8 @@ import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import linkIcon from 'shared/assets/icons/link-24-24-black.svg';
 import { News } from 'entities/News';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useNavigate } from 'react-router-dom';
 import cls from './SmallNewsDesktop.module.scss';
 
 interface SmallNewsDesktopProps {
@@ -18,6 +20,7 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
         className,
         data,
     } = props;
+    const navigate = useNavigate();
 
     return (
         <Card
@@ -28,6 +31,7 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
             paddingT={10}
             paddingB={20}
             borderR={10}
+            onClick={() => navigate(`${RoutePath.news}/${data.id}`)}
         >
             <HStack
                 maxW
@@ -38,7 +42,7 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
                     theme={TextTheme.GREY3}
                     size={TextSize.BODY_S_MEDIUM_DESKTOP}
                 >
-                    {data.date}
+                    {new Date(data.createdAt).toLocaleDateString().replace(/\./g, '/')}
                 </Text>
                 <Icon
                     theme={IconTheme.CLEAN}
@@ -47,10 +51,10 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
             </HStack>
             <Text
                 theme={TextTheme.DARK}
-                size={TextSize.BODY_MEDIUM_DESKTOP}
+                size={TextSize.BODY_S_MEDIUM_DESKTOP}
                 className={cls.title}
             >
-                {data.data.title}
+                {data.title}
             </Text>
         </Card>
     );

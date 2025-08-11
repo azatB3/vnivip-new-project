@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import logoLightMobileIcon from 'shared/assets/icons/logo-light-mobile.svg';
 import { HStack } from 'shared/ui/Stack';
 import { useEffect } from 'react';
+import mainLogo from 'shared/assets/icons/main-logo.svg';
 import cls from './PageLoaderMobile.module.scss';
 
 interface PageLoaderMobileProps {
@@ -24,7 +24,21 @@ export const PageLoaderMobile = ({ className }: PageLoaderMobileProps) => {
             justify="center"
             align="center"
         >
-            Loading...
+            <div
+                className={cls.pulseWrapper}
+            >
+                <Icon
+                    Svg={mainLogo}
+                    theme={IconTheme.CLEAN}
+                    className={cls.icon}
+                />
+                <div
+                    className={cls.pulse}
+                />
+                <div
+                    className={cls.pulse2}
+                />
+            </div>
         </HStack>
     );
 };

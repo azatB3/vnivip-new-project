@@ -4,13 +4,19 @@ import {AppModule} from "./app.module";
 import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
 import * as express from 'express';
 import {BodyValidationPipe} from "./pipes/body-validation.pipe";
+import { resolve } from "node:path";
+import {NestExpressApplication} from "@nestjs/platform-express";
 
 async function start() {
     const PORT = process.env.PORT || 5000;
-    const app = await NestFactory.create(AppModule)
+    const app = await NestFactory.create<NestExpressApplication>(AppModule)
+    app.enableCors({
+        origin: "*"
+    })
     app.use(express.json({ limit: '10kb' }));
     app.use(express.urlencoded({ extended: true, limit: '10kb' }));
     app.setGlobalPrefix('api');
+    app.use('/api/static', express.static(resolve(__dirname, 'static')))
 
     app.use((err, req, res, next) => {
         if (err.statusCode === 413) {

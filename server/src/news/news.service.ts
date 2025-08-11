@@ -5,6 +5,8 @@ import {InjectModel} from "@nestjs/sequelize";
 import {News} from "./news.model";
 import {PublishNewsDto} from "./dto/publish-news.dto";
 import {DeleteNewsDto} from "./dto/delete-news.dto";
+import {GetNewsPartDto} from "./dto/get-news-part.dto";
+import {Op} from "sequelize";
 
 @Injectable()
 export class NewsService {
@@ -60,12 +62,24 @@ export class NewsService {
 
     // Полные данные
     async getAll() {
-        return await this.newsRepository.findAll({include: {all: true}});
+        return await this.newsRepository.findAll({
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        });
     }
 
     // Данные без объединения
-    async getPart() {
-        return await this.newsRepository.findAll({ limit: 6, order: [['createdAt', 'DESC']] });
+    async getPart(dto: GetNewsPartDto) {
+        const offset = (dto.limit * dto.page) - dto.limit;
+        return await this.newsRepository.findAll({
+            offset: offset,
+            limit: dto.limit,
+            where: {
+                published: true,
+            },
+            order: [['createdAt', 'DESC']],
+        });
     }
 
     // Одна полная сущность

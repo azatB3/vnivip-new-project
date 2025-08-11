@@ -23,13 +23,6 @@ import {APP_GUARD} from "@nestjs/core";
         ParagraphsModule,
         NewsModule,
         FilesModule,
-        ServeStaticModule.forRoot({
-            rootPath: path.resolve(__dirname, 'static'),
-            exclude: ['/api*'],
-            serveStaticOptions: {
-                index: false,
-            },
-        }),
         SequelizeModule.forRoot({
             dialect: process.env.DB_DIALECT as undefined,
             host: process.env.POSTGRES_HOST,

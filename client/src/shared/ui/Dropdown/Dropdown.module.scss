@@ -1,7 +1,6 @@
 .Dropdown {
     position: relative;
     font: var(--font-menu-desktop);
-    color: var(--white4);
     &:hover {
         .menuBg {
             opacity: 1;
@@ -10,6 +9,7 @@
         z-index: var(--dropdown-z-index);
     }
 }
+
 
 .menuBg {
     position: absolute;

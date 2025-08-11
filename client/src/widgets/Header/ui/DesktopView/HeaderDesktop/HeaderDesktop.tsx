@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
@@ -13,6 +13,7 @@ import cls from './HeaderDesktop.module.scss';
 
 interface HeaderDesktopProps {
     className?: string;
+    scrollPosition?: number;
 }
 
 export const HEADER_ID = 'HEADER_ID';
@@ -20,6 +21,7 @@ export const HEADER_ID = 'HEADER_ID';
 export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
     const {
         className,
+        scrollPosition = 0,
     } = props;
     const { t } = useTranslation();
 
@@ -76,18 +78,26 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
         },
     ];
 
+    const mods: Mods = {
+        [cls.fixed]: scrollPosition > 400,
+    };
+
     return (
         <HStack
-            className={classNames(cls.HeaderDesktop, {}, [className])}
+            className={classNames(cls.HeaderDesktop, mods, [className])}
             id={HEADER_ID}
             ContentTag="header"
             justify="between"
             align="center"
         >
-            <Icon
-                Svg={mainLogo}
-                theme={IconTheme.CLICKABLE}
-            />
+            <AppLink
+                to={RoutePath.main}
+            >
+                <Icon
+                    Svg={mainLogo}
+                    theme={IconTheme.CLICKABLE}
+                />
+            </AppLink>
             <HStack
                 gap={50}
                 maxH
@@ -110,7 +120,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                 />
                 <AppLink
                     theme={AppLinkTheme.WHITE}
-                    to={RoutePath.main}
+                    to={RoutePath.news}
                 >
                     {t('Новости')}
                 </AppLink>

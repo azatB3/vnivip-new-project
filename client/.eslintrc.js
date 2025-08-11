@@ -61,6 +61,8 @@ module.exports = {
                     'accept',
                     'href',
                     'ContentTag',
+                    'wrap',
+                    'borderR',
                 ],
             },
         ],

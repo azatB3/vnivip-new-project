@@ -1,1 +1,2 @@
 export const MUSIC_PLAYER_ID = 'MUSIC_PLAYER_ID';
+export const APP_DESKTOP_ID = 'APP_DESKTOP_ID';

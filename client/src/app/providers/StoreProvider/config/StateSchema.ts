@@ -6,12 +6,16 @@ import { AxiosInstance } from 'axios';
 import { UISchema } from 'features/UI';
 import { rtkApi } from 'shared/api/rtkApi';
 import { DeviceSchema } from 'entities/Device';
+import { MainPageNewsSchema } from 'pages/MainPage';
+import { NewsPageSchema } from 'pages/NewsPage';
 
 export interface StateSchema {
     ui: UISchema;
     device: DeviceSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // Асинхронные редюсеры
+    mainPageNews?: MainPageNewsSchema,
+    newsPage?: NewsPageSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

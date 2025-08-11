@@ -54,11 +54,12 @@ export const Slider: FC<SliderDesktopProps> = memo((props) => {
                                 left: `-${currentSlide * 100}%`,
                             }}
                         >
-                            {images?.map(({ src, alt }) => (
+                            {images?.map(({ src, alt }, index) => (
                                 <img
                                     alt={alt}
                                     src={src}
                                     className={cls.img}
+                                    key={index}
                                 />
                             ))}
                         </div>

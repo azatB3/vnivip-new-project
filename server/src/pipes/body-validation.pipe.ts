@@ -6,7 +6,7 @@ import {ValidationError} from "class-validator/types/validation/ValidationError"
 @Injectable()
 export class BodyValidationPipe implements PipeTransform<any> {
     async transform(value: any, metadata: ArgumentMetadata): Promise<any> {
-        if (metadata.type === 'body') {
+        if (metadata.type === 'body' || metadata.type === 'query') {
             const obj = plainToClass(metadata.metatype, value);
             const errors: ValidationError[] = await validate(obj);
             if (errors.length) {

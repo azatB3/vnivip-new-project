@@ -4,21 +4,22 @@
 @import "themes/accessibility";
 
 html {
-    scroll-behavior: smooth;
 }
 
 body {
     position: relative;
+    overflow: hidden;
 }
 
 #root {
-
 }
 
 .app_desktop {
-    min-width: 1420px;
+    min-width: 1300px;
     position: relative;
     background: var(--white);
+    overflow: auto;
+    height: 100vh;
 }
 
 .app_mobile {

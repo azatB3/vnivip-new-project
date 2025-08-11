@@ -6,6 +6,8 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import linkIcon from 'shared/assets/icons/link-48-48-white.svg';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { News } from '../../../model/types/News';
 import cls from './MainNewsDesktop.module.scss';
 
@@ -19,9 +21,10 @@ export const MainNewsDesktop: FC<MainNewsDesktopProps> = memo((props: MainNewsDe
         className,
         data,
     } = props;
+    const navigate = useNavigate();
 
     const style: CSSProperties = {
-        backgroundImage: `url(${data.data.cover})`,
+        backgroundImage: `url(${__API__}/static/images/${data.coverImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
     };
@@ -30,6 +33,7 @@ export const MainNewsDesktop: FC<MainNewsDesktopProps> = memo((props: MainNewsDe
         <div
             className={classNames(cls.MainNewsDesktop, {}, [className])}
             role="link"
+            onClick={() => navigate(`${RoutePath.news}/${data.id}`)}
         >
             <div
                 className={cls.cover}
@@ -54,7 +58,7 @@ export const MainNewsDesktop: FC<MainNewsDesktopProps> = memo((props: MainNewsDe
                         theme={TextTheme.WHITE}
                         size={TextSize.BODY_DESKTOP}
                     >
-                        {data.date}
+                        {new Date(data.createdAt).toLocaleDateString().replace(/\./g, '/')}
                     </Text>
                     <Icon
                         theme={IconTheme.CLEAN}
@@ -69,14 +73,14 @@ export const MainNewsDesktop: FC<MainNewsDesktopProps> = memo((props: MainNewsDe
                         theme={TextTheme.WHITE}
                         size={TextSize.H4_MEDIUM_DESKTOP}
                     >
-                        {data.data.title}
+                        {data.title}
                     </Text>
                     <Text
                         theme={TextTheme.WHITE}
                         size={TextSize.BODY_S_DESKTOP}
                         className={cls.description}
                     >
-                        {data.data.description}
+                        {data.description}
                     </Text>
                 </VStack>
             </VStack>

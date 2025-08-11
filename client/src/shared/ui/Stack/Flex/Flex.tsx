@@ -192,7 +192,7 @@ type ContentTags = 'section' | 'article' | 'aside' | 'header' | 'footer';
 
 export interface FlexProps extends DivProps {
     className?: string;
-    children: ReactNode;
+    children?: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
     direction?: FlexDirection;
@@ -212,7 +212,7 @@ export interface FlexProps extends DivProps {
 export const Flex = memo((props: FlexProps) => {
     const {
         className,
-        children,
+        children = null,
         justify = 'start',
         direction = 'row',
         align = 'start',

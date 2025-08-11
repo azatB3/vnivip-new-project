@@ -5,11 +5,29 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: 10px;
     z-index: 10;
+    min-width: 1340px;
+}
+
+.fixed {
+    position: fixed;
+    background: var(--blue3);
+    animation: Attach 1s ease forwards;
+    top: -100%;
+    box-shadow: 0 1px 5px -2px var(--black);
 }
 
 
 .btns {
     margin-left: 100px;
+}
+
+@keyframes Attach {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 0;
+    }
 }

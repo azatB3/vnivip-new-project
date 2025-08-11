@@ -1,0 +1,35 @@
+.MainPageNewsDesktop {
+    scroll-margin-top: 80px;
+}
+
+
+.titleWrapper {
+    padding-bottom: 150px;
+    padding-top: 80px;
+    border-bottom: 1px solid var(--grey4);
+}
+
+.titleText {
+    letter-spacing: 40px;
+    position: relative;
+    z-index: 1;
+    text-indent: -40px;
+    direction: rtl;
+}
+
+.title {
+    position: relative;
+}
+
+.spinner {
+    top: -7.1em;
+    left: -1.9em;
+}
+
+.newsWrapper {
+    width: 85%;
+}
+
+.arrowWrapper {
+    width: 15%;
+}

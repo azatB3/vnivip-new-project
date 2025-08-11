@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Patch, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, Query, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {NewsService} from "./news.service";
 import {CreateNewsDto} from "./dto/create-news.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
@@ -6,6 +6,7 @@ import {ImageValidationPipe} from "../pipes/image-validation.pipe";
 import {BodyValidationPipe} from "../pipes/body-validation.pipe";
 import {PublishNewsDto} from "./dto/publish-news.dto";
 import {DeleteNewsDto} from "./dto/delete-news.dto";
+import {GetNewsPartDto} from "./dto/get-news-part.dto";
 
 @Controller('news')
 export class NewsController {
@@ -18,8 +19,8 @@ export class NewsController {
     }
 
     @Get('/part')
-    getPart() {
-        return this.newsService.getPart();
+    getPart(@Query() dto: GetNewsPartDto) {
+        return this.newsService.getPart(dto);
     }
 
     @Patch('/publish')

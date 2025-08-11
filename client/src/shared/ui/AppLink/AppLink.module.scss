@@ -22,3 +22,12 @@
         opacity: 0.4;
     }
 }
+
+.dark2 {
+    color: var(--dark2);
+    font: var(--font-body-s-desktop);
+    transition: opacity 0.2s ease-in;
+    &:hover {
+        opacity: 0.4;
+    }
+}

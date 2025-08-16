@@ -29,7 +29,7 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
             paddingL={20}
             paddingR={20}
             paddingT={10}
-            paddingB={20}
+            paddingB={50}
             borderR={10}
             onClick={() => navigate(`${RoutePath.news}/${data.id}`)}
         >

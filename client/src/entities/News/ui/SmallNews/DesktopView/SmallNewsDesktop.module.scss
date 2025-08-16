@@ -1,12 +1,12 @@
 .SmallNewsDesktop {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    height: 21vh;
+    justify-content: space-between;
+    height: 25vh;
     min-height: 153px;
     width: 19%;
     cursor: pointer;
-    transition: all 0.15s ease-in;
+    transition: all 0.3s ease;
     &:hover {
         transform: scale(1.04);
     }

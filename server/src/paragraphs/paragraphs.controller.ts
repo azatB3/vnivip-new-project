@@ -1,9 +1,10 @@
-import {Body, Controller, Get, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Patch, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {ParagraphsService} from "./paragraphs.service";
 import {CreateParagraphDto} from "./dto/create-paragraph.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {ImageValidationPipe} from "../pipes/image-validation.pipe";
 import {VideoValidationPipe} from "../pipes/video-validation.pipe";
+import {ChangeAlignTextParagraphDto} from "./dto/change-align-text-paragraph.dto";
 
 @Controller('paragraphs')
 export class ParagraphsController {
@@ -13,6 +14,11 @@ export class ParagraphsController {
     @Get()
     getAll() {
         return this.paragraphsService.getAll();
+    }
+
+    @Patch('change-align')
+    changeAlignText(@Body() dto: ChangeAlignTextParagraphDto) {
+        return this.paragraphsService.changeAlignText(dto);
     }
 
     @Post()

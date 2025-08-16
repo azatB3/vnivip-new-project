@@ -5,4 +5,6 @@ export interface MainPageNewsSchema {
     mainNews?: News;
     isLoading: boolean;
     error: string | undefined;
+
+    _inited: boolean;
 }

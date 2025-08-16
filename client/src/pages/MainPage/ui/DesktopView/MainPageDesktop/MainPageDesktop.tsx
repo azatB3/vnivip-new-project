@@ -3,13 +3,18 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getMainPageNewsInited } from '../../../model/selectors/getMainPageNews';
+import { fetchNewsSome } from '../../../model/services/fetchNewsSome';
 import { MainPageGalleryDesktop } from '../MainPageGalleryDesktop/MainPageGalleryDesktop';
 import { MainPageNewsDesktop } from '../MainPageNewsDesktop/MainPageNewsDesktop';
 import { MainPageBannerDesktop } from '../MainPageBannerDesktop/MainPageBannerDesktop';
 import { MainPageAboutUsDesktop } from '../MainPageAboutUsDesktop/MainPageAboutUsDesktop';
 import { MainPagePartnersDesktop } from '../MainPagePartnersDesktop/MainPagePartnersDesktop';
 import cls from './MainPageDesktop.module.scss';
-import { MainPageNewsReducer } from '../../../model/slices/MainPageNewsSlice';
+import { MainPageNewsActions, MainPageNewsReducer } from '../../../model/slices/MainPageNewsSlice';
 
 interface MainPageDesktopProps {
     className?: string;
@@ -22,6 +27,15 @@ const reducers: ReducersList = {
 const MainPageDesktop = (props: MainPageDesktopProps) => {
     const { className } = props;
     const { t } = useTranslation('mainPage');
+    const dispatch = useAppDispatch();
+    const inited = useSelector(getMainPageNewsInited);
+
+    useEffect(() => {
+        if (!inited) {
+            dispatch(fetchNewsSome());
+            dispatch(MainPageNewsActions.init());
+        }
+    }, [dispatch, inited]);
 
     return (
         <DynamicModuleLoader

@@ -1,24 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { AxiosError } from 'axios';
 import { News } from 'entities/News';
 
-export const fetchNewsPart = createAsyncThunk<
+export const fetchNewsSome = createAsyncThunk<
     News[],
     void,
     ThunkConfig<any>
 >(
-    'pages/MainPage/fetchNews',
+    'pages/MainPage/fetchNewsSome',
     async (_, thunkApi) => {
         const { extra, rejectWithValue } = thunkApi;
 
         try {
-            const response = await extra.api.get<News[]>('/news/part', {
-                params: {
-                    page: 1,
-                    limit: 6,
-                },
-            });
+            const response = await extra.api.get<News[]>('/news/some');
 
             if (!response.data) {
                 throw new Error();

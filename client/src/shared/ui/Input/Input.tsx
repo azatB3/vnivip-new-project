@@ -1,11 +1,9 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, { InputHTMLAttributes, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import circleExclamationIcon from 'shared/assets/icons/circle-exclamation.svg';
-import ruFlagInputIcon from 'shared/assets/icons/ru-flag-input.svg';
-import { Icon, IconTheme } from '../Icon/Icon';
+import CircleExclamationIcon from 'shared/assets/icons/circle-exclamation-11-11.svg';
+import RuFlagIcon from 'shared/assets/icons/ru-flag-18-12.svg';
 import { HStack, VStack } from '../Stack';
-import { Text, TextSize, TextTheme } from '../Text/Text';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -29,6 +27,7 @@ export const Input = memo((props: InputProps) => {
         isRequired = false,
         isEmptyError = false,
         isNumber = false,
+        width = '340',
         ...otherProps
     } = props;
     const { t } = useTranslation('translation');
@@ -62,13 +61,7 @@ export const Input = memo((props: InputProps) => {
             className={classNames(cls.Input, mods, [className])}
             gap={4}
         >
-            {isNumber && (
-                <Icon
-                    Svg={ruFlagInputIcon}
-                    theme={IconTheme.CLEAN}
-                    className={cls.flag}
-                />
-            )}
+            {isNumber && <RuFlagIcon className={cls.flag} />}
             <input
                 className={cls.field}
                 value={value}
@@ -82,21 +75,14 @@ export const Input = memo((props: InputProps) => {
             {isRequired && (
                 <HStack
                     gap={4}
-                    align="start"
+                    align="center"
                 >
-                    {isRed && (
-                        <Icon
-                            Svg={circleExclamationIcon}
-                            theme={IconTheme.CLEAN}
-                        />
-                    )}
-                    <Text
-                        theme={TextTheme.WHITE}
-                        size={TextSize.BODY_S_MEDIUM_DESKTOP}
+                    {isRed && <CircleExclamationIcon />}
+                    <p
                         className={cls.requiredText}
                     >
                         {t('Обязательно для заполнения')}
-                    </Text>
+                    </p>
                 </HStack>
             )}
         </VStack>

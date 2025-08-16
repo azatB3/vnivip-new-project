@@ -1,11 +1,4 @@
-interface NewsDataParagraph {
-    id: number;
-    text?: string;
-    img?: string;
-    video?: string;
-    position: number;
-    firstElement: string;
-}
+import { Paragraph } from 'entities/Paragraph';
 
 export interface News {
     id: number;
@@ -15,5 +8,5 @@ export interface News {
     published: boolean;
     createdAt: string;
     updatedAt: string;
-    paragraphs: NewsDataParagraph[];
+    paragraphs: Paragraph[];
 }

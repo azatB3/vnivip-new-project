@@ -5,7 +5,7 @@ import { AppPaths } from 'shared/config/routeConfig/routeConfig';
 import ArrowDownIcon from 'shared/assets/icons/arrow-down-small-24-24-white.svg';
 import cls from './Dropdown.module.scss';
 
-interface DropdownData {
+export interface DropdownData {
     path: AppPaths;
     text: string;
 }
@@ -34,6 +34,7 @@ export const Dropdown = memo((props: DropdownProps) => {
         >
             <Link
                 to={sectionPath}
+                key={sectionPath}
                 className={cls.section}
             >
                 {sectionName}

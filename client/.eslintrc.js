@@ -63,6 +63,7 @@ module.exports = {
                     'ContentTag',
                     'wrap',
                     'borderR',
+                    'link',
                 ],
             },
         ],

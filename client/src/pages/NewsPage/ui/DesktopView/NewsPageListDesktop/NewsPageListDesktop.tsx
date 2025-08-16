@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { forwardRef, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -11,10 +10,13 @@ import { APP_DESKTOP_ID } from 'shared/const/components';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { Input } from 'shared/ui/Input/Input';
+import { Tabs } from 'shared/ui/Tabs/Tabs';
+import { fetchNews } from '../../../model/services/fetchNews';
 import { fetchNewsNextPage } from '../../../model/services/fetchNewsNextPage';
 import cls from './NewsPageListDesktop.module.scss';
-import { getNewsPageIsLoading } from '../../../model/selectors/getNewsPage';
-import { getNews } from '../../../model/slices/NewsPageSlice';
+import { getNewsPageListIsLoading, getNewsPageOrder } from '../../../model/selectors/getNewsPage';
+import { getNews, NewsPageActions } from '../../../model/slices/NewsPageSlice';
 
 interface NewsPageListDesktopProps {
     className?: string;
@@ -26,14 +28,11 @@ const getSkeletons = () => {
             wrap="wrap"
             gap={20}
             maxW
-            style={{
-                marginTop: '20px',
-            }}
         >
             {new Array(8).fill(0).map(() => (
                 <Skeleton
                     width="calc((100% - 60px) / 4)"
-                    height="35vh"
+                    height="38vh"
                     borderR="10px"
                 />
             ))}
@@ -48,20 +47,31 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
     const { t } = useTranslation('newsPage');
     const dispatch = useAppDispatch();
     const news = useSelector(getNews.selectAll);
-    const isLoading = useSelector(getNewsPageIsLoading);
+    const isLoading = useSelector(getNewsPageListIsLoading);
+    const order = useSelector(getNewsPageOrder);
 
-    const itemRenderer: GridItemContent<News, any> = useCallback((index, item) => (
-        <NewsDesktop
-            data={item}
-            key={index}
-        />
-    ), []);
-
-    const onScrollEnd = useCallback(() => {
-        dispatch(fetchNewsNextPage({ limit: 8 }));
+    const fetchNewsFunc = useCallback(() => {
+        dispatch(fetchNews());
     }, [dispatch]);
 
-    const debouncedOnScrollEnd = useDebounce(onScrollEnd, 500);
+    const fetchNewsNextPageFunc = useCallback(() => {
+        dispatch(fetchNewsNextPage());
+    }, [dispatch]);
+
+    const debouncedFetchNewsNextPage = useDebounce(fetchNewsNextPageFunc, 500);
+    const debouncedFetchNews = useDebounce(fetchNewsFunc, 1000);
+
+    const onChangeSearch = useCallback((value: string) => {
+        if (value.length <= 64) {
+            dispatch(NewsPageActions.setSearch(value));
+            debouncedFetchNews();
+        }
+    }, [debouncedFetchNews, dispatch]);
+
+    const onTabClick = useCallback((value: string) => {
+        dispatch(NewsPageActions.setOrder(value as 'ASC' | 'DESC'));
+        debouncedFetchNews();
+    }, [debouncedFetchNews, dispatch]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const gridComponents: GridComponents = {
@@ -87,7 +97,7 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
                 key={index}
                 style={{
                     width: 'calc((100% - 60px) / 4)',
-                    minHeight: '35vh',
+                    minHeight: '38vh',
                 }}
             >
                 {children}
@@ -95,11 +105,43 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
         ),
     };
 
+    const itemRenderer: GridItemContent<News, any> = useCallback((index, item) => (
+        <NewsDesktop
+            data={item}
+            key={index}
+        />
+    ), []);
+
     return (
         <VStack
             className={classNames(cls.NewsPageListDesktop, {}, [className])}
             maxW
+            gap={20}
         >
+            <HStack
+                maxW
+                gap={100}
+            >
+                <Input
+                    placeholder={t('Найти новость')}
+                    onChange={onChangeSearch}
+                    className={cls.inputSearch}
+                />
+                <Tabs
+                    value={order}
+                    onTabClick={onTabClick}
+                    tabs={[
+                        {
+                            value: 'DESC',
+                            text: t('Сначала новые'),
+                        },
+                        {
+                            value: 'ASC',
+                            text: t('Сначала старые'),
+                        },
+                    ]}
+                />
+            </HStack>
             {!news.length && !isLoading
                 ? (
                     <HStack
@@ -130,8 +172,8 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
                     itemContent={itemRenderer}
                     customScrollParent={document.getElementById(APP_DESKTOP_ID) as HTMLElement}
                     useWindowScroll
-                    endReached={debouncedOnScrollEnd}
-                    overscan={200}
+                    endReached={debouncedFetchNewsNextPage}
+                    overscan={300}
                 />
             )}
             {isLoading && getSkeletons()}

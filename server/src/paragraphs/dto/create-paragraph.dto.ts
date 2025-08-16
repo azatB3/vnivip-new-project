@@ -19,6 +19,10 @@ export class CreateParagraphDto {
     @IsUndefined({message: 'can be only video in form-data'})
     video?: string;
 
+    videoPoster?: string;
+
+    alignText?: string
+
     position?: number;
 
     firstElement?: string;

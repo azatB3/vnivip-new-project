@@ -12,7 +12,7 @@ export class ImageValidationPipe implements PipeTransform<any> {
     constructor(private readonly options: ImageValidationOptions) {}
 
     async transform(value: Record<string, Express.Multer.File[]>, metadata: ArgumentMetadata): Promise<any> {
-        const file = value[this.options.fieldName]?.[0];
+        const file = value?.[this.options.fieldName]?.[0];
         if (file) {
             const errors: string[] = [];
 

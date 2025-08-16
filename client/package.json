@@ -20,7 +20,6 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
@@ -49,8 +48,6 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
-    "@types/react-transition-group": "^4.4.12",
-    "@types/react-virtualized": "^9.21.21",
     "@types/webpack": "^5.28.0",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
@@ -70,7 +67,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.0.10",
@@ -105,8 +101,6 @@
     "react-i18next": "^11.18.3",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "react-transition-group": "^4.4.5",
-    "react-virtualized": "^9.22.3",
     "react-virtuoso": "^4.7.13"
   },
   "peerDependencies": {

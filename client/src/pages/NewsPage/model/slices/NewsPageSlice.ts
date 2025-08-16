@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { News } from 'entities/News';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { fetchMainNews } from '../services/fetchMainNews';
 import { NewsPageSchema } from '../types/NewsPageSchema';
 import { fetchNews } from '../services/fetchNews';
 
@@ -15,34 +16,67 @@ export const getNews = newsAdapter.getSelectors<StateSchema>(
 export const NewsPageSlice = createSlice({
     name: 'NewsPageSlice',
     initialState: newsAdapter.getInitialState<NewsPageSchema>({
-        isLoading: false,
-        error: undefined,
+        listIsLoading: false,
+        mainNewsIsLoading: false,
+        listError: undefined,
+        mainNewsError: undefined,
         ids: [],
         entities: {},
         page: 1,
         hasMore: true,
+        search: '',
+        limit: 8,
+        order: 'DESC',
+        _inited: false,
     }),
     reducers: {
-
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.listIsLoading = true;
+            newsAdapter.removeAll(state);
+            state.page = 1;
+            state.search = action.payload;
+        },
+        setListIsLoading: (state, action: PayloadAction<boolean>) => {
+            state.listIsLoading = action.payload;
+        },
+        init: (state) => {
+            state._inited = true;
+        },
+        setOrder: (state, action: PayloadAction<'ASC' | 'DESC'>) => {
+            state.listIsLoading = true;
+            newsAdapter.removeAll(state);
+            state.page = 1;
+            state.order = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
             .addCase(fetchNews.pending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
+                state.listError = undefined;
+                state.listIsLoading = true;
             })
             .addCase(fetchNews.fulfilled, (state, action: PayloadAction<News[]>) => {
-                if (!state.mainNews) {
-                    state.mainNews = action.payload.shift();
-                }
                 newsAdapter.addMany(state, action.payload);
-                state.hasMore = action.payload.length === 8;
+                state.hasMore = action.payload.length >= state.limit;
                 state.page += 1;
-                state.isLoading = false;
+                state.listIsLoading = false;
             })
             .addCase(fetchNews.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
+                state.listIsLoading = false;
+                state.listError = action.payload;
+            })
+            // Главная новость
+            .addCase(fetchMainNews.pending, (state) => {
+                state.mainNewsError = undefined;
+                state.mainNewsIsLoading = true;
+            })
+            .addCase(fetchMainNews.fulfilled, (state, action: PayloadAction<News>) => {
+                state.mainNews = action.payload;
+                state.mainNewsIsLoading = false;
+            })
+            .addCase(fetchMainNews.rejected, (state, action) => {
+                state.mainNewsIsLoading = false;
+                state.mainNewsError = action.payload;
             });
     },
 });

@@ -1,13 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { useTranslation } from 'react-i18next';
 import { MainNewsDesktop } from 'entities/News';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { getNewsPageIsLoading, getNewsPageMainNews } from '../../../model/selectors/getNewsPage';
 import cls from './NewsPageTitleDesktop.module.scss';
+import { getNewsPageMainNews, getNewsPageMainNewsIsLoading } from '../../../model/selectors/getNewsPage';
 
 interface NewsPageTitleDesktopProps {
     className?: string;
@@ -19,7 +21,7 @@ export const NewsPageTitleDesktop = memo((props: NewsPageTitleDesktopProps) => {
     } = props;
     const { t } = useTranslation('newsPage');
     const mainNews = useSelector(getNewsPageMainNews);
-    const isLoading = useSelector(getNewsPageIsLoading);
+    const isLoading = useSelector(getNewsPageMainNewsIsLoading);
 
     const renderMainNews = useCallback(() => {
         if (!mainNews && isLoading) {
@@ -75,38 +77,36 @@ export const NewsPageTitleDesktop = memo((props: NewsPageTitleDesktopProps) => {
             maxW
             className={classNames(cls.NewsPageTitleDesktop, {}, [className])}
         >
-            <HStack
-                maxW
+            <Text
+                theme={TextTheme.GREY}
+                size={TextSize.BODY_S_DESKTOP}
             >
-                <Text
-                    theme={TextTheme.GREY}
-                    size={TextSize.BODY_S_DESKTOP}
-                >
-                    {`[ ${t('События')} ]`}
-                </Text>
+                {`[ ${t('События')} ]`}
+            </Text>
+            <VStack
+                maxW
+                align="center"
+                paddingB={10}
+            >
                 <VStack
-                    className={cls.titleWrapper}
-                    align="center"
+                    gap={10}
+                    paddingL={80}
                 >
-                    <VStack
-                        gap={10}
+                    <Text
+                        theme={TextTheme.DARK2}
+                        size={TextSize.H2_DESKTOP}
                     >
-                        <Text
-                            theme={TextTheme.DARK2}
-                            size={TextSize.H2_DESKTOP}
-                        >
-                            {t('Новости')}
-                        </Text>
-                        <Text
-                            theme={TextTheme.DARK2}
-                            size={TextSize.BODY_S_DESKTOP}
-                            className={cls.subtitle}
-                        >
-                            {t('Следите за нашими новостями, чтобы быть в курсе жизни института')}
-                        </Text>
-                    </VStack>
+                        {t('Новости')}
+                    </Text>
+                    <Text
+                        theme={TextTheme.DARK2}
+                        size={TextSize.BODY_S_DESKTOP}
+                        className={cls.subtitle}
+                    >
+                        {t('Следите за нашими новостями, чтобы быть в курсе жизни института')}
+                    </Text>
                 </VStack>
-            </HStack>
+            </VStack>
             {renderMainNews()}
         </VStack>
     );

@@ -1,12 +1,12 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, Query, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Patch, Post, Query, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {NewsService} from "./news.service";
 import {CreateNewsDto} from "./dto/create-news.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {ImageValidationPipe} from "../pipes/image-validation.pipe";
-import {BodyValidationPipe} from "../pipes/body-validation.pipe";
 import {PublishNewsDto} from "./dto/publish-news.dto";
 import {DeleteNewsDto} from "./dto/delete-news.dto";
 import {GetNewsPartDto} from "./dto/get-news-part.dto";
+import {GetFullNewsDto} from "./dto/get-full-news.dto";
 
 @Controller('news')
 export class NewsController {
@@ -18,9 +18,24 @@ export class NewsController {
         return this.newsService.getAll();
     }
 
+    @Get('/main')
+    getMain() {
+        return this.newsService.getMain();
+    }
+
+    @Get('/some')
+    getSome() {
+        return this.newsService.getSome();
+    }
+
     @Get('/part')
     getPart(@Query() dto: GetNewsPartDto) {
         return this.newsService.getPart(dto);
+    }
+
+    @Get('/full')
+    getFullNews(@Query() dto: GetFullNewsDto) {
+        return this.newsService.getFullNews(dto);
     }
 
     @Patch('/publish')

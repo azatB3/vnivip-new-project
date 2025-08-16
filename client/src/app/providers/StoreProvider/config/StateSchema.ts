@@ -8,6 +8,7 @@ import { rtkApi } from 'shared/api/rtkApi';
 import { DeviceSchema } from 'entities/Device';
 import { MainPageNewsSchema } from 'pages/MainPage';
 import { NewsPageSchema } from 'pages/NewsPage';
+import { NewsDetailsPageSchema } from 'pages/NewsDetailsPage';
 
 export interface StateSchema {
     ui: UISchema;
@@ -16,6 +17,7 @@ export interface StateSchema {
     // Асинхронные редюсеры
     mainPageNews?: MainPageNewsSchema,
     newsPage?: NewsPageSchema,
+    newsDetailsPage?: NewsDetailsPageSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

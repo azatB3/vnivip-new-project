@@ -6,6 +6,7 @@ import cls from './Anchor.module.scss';
 export enum AnchorTheme {
     WHITE = 'white',
     CLEAN = 'clean',
+    BLUE = 'blue',
 }
 
 interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

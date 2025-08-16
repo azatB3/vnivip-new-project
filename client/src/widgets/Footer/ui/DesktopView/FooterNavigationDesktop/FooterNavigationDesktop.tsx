@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './FooterNavigationDesktop.module.scss';
 
 interface FooterNavigationDesktopProps {
@@ -31,18 +32,25 @@ export const FooterNavigationDesktop = memo((props: FooterNavigationDesktopProps
                 maxW
             >
                 <AppLink
-                    to="#"
+                    to={RoutePath.news}
                     theme={AppLinkTheme.GREY}
                     className={cls.link}
                 >
-                    {t('Контакты')}
+                    {t('Новости')}
                 </AppLink>
                 <AppLink
-                    to="#"
+                    to={RoutePath.partners}
                     theme={AppLinkTheme.GREY}
                     className={cls.link}
                 >
                     {t('Партнеры')}
+                </AppLink>
+                <AppLink
+                    to={RoutePath.contacts}
+                    theme={AppLinkTheme.GREY}
+                    className={cls.link}
+                >
+                    {t('Контакты')}
                 </AppLink>
             </VStack>
         </VStack>

@@ -39,7 +39,7 @@ const AppDesktopView = () => {
             id={APP_DESKTOP_ID}
         >
             <HeaderDesktop
-                scrollPosition={scrollPosition}
+                isFixed={scrollPosition > 400}
             />
             <AppRouterDesktop />
             <FooterDesktop />

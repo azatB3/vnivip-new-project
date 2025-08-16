@@ -4,13 +4,16 @@ import { VStack } from 'shared/ui/Stack';
 import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
 import cover3Img from 'shared/assets/images/cover3.jpg';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'widgets/Page';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { fetchNews } from '../../../model/services/fetchNews';
+import { fetchMainNews } from '../../../model/services/fetchMainNews';
+import { getNewsPageInited } from '../../../model/selectors/getNewsPage';
 import { NewsPageListDesktop } from '../NewsPageListDesktop/NewsPageListDesktop';
-import { NewsPageReducer } from '../../../model/slices/NewsPageSlice';
+import { NewsPageActions, NewsPageReducer } from '../../../model/slices/NewsPageSlice';
 import cls from './NewsPageDesktop.module.scss';
 import { NewsPageTitleDesktop } from '../NewsPageTitleDesktop/NewsPageTitleDesktop';
-import { fetchNews } from '../../../model/services/fetchNews';
 
 interface NewsPageDesktopProps {
     className?: string;
@@ -25,13 +28,21 @@ const NewsPageDesktop = memo((props: NewsPageDesktopProps) => {
         className,
     } = props;
     const dispatch = useAppDispatch();
+    const inited = useSelector(getNewsPageInited);
 
     useEffect(() => {
-        dispatch(fetchNews({ limit: 9 }));
-    }, [dispatch]);
+        if (!inited) {
+            dispatch(fetchNews());
+            dispatch(fetchMainNews());
+            dispatch(NewsPageActions.init());
+        }
+    }, [dispatch, inited]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
             <Page
                 className={classNames(cls.NewsPageDesktop, {}, [className])}
             >

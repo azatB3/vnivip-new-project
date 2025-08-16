@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo } from 'react';
-import { useHold } from 'shared/lib/hooks/useHold/useHold';
 import cls from './Carousel.module.scss';
 
 interface CarouselProps {

@@ -7,6 +7,7 @@ import {PublishNewsDto} from "./dto/publish-news.dto";
 import {DeleteNewsDto} from "./dto/delete-news.dto";
 import {GetNewsPartDto} from "./dto/get-news-part.dto";
 import {Op} from "sequelize";
+import {GetFullNewsDto} from "./dto/get-full-news.dto";
 
 @Injectable()
 export class NewsService {
@@ -71,19 +72,78 @@ export class NewsService {
 
     // Данные без объединения
     async getPart(dto: GetNewsPartDto) {
-        const offset = (dto.limit * dto.page) - dto.limit;
-        return await this.newsRepository.findAll({
-            offset: offset,
-            limit: dto.limit,
+        const limit = Number(dto.limit);
+        const page = Number(dto.page);
+        const order = dto.order ? dto.order : 'DESC';
+
+        const mainNewsId = await this.newsRepository.findOne({
+            order: [['createdAt', 'DESC']],
+            attributes: ['id'],
             where: {
                 published: true,
+            }
+        });
+
+        if (!mainNewsId) {
+            return [];
+        }
+
+        const offset = (limit * page) - limit;
+
+        if (dto.search) {
+            return await this.newsRepository.findAll({
+                offset: offset,
+                limit: limit,
+                where: {
+                    published: true,
+                    [Op.and]: {
+                        title: {
+                            [Op.iLike]: `%${dto.search}%`
+                        },
+                        description: {
+                            [Op.iLike]: `%${dto.search}%`
+                        },
+                    },
+                    id: {
+                        [Op.ne]: mainNewsId.id
+                    }
+                },
+                order: [['createdAt', order]],
+            });
+        }
+
+        return await this.newsRepository.findAll({
+            offset: offset,
+            limit: limit,
+            where: {
+                published: true,
+                id: {
+                    [Op.ne]: mainNewsId.id
+                }
             },
-            order: [['createdAt', 'DESC']],
+            order: [['createdAt', order]],
         });
     }
 
-    // Одна полная сущность
+    async getMain() {
+        return await this.newsRepository.findOne({
+            order: [['createdAt', 'DESC']],
+            where: {
+                published: true,
+            }
+        });
+    }
+
+    // Одна полная сущность по id
     async findOne(newsId: number) {
         return await this.newsRepository.findOne({ where: { id: newsId }, include: {all: true}});
+    }
+
+    async getSome() {
+        return await this.newsRepository.findAll({ limit: 6, order: [['createdAt', 'DESC']] });
+    }
+
+    async getFullNews(dto: GetFullNewsDto) {
+        return await this.newsRepository.findOne({ where: { id: dto.newsId }, include: {all: true}});
     }
 }

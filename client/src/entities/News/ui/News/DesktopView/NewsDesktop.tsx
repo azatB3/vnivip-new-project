@@ -46,7 +46,7 @@ export const NewsDesktop: FC<NewsDesktopProps> = memo((props) => {
                 paddingL={16}
                 paddingR={16}
                 paddingT={10}
-                paddingB={20}
+                paddingB={30}
                 justify="between"
             >
                 <HStack
@@ -65,25 +65,13 @@ export const NewsDesktop: FC<NewsDesktopProps> = memo((props) => {
                         Svg={linkIcon}
                     />
                 </HStack>
-                <VStack
-                    gap={20}
-                    maxW
+                <Text
+                    theme={TextTheme.WHITE}
+                    size={TextSize.BODY_MEDIUM_DESKTOP}
+                    className={cls.title}
                 >
-                    <Text
-                        theme={TextTheme.WHITE}
-                        size={TextSize.BODY_MEDIUM_DESKTOP}
-                        className={cls.title}
-                    >
-                        {data.title}
-                    </Text>
-                    <Text
-                        theme={TextTheme.WHITE}
-                        size={TextSize.BODY_S_DESKTOP}
-                        className={cls.description}
-                    >
-                        {data.description}
-                    </Text>
-                </VStack>
+                    {data.title}
+                </Text>
             </VStack>
         </div>
     );

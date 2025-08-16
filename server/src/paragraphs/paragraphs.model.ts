@@ -5,7 +5,7 @@ interface ParagraphCreationAttrs {
     newsId: number;
     text?: string;
     img?: string;
-    position: number;
+    video?: string;
 }
 
 @Table({tableName: 'paragraphs'})
@@ -22,11 +22,17 @@ export class Paragraph extends Model<Paragraph, ParagraphCreationAttrs> {
     @Column({type: DataType.STRING, allowNull: true})
     video: string;
 
+    @Column({type: DataType.STRING, allowNull: true})
+    videoPoster: string;
+
     @Column({type: DataType.INTEGER, allowNull: false})
     position: number;
 
     @Column({type: DataType.STRING, allowNull: false})
     firstElement: string;
+
+    @Column({type: DataType.STRING, defaultValue: 'justify'})
+    alignText: string;
 
     @ForeignKey(() => News)
     @Column({type: DataType.INTEGER, allowNull: false})

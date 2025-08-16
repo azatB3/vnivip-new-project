@@ -4,7 +4,9 @@ import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import mainLogoLargeIcon from 'shared/assets/icons/main-logo-large.svg';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import cls from './FooterLeftDesktop.module.scss';
 
 interface FooterLeftDesktopProps {

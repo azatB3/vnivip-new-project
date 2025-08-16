@@ -6,14 +6,14 @@ import mainLogo from 'shared/assets/icons/main-logo.svg';
 import searchIcon from 'shared/assets/icons/search-24-24-white.svg';
 import { HStack } from 'shared/ui/Stack';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, DropdownData } from 'shared/ui/Dropdown/Dropdown';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './HeaderDesktop.module.scss';
 
 interface HeaderDesktopProps {
     className?: string;
-    scrollPosition?: number;
+    isFixed?: boolean;
 }
 
 export const HEADER_ID = 'HEADER_ID';
@@ -21,13 +21,13 @@ export const HEADER_ID = 'HEADER_ID';
 export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
     const {
         className,
-        scrollPosition = 0,
+        isFixed = false,
     } = props;
     const { t } = useTranslation();
 
-    const aboutInstituteLinks = [
+    const aboutInstituteLinks: DropdownData[] = [
         {
-            path: RoutePath.main,
+            path: RoutePath.administration,
             text: t('Администрация'),
         },
         {
@@ -48,17 +48,17 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
         },
     ];
 
-    const educationLinks = [
+    const educationLinks: DropdownData[] = [
         {
-            path: RoutePath.main,
+            path: RoutePath.administration,
             text: t('Научные отделы'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.administration,
             text: t('Ученый совет'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.administration,
             text: t('Совет молодых ученых'),
         },
         {
@@ -71,7 +71,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
         },
     ];
 
-    const servicesLinks = [
+    const servicesLinks: DropdownData[] = [
         {
             path: RoutePath.main,
             text: t('Корзина'),
@@ -79,7 +79,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
     ];
 
     const mods: Mods = {
-        [cls.fixed]: scrollPosition > 400,
+        [cls.fixed]: isFixed,
     };
 
     return (
@@ -107,16 +107,19 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                     sectionName={t('Об институте')}
                     sectionPath={RoutePath.main}
                     data={aboutInstituteLinks}
+                    key={1}
                 />
                 <Dropdown
                     sectionName={t('Научная и образовательная деятельность')}
                     sectionPath={RoutePath.main}
                     data={educationLinks}
+                    key={2}
                 />
                 <Dropdown
                     sectionName={t('Услуги')}
                     sectionPath={RoutePath.main}
                     data={servicesLinks}
+                    key={3}
                 />
                 <AppLink
                     theme={AppLinkTheme.WHITE}
@@ -126,9 +129,15 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                 </AppLink>
                 <AppLink
                     theme={AppLinkTheme.WHITE}
-                    to={RoutePath.main}
+                    to={RoutePath.partners}
                 >
                     {t('Партнеры')}
+                </AppLink>
+                <AppLink
+                    theme={AppLinkTheme.WHITE}
+                    to={RoutePath.contacts}
+                >
+                    {t('Контакты')}
                 </AppLink>
             </HStack>
             <HStack

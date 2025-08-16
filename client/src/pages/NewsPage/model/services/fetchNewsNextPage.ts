@@ -1,27 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { fetchNews } from './fetchNews';
-import { getNewsPageHasMore, getNewsPageIsLoading } from '../selectors/getNewsPage';
-
-interface FetchNewsArgs {
-    limit: number;
-}
+import { getNewsPageHasMore, getNewsPageListIsLoading } from '../selectors/getNewsPage';
 
 export const fetchNewsNextPage = createAsyncThunk<
     void,
-    FetchNewsArgs,
+    void,
     ThunkConfig<any>
 >(
     'pages/NewsPage/fetchNewsNextPage',
-    async ({ limit }, thunkApi) => {
+    async (_, thunkApi) => {
         const {
             extra, rejectWithValue, getState, dispatch,
         } = thunkApi;
         const hasMore = getNewsPageHasMore(getState());
-        const isLoading = getNewsPageIsLoading(getState());
+        const isLoading = getNewsPageListIsLoading(getState());
 
         if (hasMore && !isLoading) {
-            dispatch(fetchNews({ limit }));
+            dispatch(fetchNews());
         }
     },
 );

@@ -3,8 +3,15 @@ import { EntityState } from '@reduxjs/toolkit';
 
 export interface NewsPageSchema extends EntityState<News>{
     mainNews?: News;
-    isLoading: boolean;
-    error: string | undefined;
+    listIsLoading: boolean;
+    listError: string | undefined;
+    mainNewsIsLoading: boolean;
+    mainNewsError: string | undefined;
     page: number;
     hasMore: boolean;
+    search: string;
+    limit: number;
+    order: 'ASC' | 'DESC';
+
+    _inited: boolean;
 }

@@ -6,7 +6,7 @@ import { Spinner } from 'shared/ui/Spinner/Spinner';
 import { MainNewsDesktop, SmallNewsDesktop } from 'entities/News';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ArrowRightIcon from 'shared/assets/icons/arrow-right-50-39-white.svg';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLinkDesktop } from 'shared/ui/AppLink/DesktopView/AppLinkDesktop';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { getMainPageMainNews, getMainPageNews } from '../../../model/selectors/getMainPageNews';
@@ -73,7 +73,7 @@ export const MainPageNewsDesktop = memo(() => {
                                 align="center"
                                 className={cls.arrowWrapper}
                             >
-                                <AppLink
+                                <AppLinkDesktop
                                     to={RoutePath.news}
                                 >
                                     <Icon
@@ -81,7 +81,7 @@ export const MainPageNewsDesktop = memo(() => {
                                         Svg={ArrowRightIcon}
                                         className={cls.arrow}
                                     />
-                                </AppLink>
+                                </AppLinkDesktop>
                             </HStack>
                         </HStack>
                     )}

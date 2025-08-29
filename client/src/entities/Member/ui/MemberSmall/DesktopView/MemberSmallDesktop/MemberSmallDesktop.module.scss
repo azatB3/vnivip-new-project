@@ -1,0 +1,9 @@
+.MemberSmallDesktop {
+    width: calc((100% - 100px) / 3);
+    min-width: calc((100% - 100px) / 3);
+    height: 50vh;
+    min-height: 365px;
+    background: var(--white2);
+    border-radius: 10px;
+    box-shadow: 0 0 4px -2px var(--black);
+}

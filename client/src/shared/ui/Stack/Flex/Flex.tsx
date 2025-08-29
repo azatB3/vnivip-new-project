@@ -27,7 +27,19 @@ type FlexNumbers =
     | 100
     | 110
     | 120
-    | 130;
+    | 130
+    | 140
+    | 150
+    | 160
+    | 170
+    | 180
+    | 190
+    | 200
+    | 210
+    | 220
+    | 230
+    | 240
+    | 250;
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -67,6 +79,18 @@ const gapClasses: Record<FlexNumbers, string> = {
     110: cls.gap110,
     120: cls.gap120,
     130: cls.gap130,
+    140: cls.gap140,
+    150: cls.gap150,
+    160: cls.gap160,
+    170: cls.gap170,
+    180: cls.gap180,
+    190: cls.gap190,
+    200: cls.gap200,
+    210: cls.gap210,
+    220: cls.gap220,
+    230: cls.gap230,
+    240: cls.gap240,
+    250: cls.gap250,
 };
 
 const wrapClasses: Record<FlexWrap, string> = {
@@ -96,6 +120,18 @@ const paddingClasses: Record<FlexNumbers, string> = {
     110: cls.padding110,
     120: cls.padding120,
     130: cls.padding130,
+    140: cls.paddingL140,
+    150: cls.paddingL150,
+    160: cls.paddingL160,
+    170: cls.paddingL170,
+    180: cls.paddingL180,
+    190: cls.paddingL190,
+    200: cls.paddingL200,
+    210: cls.paddingL210,
+    220: cls.paddingL220,
+    230: cls.paddingL230,
+    240: cls.paddingL240,
+    250: cls.paddingL250,
 };
 
 const paddingTClasses: Record<FlexNumbers, string> = {
@@ -118,6 +154,18 @@ const paddingTClasses: Record<FlexNumbers, string> = {
     110: cls.paddingT110,
     120: cls.paddingT120,
     130: cls.paddingT130,
+    140: cls.paddingL140,
+    150: cls.paddingL150,
+    160: cls.paddingL160,
+    170: cls.paddingL170,
+    180: cls.paddingL180,
+    190: cls.paddingL190,
+    200: cls.paddingL200,
+    210: cls.paddingL210,
+    220: cls.paddingL220,
+    230: cls.paddingL230,
+    240: cls.paddingL240,
+    250: cls.paddingL250,
 };
 
 const paddingRClasses: Record<FlexNumbers, string> = {
@@ -140,6 +188,18 @@ const paddingRClasses: Record<FlexNumbers, string> = {
     110: cls.paddingR110,
     120: cls.paddingR120,
     130: cls.paddingR130,
+    140: cls.paddingL140,
+    150: cls.paddingL150,
+    160: cls.paddingL160,
+    170: cls.paddingL170,
+    180: cls.paddingL180,
+    190: cls.paddingL190,
+    200: cls.paddingL200,
+    210: cls.paddingL210,
+    220: cls.paddingL220,
+    230: cls.paddingL230,
+    240: cls.paddingL240,
+    250: cls.paddingL250,
 };
 
 const paddingBClasses: Record<FlexNumbers, string> = {
@@ -162,6 +222,18 @@ const paddingBClasses: Record<FlexNumbers, string> = {
     110: cls.paddingB110,
     120: cls.paddingB120,
     130: cls.paddingB130,
+    140: cls.paddingL140,
+    150: cls.paddingL150,
+    160: cls.paddingL160,
+    170: cls.paddingL170,
+    180: cls.paddingL180,
+    190: cls.paddingL190,
+    200: cls.paddingL200,
+    210: cls.paddingL210,
+    220: cls.paddingL220,
+    230: cls.paddingL230,
+    240: cls.paddingL240,
+    250: cls.paddingL250,
 };
 
 const paddingLClasses: Record<FlexNumbers, string> = {
@@ -184,6 +256,18 @@ const paddingLClasses: Record<FlexNumbers, string> = {
     110: cls.paddingL110,
     120: cls.paddingL120,
     130: cls.paddingL130,
+    140: cls.paddingL140,
+    150: cls.paddingL150,
+    160: cls.paddingL160,
+    170: cls.paddingL170,
+    180: cls.paddingL180,
+    190: cls.paddingL190,
+    200: cls.paddingL200,
+    210: cls.paddingL210,
+    220: cls.paddingL220,
+    230: cls.paddingL230,
+    240: cls.paddingL240,
+    250: cls.paddingL250,
 };
 
 type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

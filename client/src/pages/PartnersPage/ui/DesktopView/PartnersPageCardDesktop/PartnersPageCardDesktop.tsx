@@ -5,7 +5,7 @@ import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { Anchor, AnchorTheme } from 'shared/ui/Anchor/Anchor';
+import { AnchorDesktop, AnchorDesktopTheme } from 'shared/ui/Anchor/DesktopView/AnchorDesktop';
 import { useTranslation } from 'react-i18next';
 import cls from './PartnersPageCardDesktop.module.scss';
 
@@ -69,12 +69,12 @@ export const PartnersPageCardDesktop = memo((props: PartnersPageCardDesktopProps
                     justify="end"
                     paddingT={30}
                 >
-                    <Anchor
-                        theme={AnchorTheme.BLUE}
+                    <AnchorDesktop
+                        theme={AnchorDesktopTheme.BLUE}
                         href={link}
                     >
                         {t('Официальная веб-страница организации')}
-                    </Anchor>
+                    </AnchorDesktop>
                 </HStack>
             </VStack>
         </VStack>

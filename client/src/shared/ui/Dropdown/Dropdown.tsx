@@ -3,6 +3,8 @@ import { HTMLAttributes, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { AppPaths } from 'shared/config/routeConfig/routeConfig';
 import ArrowDownIcon from 'shared/assets/icons/arrow-down-small-24-24-white.svg';
+import ArrowUpIcon from 'shared/assets/icons/arrow-up-small-24-24-white.svg';
+import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import cls from './Dropdown.module.scss';
 
 export interface DropdownData {
@@ -26,10 +28,12 @@ export const Dropdown = memo((props: DropdownProps) => {
         data,
         ...otherProps
     } = props;
+    const [isHovered, bindUseHover] = useHover();
 
     return (
         <div
             className={classNames(cls.Dropdown, {}, [className])}
+            {...bindUseHover}
             {...otherProps}
         >
             <Link
@@ -38,7 +42,9 @@ export const Dropdown = memo((props: DropdownProps) => {
                 className={cls.section}
             >
                 {sectionName}
-                <ArrowDownIcon />
+                {isHovered
+                    ? <ArrowUpIcon />
+                    : <ArrowDownIcon />}
                 <div
                     className={cls.sectionUnderline}
                 />
@@ -50,20 +56,20 @@ export const Dropdown = memo((props: DropdownProps) => {
                     className={cls.list}
                 >
                     {data.map(({ path, text }) => (
-                        <div
+                        <Link
                             className={cls.itemMenu}
+                            key={path}
+                            to={path}
                         >
-                            <Link
-                                to={path}
-                                key={path}
+                            <div
                                 className={cls.itemMenuText}
                             >
                                 {text}
                                 <div
                                     className={cls.underline}
                                 />
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLinkDesktop, AppLinkDesktopTheme } from 'shared/ui/AppLink/DesktopView/AppLinkDesktop';
 import cls from './FooterMenuDesktop.module.scss';
 
 interface FooterMenuDesktopProps {
@@ -30,27 +30,27 @@ export const FooterMenuDesktop = memo((props: FooterMenuDesktopProps) => {
                 gap={10}
                 maxW
             >
-                <AppLink
+                <AppLinkDesktop
                     to="#"
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Об институте')}
-                </AppLink>
-                <AppLink
+                </AppLinkDesktop>
+                <AppLinkDesktop
                     to="#"
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Научная и образовательная деятельность')}
-                </AppLink>
-                <AppLink
+                </AppLinkDesktop>
+                <AppLinkDesktop
                     to="#"
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Услуги')}
-                </AppLink>
+                </AppLinkDesktop>
             </VStack>
         </VStack>
     );

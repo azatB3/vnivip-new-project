@@ -1,8 +1,9 @@
-import {Body, Controller, Get, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Post, Query, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {MembersService} from "./members.service";
 import {CreateMemberDto} from "./dto/create-member.dto";
 import {ImageValidationPipe} from "../pipes/image-validation.pipe";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
+import {GetBySectionDto} from "./dto/get-by-section.dto";
 
 @Controller('members')
 export class MembersController {
@@ -12,6 +13,16 @@ export class MembersController {
     @Get()
     getAll() {
         return this.membersService.getAll();
+    }
+
+    @Get('departments')
+    getDepartments() {
+        return this.membersService.getDepartments();
+    }
+
+    @Get('section')
+    getBySection(@Query() dto: GetBySectionDto) {
+        return this.membersService.getBySection(dto);
     }
 
     @Post()

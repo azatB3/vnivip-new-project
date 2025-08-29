@@ -54,7 +54,7 @@ export const ParagraphDesktop = memo((props: ParagraphDesktopProps) => {
             {!!data.text && data.firstElement === 'text' && (
                 <Text
                     theme={TextTheme.DARK}
-                    size={TextSize.BODY_S_DESKTOP}
+                    size={TextSize.BODY_DESKTOP}
                     className={cls.text}
                     {...alignText()}
                 >
@@ -79,7 +79,7 @@ export const ParagraphDesktop = memo((props: ParagraphDesktopProps) => {
             {!!data.text && data.firstElement === 'media' && (
                 <Text
                     theme={TextTheme.DARK}
-                    size={TextSize.BODY_S_DESKTOP}
+                    size={TextSize.BODY_DESKTOP}
                     className={cls.text}
                     {...alignText()}
                 >

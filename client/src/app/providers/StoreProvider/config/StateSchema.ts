@@ -9,6 +9,10 @@ import { DeviceSchema } from 'entities/Device';
 import { MainPageNewsSchema } from 'pages/MainPage';
 import { NewsPageSchema } from 'pages/NewsPage';
 import { NewsDetailsPageSchema } from 'pages/NewsDetailsPage';
+import { AdministrationPageSchema } from 'pages/AdministrationPage';
+import { AcademicCouncilPageSchema } from 'pages/AcademicCouncilPage';
+import { CouncilYoungScientistsPageSchema } from 'pages/CouncilYoungScientistsPage';
+import { ScienceDepartmentsPageSchema } from 'pages/ScienceDepartmentsPage';
 
 export interface StateSchema {
     ui: UISchema;
@@ -18,6 +22,10 @@ export interface StateSchema {
     mainPageNews?: MainPageNewsSchema,
     newsPage?: NewsPageSchema,
     newsDetailsPage?: NewsDetailsPageSchema,
+    administrationPage?: AdministrationPageSchema,
+    academicCouncilPage?: AcademicCouncilPageSchema,
+    councilYoungScientistsPage?: CouncilYoungScientistsPageSchema,
+    scienceDepartmentsPage?: ScienceDepartmentsPageSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

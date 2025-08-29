@@ -1,8 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useEffect } from 'react';
 import { VStack } from 'shared/ui/Stack';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover3Img from 'shared/assets/images/cover3.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import news1Img from 'shared/assets/images/news1.jpg';
+import news2Img from 'shared/assets/images/news2.jpg';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from 'widgets/Page';
 import { useSelector } from 'react-redux';
@@ -52,9 +53,12 @@ const NewsPageDesktop = memo((props: NewsPageDesktopProps) => {
                     gap={50}
                     paddingB={100}
                 >
-                    <Cover
-                        size={CoverSize.SMALL}
-                        src={cover3Img}
+                    <CoverDesktop
+                        size={CoverDesktopSize.SMALL}
+                        src={[
+                            news2Img,
+                            news1Img,
+                        ]}
                     />
                     <VStack
                         paddingL={50}

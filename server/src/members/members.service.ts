@@ -3,6 +3,8 @@ import {InjectModel} from "@nestjs/sequelize";
 import {Member} from "./members.model";
 import {CreateMemberDto} from "./dto/create-member.dto";
 import {FilesService} from "../files/files.service";
+import {GetBySectionDto} from "./dto/get-by-section.dto";
+import {Op} from "sequelize";
 
 @Injectable()
 export class MembersService {
@@ -34,5 +36,23 @@ export class MembersService {
 
     async getAll() {
         return await this.membersRepository.findAll();
+    }
+
+    async getBySection(dto: GetBySectionDto) {
+        return await this.membersRepository.findAll({
+            where: {
+                section: dto.section,
+            }
+        })
+    }
+
+    async getDepartments() {
+        return await this.membersRepository.findAll({
+            where: {
+                section: {
+                    [Op.iLike]: `%DEPARTMENT%`
+                },
+            }
+        })
     }
 }

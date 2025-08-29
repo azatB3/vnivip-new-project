@@ -35,6 +35,10 @@
     font: var(--font-h1-desktop);
 }
 
+.h1_light_desktop {
+    font: var(--font-h1-light-desktop);
+}
+
 .h2_desktop {
     font: var(--font-h2-desktop);
 }
@@ -172,4 +176,8 @@
 
 .grey3 {
     color: var(--grey3);
+}
+
+.blue {
+    color: var(--blue);
 }

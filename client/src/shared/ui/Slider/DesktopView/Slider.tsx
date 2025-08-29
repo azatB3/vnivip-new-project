@@ -69,9 +69,8 @@ export const Slider: FC<SliderDesktopProps> = memo((props) => {
                         className={cls.cornerLower}
                     />
                 </div>
-                <VStack
-                    justify="between"
-                    maxH
+                <div
+                    className={cls.sliderRight}
                 >
                     <Text
                         theme={TextTheme.DARK2}
@@ -105,7 +104,7 @@ export const Slider: FC<SliderDesktopProps> = memo((props) => {
                             className={cls.arrow}
                         />
                     </div>
-                </VStack>
+                </div>
             </div>
         </div>
     );

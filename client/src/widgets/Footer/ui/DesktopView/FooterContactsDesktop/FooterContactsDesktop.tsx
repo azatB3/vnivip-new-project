@@ -6,7 +6,7 @@ import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import telegramIcon from 'shared/assets/icons/telegram-32-32-white.svg';
 import vkIcon from 'shared/assets/icons/vk-32-32-white.svg';
 import youtubeIcon from 'shared/assets/icons/youtube-32-32-white.svg';
-import { Anchor, AnchorTheme } from 'shared/ui/Anchor/Anchor';
+import { AnchorDesktop, AnchorDesktopTheme } from 'shared/ui/Anchor/DesktopView/AnchorDesktop';
 import cls from './FooterContactsDesktop.module.scss';
 
 interface FooterContactsDesktopProps {
@@ -97,19 +97,19 @@ export const FooterContactsDesktop = memo((props: FooterContactsDesktopProps) =>
                         align="center"
                         gap={10}
                     >
-                        <Anchor
+                        <AnchorDesktop
                             Svg={telegramIcon}
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             href="#"
                         />
-                        <Anchor
+                        <AnchorDesktop
                             Svg={vkIcon}
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             href="#"
                         />
-                        <Anchor
+                        <AnchorDesktop
                             Svg={youtubeIcon}
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             href="#"
                         />
                     </HStack>

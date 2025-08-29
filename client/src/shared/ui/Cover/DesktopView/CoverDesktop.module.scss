@@ -1,0 +1,144 @@
+.CoverDesktop {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.bgImgWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.entering {
+    animation: blink 0.5s linear;
+}
+
+.exiting {
+    animation: blink 0.5s linear;
+}
+
+.bgImgWrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    backdrop-filter: blur(10px) brightness(20%);
+    animation: LighteningBg 1s ease-in forwards;
+    animation-delay: 0.5s;
+}
+
+.bgImgWrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--black-opacity);
+    z-index: 3;
+}
+
+.bgImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.skew {
+    position: absolute;
+    width: 500px;
+    margin-left: auto;
+    top: 0;
+    bottom: 0;
+    right: 5%;
+    transform: skew(12deg);
+    box-shadow: 0 0 4px -2px var(--white4);
+}
+
+.skew::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    backdrop-filter: brightness(20%);
+    animation: Lightening 1s ease-in forwards;
+    animation-delay: 0.5s;
+}
+
+.skewImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 200px;
+    animation: Insert 0.5s ease-in forwards;
+}
+
+
+.content {
+    position: absolute;
+    z-index: 4;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    padding-inline: 55px;
+}
+
+.small {
+    height: 155px;
+    .skew {
+        width: 300px;
+        right: 1%;
+    }
+}
+
+.large {
+    height: 100vh;
+}
+
+@keyframes Lightening {
+    from {
+        backdrop-filter: brightness(20%);
+    }
+    to {
+        backdrop-filter: brightness(90%);
+    }
+}
+
+@keyframes LighteningBg {
+    from {
+        backdrop-filter: blur(10px) brightness(20%);
+    }
+    to {
+        backdrop-filter: blur(10px) brightness(90%);
+    }
+}
+
+@keyframes Insert {
+    from {
+        object-position: 70% 200px;
+    }
+    to {
+        object-position: 85% 50%;
+    }
+}
+
+@keyframes blink {
+    0% {
+        filter: contrast(1);
+    }
+    20% {
+        filter: contrast(0.6);
+    }
+    100% {
+        filter: contrast(1);
+    }
+}

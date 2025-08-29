@@ -1,46 +1,92 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover3Img from 'shared/assets/images/cover3.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import members1Img from 'shared/assets/images/members1.jpg';
+import members2Img from 'shared/assets/images/members2.jpg';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { MemberDesktop } from 'entities/Member';
 import {
-    AdministrationPageTitleDesktop,
-} from '../AdministrationPageTitleDesktop/AdministrationPageTitleDesktop';
+    getAdministrationPageInited,
+    getAdministrationPageMembers,
+} from '../../../model/selectors/getAdministrationPage';
+import { fetchAdministrationMembers } from '../../../model/services/fetchAdministrationMembers';
 import cls from './AdministrationPageDesktop.module.scss';
+import { AdministrationPageTitleDesktop } from '../AdministrationPageTitleDesktop/AdministrationPageTitleDesktop';
+import { AdministrationPageActions, AdministrationPageReducer } from '../../../model/slices/AdministrationPageSlice';
 
 interface AdministrationPageDesktopProps {
     className?: string;
 }
 
+const reducers: ReducersList = {
+    administrationPage: AdministrationPageReducer,
+};
+
 const AdministrationPageDesktop = memo((props: AdministrationPageDesktopProps) => {
     const {
         className,
     } = props;
+    const dispatch = useAppDispatch();
+    const inited = useSelector(getAdministrationPageInited);
+    const members = useSelector(getAdministrationPageMembers);
+
+    useEffect(() => {
+        if (!inited) {
+            dispatch(fetchAdministrationMembers());
+            dispatch(AdministrationPageActions.init());
+        }
+    }, [dispatch, inited]);
 
     return (
-        <Page
-            className={classNames(cls.AdministrationPageDesktop, {}, [className])}
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
         >
-            <VStack
-                maxW
-                maxH
-                gap={50}
-                paddingB={100}
+            <Page
+                className={classNames(cls.AdministrationPageDesktop, {}, [className])}
             >
-                <Cover
-                    size={CoverSize.SMALL}
-                    src={cover3Img}
-                />
                 <VStack
-                    paddingL={50}
-                    paddingR={50}
                     maxW
+                    maxH
+                    gap={50}
+                    paddingB={100}
                 >
-                    <AdministrationPageTitleDesktop />
+                    <CoverDesktop
+                        size={CoverDesktopSize.SMALL}
+                        src={[
+                            members2Img,
+                            members1Img,
+                        ]}
+                    />
+                    <VStack
+                        paddingL={50}
+                        paddingR={50}
+                        maxW
+                        gap={100}
+                    >
+                        <AdministrationPageTitleDesktop />
+                        {!!members?.length && (
+                            <VStack
+                                maxW
+                                gap={50}
+                                align="center"
+                            >
+                                {members.map((item, index) => (
+                                    <MemberDesktop
+                                        data={item}
+                                        key={index}
+                                    />
+                                ))}
+                            </VStack>
+                        )}
+                    </VStack>
                 </VStack>
-            </VStack>
-        </Page>
+            </Page>
+        </DynamicModuleLoader>
     );
 });
 

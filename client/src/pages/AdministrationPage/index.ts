@@ -8,3 +8,4 @@ export
     AdministrationPageMobileAsync
     as AdministrationPageMobile,
 } from './ui/MobileView/AdministrationPageMobile/AdministrationPageMobile.async';
+export { AdministrationPageSchema } from './model/types/AdministrationPageSchema';

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLinkDesktop, AppLinkDesktopTheme } from 'shared/ui/AppLink/DesktopView/AppLinkDesktop';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './FooterNavigationDesktop.module.scss';
 
@@ -31,27 +31,27 @@ export const FooterNavigationDesktop = memo((props: FooterNavigationDesktopProps
                 gap={10}
                 maxW
             >
-                <AppLink
+                <AppLinkDesktop
                     to={RoutePath.news}
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Новости')}
-                </AppLink>
-                <AppLink
+                </AppLinkDesktop>
+                <AppLinkDesktop
                     to={RoutePath.partners}
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Партнеры')}
-                </AppLink>
-                <AppLink
+                </AppLinkDesktop>
+                <AppLinkDesktop
                     to={RoutePath.contacts}
-                    theme={AppLinkTheme.GREY}
+                    theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Контакты')}
-                </AppLink>
+                </AppLinkDesktop>
             </VStack>
         </VStack>
     );

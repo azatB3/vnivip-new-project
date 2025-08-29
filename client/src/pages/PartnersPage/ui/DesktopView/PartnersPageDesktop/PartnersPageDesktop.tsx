@@ -3,8 +3,9 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover3Img from 'shared/assets/images/cover3.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import partners1Img from 'shared/assets/images/partners1.jpg';
+import partners2Img from 'shared/assets/images/partners2.jpg';
 import partner1Icon from 'shared/assets/icons/partner1-100-100.svg';
 import partner2Icon from 'shared/assets/icons/partner2-100-100.svg';
 import partner3Icon from 'shared/assets/icons/partner3-100-100.svg';
@@ -36,9 +37,12 @@ const PartnersPageDesktop = memo((props: PartnersPageDesktopProps) => {
                 gap={50}
                 paddingB={100}
             >
-                <Cover
-                    size={CoverSize.SMALL}
-                    src={cover3Img}
+                <CoverDesktop
+                    size={CoverDesktopSize.SMALL}
+                    src={[
+                        partners1Img,
+                        partners2Img,
+                    ]}
                 />
                 <VStack
                     paddingL={50}

@@ -3,6 +3,7 @@ import { UISchema } from '../types/UISchema';
 
 const initialState: UISchema = {
     scroll: {},
+    isLoadingPage: false,
 };
 
 export const uiSlice = createSlice({
@@ -11,6 +12,9 @@ export const uiSlice = createSlice({
     reducers: {
         setScrollPosition: (state, { payload }: PayloadAction<{ path: string; position: number }>) => {
             state.scroll[payload.path] = payload.position;
+        },
+        setIsLoadingPage: (state, action: PayloadAction<boolean>) => {
+            state.isLoadingPage = action.payload;
         },
     },
 });

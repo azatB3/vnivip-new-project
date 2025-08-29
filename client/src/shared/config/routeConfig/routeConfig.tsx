@@ -6,6 +6,10 @@ import { NewsDetailsPageDesktop, NewsDetailsPageMobile } from 'pages/NewsDetails
 import { PartnersPageDesktop, PartnersPageMobile } from 'pages/PartnersPage';
 import { ContactsPageDesktop, ContactsPageMobile } from 'pages/ContactsPage';
 import { AdministrationPageDesktop, AdministrationPageMobile } from 'pages/AdministrationPage';
+import { AcademicCouncilPageDesktop, AcademicCouncilPageMobile } from 'pages/AcademicCouncilPage';
+import { CouncilYoungScientistsPageDesktop, CouncilYoungScientistsPageMobile } from 'pages/CouncilYoungScientistsPage';
+import { ScienceDepartmentsPageDesktop, ScienceDepartmentsPageMobile } from 'pages/ScienceDepartmentsPage';
+import { AboutInstitutePageDesktop, AboutInstitutePageMobile } from 'pages/AboutInstitutePage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
@@ -18,6 +22,10 @@ export enum AppRoutes {
     PARTNERS = 'partners',
     CONTACTS = 'contacts',
     ADMINISTRATION = 'administration',
+    ACADEMIC_COUNCIL = 'academic_council',
+    COUNCIL_YOUNG_SCIENTISTS = 'council_young_scientists',
+    SCIENCE_DEPARTMENTS = 'science_departments',
+    ABOUT_INSTITUTE = 'about_institute',
     NOT_FOUND = 'not_found',
     // Админам
     ADMIN = 'admin',
@@ -30,6 +38,10 @@ export enum AppPaths {
     PARTNERS = '/partners',
     CONTACTS = '/contacts',
     ADMINISTRATION = '/administration',
+    ACADEMIC_COUNCIL = '/academic_council',
+    COUNCIL_YOUNG_SCIENTISTS = '/council_young_scientists',
+    SCIENCE_DEPARTMENTS = '/science_departments',
+    ABOUT_INSTITUTE = '/about',
     NOT_FOUND = '*',
     // Админам
     ADMIN = '/admin',
@@ -42,6 +54,10 @@ export const RoutePath: Record<AppRoutes, AppPaths> = {
     [AppRoutes.PARTNERS]: AppPaths.PARTNERS,
     [AppRoutes.CONTACTS]: AppPaths.CONTACTS,
     [AppRoutes.ADMINISTRATION]: AppPaths.ADMINISTRATION,
+    [AppRoutes.ACADEMIC_COUNCIL]: AppPaths.ACADEMIC_COUNCIL,
+    [AppRoutes.COUNCIL_YOUNG_SCIENTISTS]: AppPaths.COUNCIL_YOUNG_SCIENTISTS,
+    [AppRoutes.SCIENCE_DEPARTMENTS]: AppPaths.SCIENCE_DEPARTMENTS,
+    [AppRoutes.ABOUT_INSTITUTE]: AppPaths.ABOUT_INSTITUTE,
     [AppRoutes.NOT_FOUND]: AppPaths.NOT_FOUND,
     // Админам
     [AppRoutes.ADMIN]: AppPaths.ADMIN,
@@ -71,6 +87,22 @@ export const routeConfigDesktop: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ADMINISTRATION]: {
         path: RoutePath.administration,
         element: <AdministrationPageDesktop />,
+    },
+    [AppRoutes.ACADEMIC_COUNCIL]: {
+        path: RoutePath.academic_council,
+        element: <AcademicCouncilPageDesktop />,
+    },
+    [AppRoutes.COUNCIL_YOUNG_SCIENTISTS]: {
+        path: RoutePath.council_young_scientists,
+        element: <CouncilYoungScientistsPageDesktop />,
+    },
+    [AppRoutes.SCIENCE_DEPARTMENTS]: {
+        path: RoutePath.science_departments,
+        element: <ScienceDepartmentsPageDesktop />,
+    },
+    [AppRoutes.ABOUT_INSTITUTE]: {
+        path: RoutePath.about_institute,
+        element: <AboutInstitutePageDesktop />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
@@ -108,6 +140,22 @@ export const routeConfigMobile: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ADMINISTRATION]: {
         path: RoutePath.administration,
         element: <AdministrationPageMobile />,
+    },
+    [AppRoutes.ACADEMIC_COUNCIL]: {
+        path: RoutePath.academic_council,
+        element: <AcademicCouncilPageMobile />,
+    },
+    [AppRoutes.COUNCIL_YOUNG_SCIENTISTS]: {
+        path: RoutePath.council_young_scientists,
+        element: <CouncilYoungScientistsPageMobile />,
+    },
+    [AppRoutes.SCIENCE_DEPARTMENTS]: {
+        path: RoutePath.science_departments,
+        element: <ScienceDepartmentsPageMobile />,
+    },
+    [AppRoutes.ABOUT_INSTITUTE]: {
+        path: RoutePath.about_institute,
+        element: <AboutInstitutePageMobile />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,

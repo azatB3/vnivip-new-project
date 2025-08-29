@@ -2,8 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover3Img from 'shared/assets/images/cover3.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import contacts1Img from 'shared/assets/images/contacts1.jpg';
+import contacts2Img from 'shared/assets/images/contacts2.jpg';
 import {
     ContactsPageTitleDesktop,
 } from '../ContactsPageTitleDesktop/ContactsPageTitleDesktop';
@@ -26,9 +27,12 @@ const ContactsPageDesktop = memo((props: ContactsPageDesktopProps) => {
                 gap={50}
                 paddingB={100}
             >
-                <Cover
-                    size={CoverSize.SMALL}
-                    src={cover3Img}
+                <CoverDesktop
+                    size={CoverDesktopSize.SMALL}
+                    src={[
+                        contacts1Img,
+                        contacts2Img,
+                    ]}
                 />
                 <VStack
                     maxW

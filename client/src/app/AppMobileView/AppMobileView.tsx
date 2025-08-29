@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouterMobile } from 'app/providers/router';
 import { HeaderMobile } from 'widgets/Header';
 import { FooterMobile } from 'widgets/Footer';
+import { PageLoaderMobile } from 'widgets/PageLoader';
 
 const AppMobileView = () => {
     useEffect(() => {
@@ -20,6 +21,7 @@ const AppMobileView = () => {
             <HeaderMobile />
             <AppRouterMobile />
             <FooterMobile />
+            <PageLoaderMobile />
         </div>
     );
 };

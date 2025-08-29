@@ -2,8 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useEffect } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { useParams } from 'react-router-dom';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover3Img from 'shared/assets/images/cover3.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import news1Img from 'shared/assets/images/news1.jpg';
+import news2Img from 'shared/assets/images/news2.jpg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -52,9 +53,12 @@ const NewsDetailsPageDesktop = memo((props: NewsDetailsPageDesktopProps) => {
                     align="center"
                     maxW
                 >
-                    <Cover
-                        size={CoverSize.SMALL}
-                        src={cover3Img}
+                    <CoverDesktop
+                        size={CoverDesktopSize.SMALL}
+                        src={[
+                            news2Img,
+                            news1Img,
+                        ]}
                     />
                     {news && (
                         <VStack
@@ -90,7 +94,7 @@ const NewsDetailsPageDesktop = memo((props: NewsDetailsPageDesktopProps) => {
                                 </Text>
                                 <Text
                                     theme={TextTheme.DARK2}
-                                    size={TextSize.BODY_DESKTOP}
+                                    size={TextSize.BODY_L_DESKTOP}
                                     align={TextAlign.CENTER}
                                 >
                                     {news?.description}

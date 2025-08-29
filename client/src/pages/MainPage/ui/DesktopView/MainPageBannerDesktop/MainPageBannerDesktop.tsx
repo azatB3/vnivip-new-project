@@ -1,6 +1,8 @@
 import { memo } from 'react';
-import { Cover, CoverSize } from 'shared/ui/Cover/DesktopView/Cover';
-import cover2Img from 'shared/assets/images/cover2.jpg';
+import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
+import birds2Img from 'shared/assets/images/birds2.webp';
+import birds3Img from 'shared/assets/images/birds3.webp';
+import birds1Img from 'shared/assets/images/birds1.webp';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import arrowDownIcon from 'shared/assets/icons/arrow-down-24-24-white.svg';
@@ -8,16 +10,20 @@ import telegramIcon from 'shared/assets/icons/telegram-32-32-white.svg';
 import vkIcon from 'shared/assets/icons/vk-32-32-white.svg';
 import youtubeIcon from 'shared/assets/icons/youtube-32-32-white.svg';
 import { useTranslation } from 'react-i18next';
-import { Anchor, AnchorTheme } from 'shared/ui/Anchor/Anchor';
+import { AnchorDesktop, AnchorDesktopTheme } from 'shared/ui/Anchor/DesktopView/AnchorDesktop';
 import cls from './MainPageBannerDesktop.module.scss';
 
 export const MainPageBannerDesktop = memo(() => {
     const { t } = useTranslation('mainPage');
 
     return (
-        <Cover
-            size={CoverSize.LARGE}
-            src={cover2Img}
+        <CoverDesktop
+            size={CoverDesktopSize.LARGE}
+            src={[
+                birds2Img,
+                birds1Img,
+                birds3Img,
+            ]}
             className={cls.cover}
         >
             <VStack
@@ -44,36 +50,36 @@ export const MainPageBannerDesktop = memo(() => {
                     maxW
                     justify="between"
                 >
-                    <Anchor
+                    <AnchorDesktop
                         href="#news"
                         target="_self"
-                        theme={AnchorTheme.WHITE}
+                        theme={AnchorDesktopTheme.WHITE}
                         Svg={arrowDownIcon}
                     >
                         {t('К новостям')}
-                    </Anchor>
+                    </AnchorDesktop>
                     <HStack
                         gap={16}
                     >
-                        <Anchor
+                        <AnchorDesktop
                             href="#"
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             Svg={telegramIcon}
                         />
-                        <Anchor
+                        <AnchorDesktop
                             href="#"
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             Svg={vkIcon}
                         />
-                        <Anchor
+                        <AnchorDesktop
                             className={cls.youtubeIcon}
                             href="#"
-                            theme={AnchorTheme.WHITE}
+                            theme={AnchorDesktopTheme.WHITE}
                             Svg={youtubeIcon}
                         />
                     </HStack>
                 </HStack>
             </VStack>
-        </Cover>
+        </CoverDesktop>
     );
 });

@@ -4,21 +4,25 @@
 @import "themes/accessibility";
 
 html {
+
 }
 
 body {
     position: relative;
     overflow: hidden;
+
 }
 
 #root {
+
 }
 
 .app_desktop {
-    min-width: 1300px;
+    min-width: 1440px;
     position: relative;
     background: var(--white);
     overflow: auto;
+    min-height: 100vh;
     height: 100vh;
 }
 
@@ -26,6 +30,8 @@ body {
     min-width: 320px;
     position: relative;
     background: var(--white);
+    overflow: auto;
+    height: 100vh;
 }
 
 .menu-open-body {
@@ -36,7 +42,9 @@ body {
     overflow-y: hidden;
 }
 
-.is-loading-body {
-    overflow-y: hidden;
+.is-loading {
+    z-index: 100;
+    visibility: visible;
+    opacity: 1;
 }
 

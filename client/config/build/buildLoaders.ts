@@ -23,7 +23,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     };
 
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff2|woff|mp3|ttf)$/i,
+        test: /\.(png|jpe?g|gif|webp|woff2|woff|mp3|ttf)$/i,
         use: [
             {
                 loader: 'file-loader',

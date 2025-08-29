@@ -7,16 +7,15 @@ import searchIcon from 'shared/assets/icons/search-24-24-white.svg';
 import { HStack } from 'shared/ui/Stack';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Dropdown, DropdownData } from 'shared/ui/Dropdown/Dropdown';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLinkDesktop, AppLinkDesktopTheme } from 'shared/ui/AppLink/DesktopView/AppLinkDesktop';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { HEADER_ID } from 'shared/const/components';
 import cls from './HeaderDesktop.module.scss';
 
 interface HeaderDesktopProps {
     className?: string;
     isFixed?: boolean;
 }
-
-export const HEADER_ID = 'HEADER_ID';
 
 export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
     const {
@@ -46,19 +45,23 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             path: RoutePath.main,
             text: t('Вакансии'),
         },
+        {
+            path: RoutePath.partners,
+            text: t('Партнеры'),
+        },
     ];
 
     const educationLinks: DropdownData[] = [
         {
-            path: RoutePath.administration,
+            path: RoutePath.science_departments,
             text: t('Научные отделы'),
         },
         {
-            path: RoutePath.administration,
+            path: RoutePath.academic_council,
             text: t('Ученый совет'),
         },
         {
-            path: RoutePath.administration,
+            path: RoutePath.council_young_scientists,
             text: t('Совет молодых ученых'),
         },
         {
@@ -90,14 +93,14 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             justify="between"
             align="center"
         >
-            <AppLink
+            <AppLinkDesktop
                 to={RoutePath.main}
             >
                 <Icon
                     Svg={mainLogo}
                     theme={IconTheme.CLICKABLE}
                 />
-            </AppLink>
+            </AppLinkDesktop>
             <HStack
                 gap={50}
                 maxH
@@ -105,7 +108,7 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             >
                 <Dropdown
                     sectionName={t('Об институте')}
-                    sectionPath={RoutePath.main}
+                    sectionPath={RoutePath.about_institute}
                     data={aboutInstituteLinks}
                     key={1}
                 />
@@ -121,24 +124,18 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                     data={servicesLinks}
                     key={3}
                 />
-                <AppLink
-                    theme={AppLinkTheme.WHITE}
+                <AppLinkDesktop
+                    theme={AppLinkDesktopTheme.WHITE}
                     to={RoutePath.news}
                 >
                     {t('Новости')}
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.WHITE}
-                    to={RoutePath.partners}
-                >
-                    {t('Партнеры')}
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.WHITE}
+                </AppLinkDesktop>
+                <AppLinkDesktop
+                    theme={AppLinkDesktopTheme.WHITE}
                     to={RoutePath.contacts}
                 >
                     {t('Контакты')}
-                </AppLink>
+                </AppLinkDesktop>
             </HStack>
             <HStack
                 gap={30}

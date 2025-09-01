@@ -15,7 +15,7 @@ interface CoverMobileProps extends HTMLAttributes<HTMLDivElement>{
     images: string[];
 }
 
-export const CoverMobile: FC<CoverMobileProps> = (props) => {
+export const CoverMobile: FC<CoverMobileProps> = memo((props) => {
     const {
         className,
         children,
@@ -86,4 +86,4 @@ export const CoverMobile: FC<CoverMobileProps> = (props) => {
             ))}
         </div>
     );
-};
+});

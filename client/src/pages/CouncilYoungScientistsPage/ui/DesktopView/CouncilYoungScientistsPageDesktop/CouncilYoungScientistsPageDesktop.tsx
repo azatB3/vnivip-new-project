@@ -62,7 +62,7 @@ const CouncilYoungScientistsPageDesktop = memo((props: CouncilYoungScientistsPag
                 >
                     <CoverDesktop
                         size={CoverDesktopSize.SMALL}
-                        src={[
+                        images={[
                             books2Img,
                             books1Img,
                         ]}

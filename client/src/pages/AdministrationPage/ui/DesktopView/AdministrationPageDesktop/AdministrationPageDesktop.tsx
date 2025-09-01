@@ -57,7 +57,7 @@ const AdministrationPageDesktop = memo((props: AdministrationPageDesktopProps) =
                 >
                     <CoverDesktop
                         size={CoverDesktopSize.SMALL}
-                        src={[
+                        images={[
                             members2Img,
                             members1Img,
                         ]}

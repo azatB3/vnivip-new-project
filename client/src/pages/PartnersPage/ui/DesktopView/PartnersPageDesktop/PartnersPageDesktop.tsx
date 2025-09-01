@@ -39,7 +39,7 @@ const PartnersPageDesktop = memo((props: PartnersPageDesktopProps) => {
             >
                 <CoverDesktop
                     size={CoverDesktopSize.SMALL}
-                    src={[
+                    images={[
                         partners1Img,
                         partners2Img,
                     ]}

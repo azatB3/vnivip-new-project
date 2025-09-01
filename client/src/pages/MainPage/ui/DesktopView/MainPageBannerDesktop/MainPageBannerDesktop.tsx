@@ -19,7 +19,7 @@ export const MainPageBannerDesktop = memo(() => {
     return (
         <CoverDesktop
             size={CoverDesktopSize.LARGE}
-            src={[
+            images={[
                 birds2Img,
                 birds1Img,
                 birds3Img,
@@ -42,6 +42,7 @@ export const MainPageBannerDesktop = memo(() => {
                     <Text
                         theme={TextTheme.WHITE}
                         size={TextSize.H2_LIGHT_DESKTOP}
+                        className={cls.instituteNameLower}
                     >
                         {t('филиал ФНЦ ВНИТИП')}
                     </Text>

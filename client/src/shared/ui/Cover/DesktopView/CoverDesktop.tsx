@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import {
     FC, HTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
-import { Transition } from 'react-transition-group';
 import cls from './CoverDesktop.module.scss';
 
 export enum CoverDesktopSize {
@@ -13,7 +12,7 @@ export enum CoverDesktopSize {
 interface CoverDesktopProps extends HTMLAttributes<HTMLDivElement>{
     className?: string;
     size?: CoverDesktopSize;
-    src: string[];
+    images: string[];
 }
 
 export const CoverDesktop: FC<CoverDesktopProps> = memo((props) => {
@@ -21,27 +20,25 @@ export const CoverDesktop: FC<CoverDesktopProps> = memo((props) => {
         className,
         children,
         size = CoverDesktopSize.SMALL,
-        src = [],
+        images = [],
         ...otherProps
     } = props;
     const [currentSrc, setCurrentSrc] = useState<number>(0);
-    const [trigger, setTrigger] = useState<boolean>(false);
     const ref = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     useEffect(() => {
         ref.current = setTimeout(() => {
-            if (currentSrc === src.length - 1) {
+            if (currentSrc === images.length - 1) {
                 setCurrentSrc(0);
             } else {
                 setCurrentSrc((prevState) => prevState + 1);
             }
-            setTrigger((prevState) => !prevState);
         }, 20 * 1000);
 
         return () => {
             clearTimeout(ref.current);
         };
-    }, [currentSrc, src.length]);
+    }, [currentSrc, images.length]);
 
     return (
         <div
@@ -53,31 +50,40 @@ export const CoverDesktop: FC<CoverDesktopProps> = memo((props) => {
             >
                 {children}
             </div>
-            <Transition
-                in={trigger}
-                timeout={1000}
-            >
-                {(state) => (
+            {images.map((src, index) => (
+                <div
+                    className={classNames(cls.slide, { [cls.firstSlide]: index === 0, [cls.activeSlide]: currentSrc === index }, [])}
+                    aria-hidden={currentSrc !== index}
+                >
                     <div
-                        className={`${cls.bgImgWrapper} ${cls[state]}`}
+                        className={cls.slideBg}
                     >
                         <img
-                            src={src[currentSrc]}
-                            className={cls.bgImg}
-                            alt="bgImg"
+                            src={src}
+                            alt=""
                         />
+                    </div>
+                    <div
+                        className={cls.skewShadow}
+                    />
+                    <div
+                        className={cls.skew}
+                    >
                         <div
-                            className={cls.skew}
+                            className={cls.skewOver}
                         >
-                            <img
-                                src={src[currentSrc]}
-                                className={cls.skewImg}
-                                alt="coverDesktopSkew"
-                            />
+                            <div
+                                className={cls.imgWrapper}
+                            >
+                                <img
+                                    src={src}
+                                    alt=""
+                                />
+                            </div>
                         </div>
                     </div>
-                )}
-            </Transition>
+                </div>
+            ))}
         </div>
     );
 });

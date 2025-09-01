@@ -1,5 +1,4 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
     const location = useLocation();

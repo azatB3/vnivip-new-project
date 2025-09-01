@@ -1,96 +1,39 @@
 .PageLoaderDesktop {
-    position: fixed;
+    position: absolute;
     overflow: hidden;
-    top: 0;
+    width: 100%;
+    height: 100%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 110;
-    background: var(--blue);
+    top: 0;
+    z-index: 999;
+    pointer-events: none;
+    visibility: visible;
+    opacity: 1;
+    background-color: var(--blue);
     cursor: wait;
+    will-change: opacity;
 }
 
-.pulseWrapper {
-    position: relative;
+.loadingDone {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
 }
 
 .icon {
-    position: relative;
-    z-index: 2;
-    transform: scale(1);
-    animation: Blink 2s ease infinite;
+    opacity: 0;
+    animation: blink 2s ease-in-out infinite;
 }
 
-.pulse {
-    position: absolute;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 4%;
-    content: '';
-    background: var(--white);
-    opacity: 1;
-    transform: scale(1);
-    animation: Pulse1 2s ease infinite;
-}
-
-.pulse2 {
-    position: absolute;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 4%;
-    content: '';
-    background: var(--white);
-    opacity: 1;
-    transform: scale(1);
-    animation: Pulse2 2s ease infinite;
-}
-
-@keyframes Blink {
+@keyframes blink {
     0% {
-        transform: scale(1);
+        opacity: 0;
     }
-    5% {
-        transform: scale(0.95);
-    }
-    10% {
-        transform: scale(1);
-    }
-    20% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scale(0.95);
-    }
-    30% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes Pulse1 {
-    5% {
+    50% {
         opacity: 1;
-        transform: scale(1);
     }
     100% {
         opacity: 0;
-        transform: scale(6);
     }
 }
 
-@keyframes Pulse2 {
-    25% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(6);
-    }
-}

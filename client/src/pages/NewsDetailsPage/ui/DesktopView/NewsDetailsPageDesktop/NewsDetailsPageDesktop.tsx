@@ -55,7 +55,7 @@ const NewsDetailsPageDesktop = memo((props: NewsDetailsPageDesktopProps) => {
                 >
                     <CoverDesktop
                         size={CoverDesktopSize.SMALL}
-                        src={[
+                        images={[
                             news2Img,
                             news1Img,
                         ]}

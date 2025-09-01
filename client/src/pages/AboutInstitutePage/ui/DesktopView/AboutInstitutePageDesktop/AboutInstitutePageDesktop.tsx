@@ -31,7 +31,7 @@ const AboutInstitutePageDesktop = memo((props: AboutInstitutePageDesktopProps) =
             >
                 <CoverDesktop
                     size={CoverDesktopSize.SMALL}
-                    src={[
+                    images={[
                         history1Img,
                         history2Img,
                     ]}

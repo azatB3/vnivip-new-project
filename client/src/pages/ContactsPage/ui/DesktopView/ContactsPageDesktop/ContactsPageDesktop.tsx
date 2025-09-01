@@ -29,7 +29,7 @@ const ContactsPageDesktop = memo((props: ContactsPageDesktopProps) => {
             >
                 <CoverDesktop
                     size={CoverDesktopSize.SMALL}
-                    src={[
+                    images={[
                         contacts1Img,
                         contacts2Img,
                     ]}

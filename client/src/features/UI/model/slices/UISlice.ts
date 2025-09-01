@@ -3,7 +3,7 @@ import { UISchema } from '../types/UISchema';
 
 const initialState: UISchema = {
     scroll: {},
-    isLoadingPage: false,
+    isLoadingPage: true,
 };
 
 export const uiSlice = createSlice({

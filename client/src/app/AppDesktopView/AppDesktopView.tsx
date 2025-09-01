@@ -11,6 +11,7 @@ import { getUIScrollByPath, uiActions } from 'features/UI';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import { APP_DESKTOP_ID } from 'shared/const/components';
+import { PageLoaderDesktop } from 'widgets/PageLoader';
 
 const AppDesktopView = () => {
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -37,12 +38,14 @@ const AppDesktopView = () => {
             ref={wrapperRef}
             onScroll={onScroll}
             id={APP_DESKTOP_ID}
+
         >
             <HeaderDesktop
                 isFixed={scrollPosition > 400}
             />
             <AppRouterDesktop />
             <FooterDesktop />
+            <PageLoaderDesktop />
         </div>
     );
 };

@@ -47,14 +47,23 @@ export const HeaderMobile = memo((props: HeaderMobileProps) => {
                     theme={IconTheme.CLICKABLE}
                 />
             </AppLinkDesktop>
-            <Portal>
+            {isOpenBurgerMenu && (
+                <Portal>
+                    <Icon
+                        Svg={burgerMenuActiveIcon}
+                        theme={IconTheme.CLICKABLE}
+                        onClick={bindUseModal.onCloseModal}
+                        className={cls.burgerIconAbsolute}
+                    />
+                </Portal>
+            )}
+            {!isOpenBurgerMenu && (
                 <Icon
-                    Svg={isOpenBurgerMenu ? burgerMenuActiveIcon : burgerMenuDefaultIcon}
+                    Svg={burgerMenuDefaultIcon}
                     theme={IconTheme.CLICKABLE}
-                    onClick={isOpenBurgerMenu ? bindUseModal.onCloseModal : bindUseModal.onShowModal}
-                    className={cls.burgerIconAbsolute}
+                    onClick={bindUseModal.onShowModal}
                 />
-            </Portal>
+            )}
             <BurgerMenuMobile
                 isOpen={isOpenBurgerMenu}
                 onClose={bindUseModal.onCloseModal}

@@ -39,7 +39,8 @@ export const MainPageBannerMobile = memo((props: MainPageBannerMobileProps) => {
             <VStack
                 maxW
                 maxH
-                gap={240}
+                className={cls.content}
+                justify="between"
             >
                 <VStack
                     gap={10}

@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
+import { MainPageAboutUsMobile } from 'pages/MainPage/ui/MobileView/MainPageAboutUsMobile/MainPageAboutUsMobile';
 import cls from './MainPageMobile.module.scss';
 import { MainPageBannerMobile } from '../MainPageBannerMobile/MainPageBannerMobile';
 
@@ -18,8 +19,16 @@ const MainPageMobile = (props: MainPageMobileProps) => {
             <VStack
                 maxW
                 maxH
+                gap={30}
             >
                 <MainPageBannerMobile />
+                <VStack
+                    maxW
+                    paddingL={10}
+                    paddingR={10}
+                >
+                    <MainPageAboutUsMobile />
+                </VStack>
             </VStack>
         </Page>
     );

@@ -38,7 +38,6 @@ const AppDesktopView = () => {
             ref={wrapperRef}
             onScroll={onScroll}
             id={APP_DESKTOP_ID}
-
         >
             <HeaderDesktop
                 isFixed={scrollPosition > 400}

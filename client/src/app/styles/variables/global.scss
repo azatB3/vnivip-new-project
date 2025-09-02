@@ -90,6 +90,11 @@
 
     // -------------------------------- MOBILE FONTS -------------------------------------------------
 
+    // LARGE
+    --font-size-large-mobile: 34px;
+    --font-line-large-mobile: 37.4px;
+    --font-large-mobile: 600 var(--font-size-large-mobile) / var(--font-line-large-mobile) var(--font-family-main);
+
     // H1
     --font-size-h1-mobile: 28px;
     --font-line-h1-mobile: 30.8px;
@@ -131,8 +136,8 @@
     --font-h3-medium-mobile: 600 var(--font-size-h3-medium-mobile) / var(--font-line-h3-medium-mobile) var(--font-family-main);
 
     // BodyL
-    --font-size-body-l-mobile: 17px;
-    --font-line-body-l-mobile: 18.7px;
+    --font-size-body-l-mobile: 18px;
+    --font-line-body-l-mobile: 19.8px;
     --font-body-l-mobile: 500 var(--font-size-body-l-mobile) / var(--font-line-body-l-mobile) var(--font-family-main);
 
     // Body

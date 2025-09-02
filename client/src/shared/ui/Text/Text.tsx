@@ -41,6 +41,7 @@ export enum TextSize {
     MENU_LARGE_ITALIC_DESKTOP = 'menu_large_italic_desktop',
     MENU_LARGE_ITALIC_MEDIUM_DESKTOP = 'menu_large_italic_medium_desktop',
     // mobile
+    LARGE_MOBILE = 'large_mobile',
     H1_MOBILE = 'h1_mobile',
     H1_MINI_MOBILE = 'h1_mini_mobile',
     H1_MINI_ITALIC_MOBILE = 'h1_mini_italic_mobile',
@@ -89,6 +90,7 @@ const mapSizeToTextTag: Record<TextSize, TextTagType> = {
     [TextSize.MENU_LARGE_ITALIC_DESKTOP]: 'p',
     [TextSize.MENU_LARGE_ITALIC_MEDIUM_DESKTOP]: 'p',
     // mobile
+    [TextSize.LARGE_MOBILE]: 'h1',
     [TextSize.H1_MOBILE]: 'h1',
     [TextSize.H1_MINI_MOBILE]: 'h1',
     [TextSize.H1_MINI_ITALIC_MOBILE]: 'h1',

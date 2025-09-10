@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { Page } from 'widgets/Page';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
-import history1Img from 'shared/assets/images/history1.jpg';
-import history2Img from 'shared/assets/images/history2.jpg';
+import history1Img from 'shared/assets/images/history1.webp';
+import history2Img from 'shared/assets/images/history2.webp';
 import cls from './AboutInstitutePageDesktop.module.scss';
 import {
     AboutInstitutePageLeftDesktop,

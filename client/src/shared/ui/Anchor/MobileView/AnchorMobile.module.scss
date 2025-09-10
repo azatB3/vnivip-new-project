@@ -5,6 +5,22 @@
     gap: 5px
 }
 
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
 .white {
     color: var(--white4);
     font: var(--font-body-mobile);

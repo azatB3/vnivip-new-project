@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { HEADER_ID } from 'shared/const/components';
 import { HStack } from 'shared/ui/Stack';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';

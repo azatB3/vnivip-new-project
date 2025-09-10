@@ -1,16 +1,19 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { Slider } from 'shared/ui/Slider/DesktopView/Slider';
-import laboratory3Img from 'shared/assets/images/laboratory3.jpg';
-import laboratory4Img from 'shared/assets/images/laboratory4.jpg';
-import laboratory2Img from 'shared/assets/images/laboratory2.jpg';
+import { SliderDesktop } from 'shared/ui/Slider/DesktopView/SliderDesktop';
+import laboratory3Img from 'shared/assets/images/laboratory3.webp';
+import laboratory4Img from 'shared/assets/images/laboratory4.webp';
+import laboratory2Img from 'shared/assets/images/laboratory2.webp';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { ButtonDesktop, ButtonDesktopTheme } from 'shared/ui/Button/DesktopView/ButtonDesktop';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './MainPageGalleryDesktop.module.scss';
 
 export const MainPageGalleryDesktop = memo(() => {
     const { t } = useTranslation('mainPage');
+    const navigate = useNavigate();
 
     return (
         <VStack
@@ -36,7 +39,7 @@ export const MainPageGalleryDesktop = memo(() => {
                     {t('слайдер текст верхний')}
                 </Text>
             </HStack>
-            <Slider
+            <SliderDesktop
                 images={[
                     { src: laboratory2Img, alt: 'laboratory2Img' },
                     { src: laboratory3Img, alt: 'laboratory3Img' },
@@ -55,11 +58,12 @@ export const MainPageGalleryDesktop = memo(() => {
                 >
                     {t('слайдер текст нижний')}
                 </Text>
-                <Button
-                    theme={ButtonTheme.PRIMARY}
+                <ButtonDesktop
+                    theme={ButtonDesktopTheme.PRIMARY}
+                    onClick={() => navigate(RoutePath.about_institute)}
                 >
                     {t('Об институте')}
-                </Button>
+                </ButtonDesktop>
             </HStack>
         </VStack>
     );

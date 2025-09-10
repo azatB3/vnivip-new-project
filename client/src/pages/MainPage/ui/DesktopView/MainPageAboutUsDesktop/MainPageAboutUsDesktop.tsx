@@ -4,7 +4,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { Card } from 'shared/ui/Card/Card';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ImageDesktop } from 'shared/ui/Image';
-import laboratoryImg from 'shared/assets/images/laboratory1.jpg';
+import laboratoryImg from 'shared/assets/images/laboratory1.webp';
 import cls from './MainPageAboutUsDesktop.module.scss';
 
 export const MainPageAboutUsDesktop = memo(() => {

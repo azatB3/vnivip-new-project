@@ -32,7 +32,7 @@ export class FilesService {
                         fit: sharp.fit.inside,
                         withoutEnlargement: true
                     })
-                    .webp({ quality: 100 })
+                    .webp({ quality: 80 })
                     .toFile(filePath)
                     .then(() => {
                         console.log('Added new image: ' + filePath)

@@ -9,10 +9,18 @@ export enum AnchorMobileTheme {
     BLUE = 'blue',
 }
 
+export enum AnchorAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
+    JUSTIFY = 'justify',
+}
+
 interface AnchorMobileProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     className?: string;
     theme?: AnchorMobileTheme;
     Svg?: React.VFC<React.SVGProps<SVGSVGElement>>;
+    align?: AnchorAlign;
 }
 
 export const AnchorMobile: FC<AnchorMobileProps> = memo((props) => {
@@ -23,6 +31,7 @@ export const AnchorMobile: FC<AnchorMobileProps> = memo((props) => {
         target = '_blank',
         theme = AnchorMobileTheme.CLEAN,
         Svg,
+        align = AnchorAlign.LEFT,
         ...otherProps
     } = props;
     const { t } = useTranslation();
@@ -30,7 +39,7 @@ export const AnchorMobile: FC<AnchorMobileProps> = memo((props) => {
     return (
         <a
             {...otherProps}
-            className={classNames(cls.AnchorMobile, {}, [className, cls[theme]])}
+            className={classNames(cls.AnchorMobile, {}, [className, cls[theme], cls[align]])}
             href={href}
             target={target}
         >

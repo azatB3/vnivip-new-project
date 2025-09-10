@@ -11,7 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { Input } from 'shared/ui/Input/Input';
-import { Tabs } from 'shared/ui/Tabs/Tabs';
+import { TabsDesktop } from 'shared/ui/Tabs/DesktopView/TabsDesktop';
 import { fetchNews } from '../../../model/services/fetchNews';
 import { fetchNewsNextPage } from '../../../model/services/fetchNewsNextPage';
 import cls from './NewsPageListDesktop.module.scss';
@@ -127,7 +127,7 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
                     onChange={onChangeSearch}
                     className={cls.inputSearch}
                 />
-                <Tabs
+                <TabsDesktop
                     value={order}
                     onTabClick={onTabClick}
                     tabs={[

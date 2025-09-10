@@ -5,8 +5,8 @@ import { Card } from 'shared/ui/Card/Card';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { ImageDesktop } from 'shared/ui/Image';
-import laboratoryImg from 'shared/assets/images/laboratory1.jpg';
+import { ImageMobile } from 'shared/ui/Image';
+import laboratoryImg from 'shared/assets/images/laboratory1.webp';
 import cls from './MainPageAboutUsMobile.module.scss';
 
 interface MainPageAboutUsMobileProps {
@@ -57,7 +57,7 @@ export const MainPageAboutUsMobile = memo((props: MainPageAboutUsMobileProps) =>
                 maxW
                 align="center"
             >
-                <ImageDesktop
+                <ImageMobile
                     src={laboratoryImg}
                     borderR={50}
                     className={cls.img}

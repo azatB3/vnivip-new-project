@@ -51,7 +51,9 @@ const AppMobileView = () => {
             onScroll={onScroll}
             id={APP_MOBILE_ID}
         >
-            <HeaderMobile />
+            <HeaderMobile
+                isFixed={scrollPosition > 400}
+            />
             <AppRouterMobile />
             <FooterMobile />
             <PageLoaderMobile />

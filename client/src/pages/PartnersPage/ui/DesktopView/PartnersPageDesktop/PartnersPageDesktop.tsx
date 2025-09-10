@@ -4,20 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
 import { CoverDesktop, CoverDesktopSize } from 'shared/ui/Cover/DesktopView/CoverDesktop';
-import partners1Img from 'shared/assets/images/partners1.jpg';
-import partners2Img from 'shared/assets/images/partners2.jpg';
+import partners1Img from 'shared/assets/images/partners1.webp';
+import partners2Img from 'shared/assets/images/partners2.webp';
 import partner1Icon from 'shared/assets/icons/partner1-100-100.svg';
 import partner2Icon from 'shared/assets/icons/partner2-100-100.svg';
-import partner3Icon from 'shared/assets/icons/partner3-100-100.svg';
 import partner4Icon from 'shared/assets/icons/partner4-100-100.svg';
 import partner5Icon from 'shared/assets/icons/partner5-230-100.svg';
-import {
-    PartnersPageTitleDesktop,
-} from '../PartnersPageTitleDesktop/PartnersPageTitleDesktop';
+import { PartnersPageTitleDesktop } from '../PartnersPageTitleDesktop/PartnersPageTitleDesktop';
 import cls from './PartnersPageDesktop.module.scss';
-import {
-    PartnersPageCardDesktop,
-} from '../PartnersPageCardDesktop/PartnersPageCardDesktop';
+import { PartnersPageCardDesktop } from '../PartnersPageCardDesktop/PartnersPageCardDesktop';
 
 interface PartnersPageDesktopProps {
     className?: string;
@@ -67,12 +62,6 @@ const PartnersPageDesktop = memo((props: PartnersPageDesktopProps) => {
                             name={t('Российский птицеводческий союз')}
                             description={t('описание сотрудничества с российским птицеводческим союзом')}
                             link="http://rps.ru/"
-                        />
-                        <PartnersPageCardDesktop
-                            Svg={partner3Icon}
-                            name={t('Российский фонд фундаментальных исследований')}
-                            description={t('описание сотрудничества с российским фондом фундаментальных исследований')}
-                            link="https://www.rfbr.ru/"
                         />
                         <PartnersPageCardDesktop
                             Svg={partner4Icon}

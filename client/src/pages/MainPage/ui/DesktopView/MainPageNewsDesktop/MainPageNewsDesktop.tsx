@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Spinner } from 'shared/ui/Spinner/Spinner';
+import { SpinnerDesktop } from 'shared/ui/Spinner/DesktopView/SpinnerDesktop';
 import { MainNewsDesktop, SmallNewsDesktop } from 'entities/News';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ArrowRightIcon from 'shared/assets/icons/arrow-right-50-39-white.svg';
@@ -42,7 +42,7 @@ export const MainPageNewsDesktop = memo(() => {
                         >
                             {t('СОБЫТИЯ')}
                         </Text>
-                        <Spinner
+                        <SpinnerDesktop
                             className={cls.spinner}
                         />
                     </div>
@@ -114,7 +114,7 @@ export const MainPageNewsDesktop = memo(() => {
                     >
                         {t('СОБЫТИЯ')}
                     </Text>
-                    <Spinner
+                    <SpinnerDesktop
                         className={cls.spinner}
                     />
                 </div>

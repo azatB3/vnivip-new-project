@@ -50,7 +50,6 @@ export const PartnersPageCardDesktop = memo((props: PartnersPageCardDesktopProps
                 <Text
                     theme={TextTheme.DARK2}
                     size={TextSize.H4_MEDIUM_DESKTOP}
-                    className={cls.h2}
                     align={TextAlign.CENTER}
                 >
                     {name}
@@ -58,7 +57,6 @@ export const PartnersPageCardDesktop = memo((props: PartnersPageCardDesktopProps
                 <Text
                     theme={TextTheme.DARK}
                     size={TextSize.BODY_S_DESKTOP}
-                    className={cls.h2}
                     align={TextAlign.JUSTIFY}
                     textIndent
                 >

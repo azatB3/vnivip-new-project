@@ -51,8 +51,10 @@ export enum TextSize {
     H3_MOBILE = 'h3_mobile',
     H3_MEDIUM_MOBILE = 'h3_medium_mobile',
     BODY_L_MOBILE = 'body_l_mobile',
+    BODY_L_MEDIUM_MOBILE = 'body_l_medium_mobile',
     BODY_MOBILE = 'body_mobile',
     BODY_MEDIUM_MOBILE = 'body_medium_mobile',
+    BODY_S_MOBILE = 'body_s_mobile',
     BODY_MINI_MOBILE = 'body_mini_mobile',
 }
 
@@ -100,8 +102,10 @@ const mapSizeToTextTag: Record<TextSize, TextTagType> = {
     [TextSize.H3_MOBILE]: 'h3',
     [TextSize.H3_MEDIUM_MOBILE]: 'h3',
     [TextSize.BODY_L_MOBILE]: 'p',
+    [TextSize.BODY_L_MEDIUM_MOBILE]: 'p',
     [TextSize.BODY_MOBILE]: 'p',
     [TextSize.BODY_MEDIUM_MOBILE]: 'p',
+    [TextSize.BODY_S_MOBILE]: 'p',
     [TextSize.BODY_MINI_MOBILE]: 'p',
 };
 

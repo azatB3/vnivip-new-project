@@ -51,7 +51,7 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
             </HStack>
             <Text
                 theme={TextTheme.DARK}
-                size={TextSize.BODY_S_MEDIUM_DESKTOP}
+                size={TextSize.BODY_MEDIUM_DESKTOP}
                 className={cls.title}
             >
                 {data.title}

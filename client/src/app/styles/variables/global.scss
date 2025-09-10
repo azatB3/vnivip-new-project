@@ -91,8 +91,8 @@
     // -------------------------------- MOBILE FONTS -------------------------------------------------
 
     // LARGE
-    --font-size-large-mobile: 34px;
-    --font-line-large-mobile: 37.4px;
+    --font-size-large-mobile: 38px;
+    --font-line-large-mobile: 41.8px;
     --font-large-mobile: 600 var(--font-size-large-mobile) / var(--font-line-large-mobile) var(--font-family-main);
 
     // H1
@@ -126,8 +126,8 @@
     --font-h2-italic-mobile: 400 italic var(--font-size-h2-italic-mobile) / var(--font-line-h2-italic-mobile) var(--font-family-main);
 
     // H3
-    --font-size-h3-mobile: 20px;
-    --font-line-h3-mobile: 22px;
+    --font-size-h3-mobile: 22px;
+    --font-line-h3-mobile: 24.2px;
     --font-h3-mobile: 500 var(--font-size-h3-mobile) / var(--font-line-h3-mobile) var(--font-family-main);
 
     // H3-MEDIUM
@@ -140,20 +140,35 @@
     --font-line-body-l-mobile: 19.8px;
     --font-body-l-mobile: 500 var(--font-size-body-l-mobile) / var(--font-line-body-l-mobile) var(--font-family-main);
 
+    // BodyL-MEDIUM
+    --font-size-body-l-medium-mobile: 18px;
+    --font-line-body-l-medium-mobile: 19.8px;
+    --font-body-l-medium-mobile: 600 var(--font-size-body-l-medium-mobile) / var(--font-line-body-l-medium-mobile) var(--font-family-main);
+
     // Body
-    --font-size-body-mobile: 14px;
-    --font-line-body-mobile: 15.4px;
+    --font-size-body-mobile: 16px;
+    --font-line-body-mobile: 17.6px;
     --font-body-mobile: 500 var(--font-size-body-mobile) / var(--font-line-body-mobile) var(--font-family-main);
 
     // Body-MEDIUM
-    --font-size-body-medium-mobile: 14px;
-    --font-line-body-medium-mobile: 15.4px;
+    --font-size-body-medium-mobile: 16px;
+    --font-line-body-medium-mobile: 17.6px;
     --font-body-medium-mobile: 600 var(--font-size-body-medium-mobile) / var(--font-line-body-medium-mobile) var(--font-family-main);
+
+    // BodyS
+    --font-size-body-s-mobile: 14px;
+    --font-line-body-s-mobile: 15.4px;
+    --font-body-s-mobile: 500 var(--font-size-body-s-mobile) / var(--font-line-body-s-mobile) var(--font-family-main);
 
     // Body-MINI
     --font-size-body-mini-mobile: 11px;
     --font-line-body-mini-mobile: 12.1px;
     --font-body-mini-mobile: 500 var(--font-size-body-mini-mobile) / var(--font-line-body-mini-mobile) var(--font-family-main);
+
+    // BUTTON
+    --font-size-button-mobile: 16px;
+    --font-line-button-mobile: 17.6px;
+    --font-button-mobile: 500 var(--font-size-button-mobile) / var(--font-line-button-mobile) var(--font-family-main);
 
     // -------------------------------- OTHERS -------------------------------------------------
 

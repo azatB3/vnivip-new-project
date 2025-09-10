@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import React, { CSSProperties, FC, memo } from 'react';
+import React, { FC, memo } from 'react';
 import cls from './ImageMobile.module.scss';
 
 type ImageNumbers =
@@ -46,9 +45,6 @@ const borderRClasses: Record<ImageNumbers, string> = {
 
 interface ImageMobileProps extends React.ImgHTMLAttributes<HTMLImageElement>{
     borderR?: ImageNumbers;
-    maxW?: boolean;
-    width?: number;
-    height?: number;
 }
 
 export const ImageMobile: FC<ImageMobileProps> = memo((props) => {
@@ -57,28 +53,18 @@ export const ImageMobile: FC<ImageMobileProps> = memo((props) => {
         alt = '',
         src,
         borderR,
-        maxW,
-        height = 200,
-        width = 200,
     } = props;
 
     const classes: (string | undefined)[] = [
         className,
         borderR && borderRClasses[borderR],
-        maxW ? cls.maxW : undefined,
     ];
-
-    const style: CSSProperties = {
-        width: `${width}px`,
-        height: `${height}px`,
-    };
 
     return (
         <img
             alt={alt}
-            style={style}
             src={src}
-            className={classNames(cls.ImageDesktop, {}, classes)}
+            className={classNames(cls.ImageMobile, {}, classes)}
         />
     );
 });

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { MemberSections, MemberSmallDesktop } from 'entities/Member';
+import { MemberSmallDesktop } from 'entities/Member';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import cls from './ScienceDepartmentsPageVirologyDesktop.module.scss';

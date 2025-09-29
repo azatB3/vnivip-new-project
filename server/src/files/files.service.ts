@@ -6,6 +6,7 @@ import * as sharp from 'sharp';
 import * as ffmpeg from 'fluent-ffmpeg';
 import * as ffmpegPath from 'ffmpeg-static';
 import {CreateVideoResult} from "./types/create-video-result";
+import {CreateDocumentResult} from "./types/create-document-result";
 ffmpeg.setFfmpegPath(ffmpegPath);
 
 @Injectable()
@@ -97,6 +98,46 @@ export class FilesService {
             };
         } catch (e) {
             throw new HttpException(`An error occurred white writing the video ${file.filename}`, HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
+
+    async createDocument(file: Express.Multer.File): Promise<CreateDocumentResult> {
+        try {
+            const staticPath = path.resolve(__dirname, '..', 'static', 'documents');
+
+            // Создаем папки если их нет
+            await new Promise<void>((resolve) => {
+                if (!fs.existsSync(staticPath)) {
+                    fs.mkdirSync(staticPath, { recursive: true });
+                }
+                resolve()
+            })
+
+            // Сохраняем документ
+            if (!file.originalname.includes('.')) {
+                throw new HttpException(`file have not extension`, HttpStatus.BAD_REQUEST);
+            }
+            const fileExtension = file.originalname.split('.').pop();
+            if(!fileExtension) {
+                throw new HttpException(`file have empty extension`, HttpStatus.BAD_REQUEST);
+            }
+            const fileName = uuid.v4() + '.' + fileExtension;
+            const filePath = path.join(staticPath, fileName);
+            await new Promise<void>((resolve, reject) => {
+                fs.writeFileSync(filePath, file.buffer);
+                console.log('Added new document: ' + filePath);
+                resolve();
+            })
+
+
+            return {
+                staticPath: fileName,
+                name: file.originalname,
+                size: file.size,
+            };
+        } catch (e) {
+            console.log(e);
+            throw new HttpException(`An error occurred white writing the image ${file.filename}`, HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 }

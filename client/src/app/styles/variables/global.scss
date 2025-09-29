@@ -53,6 +53,16 @@
     --font-line-body-l-desktop: 24.2px;
     --font-body-l-desktop: 500 var(--font-size-body-l-desktop) / var(--font-line-body-l-desktop) var(--font-family-main);
 
+    // BodyL-LIGHT
+    --font-size-body-l-light-desktop: 22px;
+    --font-line-body-l-light-desktop: 24.2px;
+    --font-body-l-light-desktop: 450 var(--font-size-body-l-light-desktop) / var(--font-line-body-l-light-desktop) var(--font-family-main);
+
+    // Body-LIGHT-ITALIC
+    --font-size-body-light-italic-desktop: 19px;
+    --font-line-body-light-italic-desktop: 20.9px;
+    --font-body-light-italic-desktop: 450 italic var(--font-size-body-light-italic-desktop) / var(--font-line-body-light-italic-desktop) var(--font-family-main);
+
     // Body
     --font-size-body-desktop: 19px;
     --font-line-body-desktop: 20.9px;
@@ -111,18 +121,18 @@
     --font-h1-mini-italic-mobile: 400 italic var(--font-size-h1-mini-italic-mobile) / var(--font-line-h1-mini-italic-mobile) var(--font-family-main);
 
     // H2
-    --font-size-h2-mobile: 25px;
-    --font-line-h2-mobile: 27.5px;
+    --font-size-h2-mobile: 27px;
+    --font-line-h2-mobile: 29.7px;
     --font-h2-mobile: 500 var(--font-size-h2-mobile) / var(--font-line-h2-mobile) var(--font-family-main);
 
     // H2-MEDIUM
-    --font-size-h2-medium-mobile: 25px;
-    --font-line-h2-medium-mobile: 27.5px;
+    --font-size-h2-medium-mobile: 27px;
+    --font-line-h2-medium-mobile: 29.7px;
     --font-h2-medium-mobile: 600 var(--font-size-h2-medium-mobile) / var(--font-line-h2-medium-mobile) var(--font-family-main);
 
     // H2-ITALIC
-    --font-size-h2-italic-mobile: 25px;
-    --font-line-h2-italic-mobile: 27.5px;
+    --font-size-h2-italic-mobile: 27px;
+    --font-line-h2-italic-mobile: 29.7px;
     --font-h2-italic-mobile: 400 italic var(--font-size-h2-italic-mobile) / var(--font-line-h2-italic-mobile) var(--font-family-main);
 
     // H3
@@ -136,19 +146,29 @@
     --font-h3-medium-mobile: 600 var(--font-size-h3-medium-mobile) / var(--font-line-h3-medium-mobile) var(--font-family-main);
 
     // BodyL
-    --font-size-body-l-mobile: 18px;
-    --font-line-body-l-mobile: 19.8px;
+    --font-size-body-l-mobile: 19px;
+    --font-line-body-l-mobile: 20.9px;
     --font-body-l-mobile: 500 var(--font-size-body-l-mobile) / var(--font-line-body-l-mobile) var(--font-family-main);
 
+    // BodyL-LIGHT
+    --font-size-body-l-light-mobile: 19px;
+    --font-line-body-l-light-mobile: 20.9px;
+    --font-body-l-light-mobile: 450 var(--font-size-body-l-light-mobile) / var(--font-line-body-l-light-mobile) var(--font-family-main);
+
     // BodyL-MEDIUM
-    --font-size-body-l-medium-mobile: 18px;
-    --font-line-body-l-medium-mobile: 19.8px;
+    --font-size-body-l-medium-mobile: 19px;
+    --font-line-body-l-medium-mobile: 20.9px;
     --font-body-l-medium-mobile: 600 var(--font-size-body-l-medium-mobile) / var(--font-line-body-l-medium-mobile) var(--font-family-main);
 
     // Body
     --font-size-body-mobile: 16px;
     --font-line-body-mobile: 17.6px;
     --font-body-mobile: 500 var(--font-size-body-mobile) / var(--font-line-body-mobile) var(--font-family-main);
+
+    // Body-LIGHT-ITALIC
+    --font-size-body-light-italic-mobile: 16px;
+    --font-line-body-light-italic-mobile: 17.6px;
+    --font-body-light-italic-mobile: 450 italic var(--font-size-body-light-italic-mobile) / var(--font-line-body-light-italic-mobile) var(--font-family-main);
 
     // Body-MEDIUM
     --font-size-body-medium-mobile: 16px;
@@ -159,6 +179,11 @@
     --font-size-body-s-mobile: 14px;
     --font-line-body-s-mobile: 15.4px;
     --font-body-s-mobile: 500 var(--font-size-body-s-mobile) / var(--font-line-body-s-mobile) var(--font-family-main);
+
+    // BodyS-MEDIUM
+    --font-size-body-s-medium-mobile: 14px;
+    --font-line-body-s-medium-mobile: 15.4px;
+    --font-body-s-medium-mobile: 600 var(--font-size-body-s-medium-mobile) / var(--font-line-body-s-medium-mobile) var(--font-family-main);
 
     // Body-MINI
     --font-size-body-mini-mobile: 11px;

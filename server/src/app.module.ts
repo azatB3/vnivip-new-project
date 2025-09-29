@@ -10,6 +10,12 @@ import {ThrottlerGuard, ThrottlerModule} from "@nestjs/throttler";
 import {APP_GUARD} from "@nestjs/core";
 import {MembersModule} from './members/members.module';
 import {Member} from "./members/members.model";
+import { VacanciesModule } from './vacancies/vacancies.module';
+import {Vacancy} from "./vacancies/vacancies.model";
+import {CompetitionsModule} from "./competitions/competitions.module";
+import {Competition} from "./competitions/competitions.model";
+import {ActsModule} from "./acts/acts.module";
+import {Act} from "./acts/acts.model";
 
 @Module({
     controllers: [],
@@ -20,10 +26,6 @@ import {Member} from "./members/members.model";
         },
     ],
     imports: [
-        ParagraphsModule,
-        NewsModule,
-        FilesModule,
-        MembersModule,
         SequelizeModule.forRoot({
             dialect: process.env.DB_DIALECT as undefined,
             host: process.env.POSTGRES_HOST,
@@ -31,13 +33,27 @@ import {Member} from "./members/members.model";
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
-            models: [News, Paragraph, Member],
+            models: [
+                News,
+                Paragraph,
+                Member,
+                Vacancy,
+                Competition,
+                Act,
+            ],
             autoLoadModels: true,
         }),
         ThrottlerModule.forRoot({
             ttl: 60,
             limit: 60,
         }),
+        ParagraphsModule,
+        NewsModule,
+        FilesModule,
+        MembersModule,
+        VacanciesModule,
+        CompetitionsModule,
+        ActsModule,
     ]
 })
 export class AppModule {

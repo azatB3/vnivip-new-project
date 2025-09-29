@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
@@ -26,12 +26,13 @@ export const SmallNewsDesktop = memo((props: SmallNewsDesktopProps) => {
         <Card
             className={classNames(cls.SmallNewsDesktop, {}, [className])}
             role="link"
-            paddingL={20}
-            paddingR={20}
+            paddingL={10}
+            paddingR={10}
             paddingT={10}
-            paddingB={50}
+            paddingB={40}
             borderR={10}
             onClick={() => navigate(`${RoutePath.news}/${data.id}`)}
+            theme={CardTheme.BLUE_LIGHT}
         >
             <HStack
                 maxW

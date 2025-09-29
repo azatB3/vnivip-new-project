@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Portal } from 'shared/ui/Portal/Portal';
-import { Transition } from 'react-transition-group';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import searchIcon from 'shared/assets/icons/search-24-24-white.svg';
@@ -38,19 +37,19 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                 text: t('Администрация'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.competitions,
                 text: t('Объявления о конкурсах'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.acts,
                 text: t('Нормативно-правовые акты'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.procurement_info,
                 text: t('Информация о закупках'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.vacancies,
                 text: t('Вакансии'),
             },
             {
@@ -61,7 +60,7 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
     };
 
     const educationSection: BurgerMenuDataSection = {
-        path: RoutePath.main,
+        path: RoutePath.science_education_activity,
         text: t('Научная и образовательная деятельность'),
         subSections: [
             {
@@ -77,18 +76,18 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                 text: t('Совет молодых ученых'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.education,
                 text: t('Образование'),
             },
             {
-                path: RoutePath.main,
+                path: RoutePath.science_library,
                 text: t('Научная библиотека'),
             },
         ],
     };
 
     const servicesSection: BurgerMenuDataSection = {
-        path: RoutePath.main,
+        path: RoutePath.services,
         text: t('Услуги'),
         subSections: [
             {
@@ -170,7 +169,7 @@ export const BurgerMenuMobile = memo((props: BurgerMenuMobileProps) => {
                                     </AppLinkMobile>
                                     <AppLinkMobile
                                         theme={AppLinkMobileTheme.WHITE}
-                                        to={RoutePath.news}
+                                        to={RoutePath.contacts}
                                         onClick={closeHandler}
                                     >
                                         {t('Контакты')}

@@ -28,7 +28,7 @@ const AppMobileView = () => {
             position: e?.currentTarget?.scrollTop,
             path: pathname,
         }));
-    }, 100);
+    }, 50);
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;

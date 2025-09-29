@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { AppLinkDesktop, AppLinkDesktopTheme } from 'shared/ui/AppLink/DesktopView/AppLinkDesktop';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './FooterMenuDesktop.module.scss';
 
 interface FooterMenuDesktopProps {
@@ -31,14 +32,14 @@ export const FooterMenuDesktop = memo((props: FooterMenuDesktopProps) => {
                 maxW
             >
                 <AppLinkDesktop
-                    to="#"
+                    to={RoutePath.about_institute}
                     theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >
                     {t('Об институте')}
                 </AppLinkDesktop>
                 <AppLinkDesktop
-                    to="#"
+                    to={RoutePath.science_education_activity}
                     theme={AppLinkDesktopTheme.GREY}
                     className={cls.link}
                 >

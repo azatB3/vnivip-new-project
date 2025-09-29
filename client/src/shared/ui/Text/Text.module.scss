@@ -63,12 +63,20 @@
     font: var(--font-h4-italic-desktop);
 }
 
+.body_l_light_desktop {
+    font: var(--font-body-l-light-desktop);
+}
+
 .body_l_desktop {
     font: var(--font-body-l-desktop);
 }
 
 .body_desktop {
     font: var(--font-body-desktop);
+}
+
+.body_light_italic_desktop {
+    font: var(--font-body-light-italic-desktop);
 }
 
 .body_medium_desktop {
@@ -149,6 +157,10 @@
     font: var(--font-body-l-mobile);
 }
 
+.body_l_light_mobile {
+    font: var(--font-body-l-light-mobile);
+}
+
 .body_l_medium_mobile {
     font: var(--font-body-l-medium-mobile);
 }
@@ -157,12 +169,20 @@
     font: var(--font-body-mobile);
 }
 
+.body_light_italic_mobile {
+    font: var(--font-body-light-italic-mobile);
+}
+
 .body_medium_mobile {
     font: var(--font-body-medium-mobile);
 }
 
 .body_s_mobile {
     font: var(--font-body-s-mobile);
+}
+
+.body_s_medium_mobile {
+    font: var(--font-body-s-medium-mobile);
 }
 
 .body_mini_mobile {

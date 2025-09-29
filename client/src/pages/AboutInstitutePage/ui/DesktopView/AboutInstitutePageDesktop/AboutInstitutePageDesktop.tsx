@@ -27,7 +27,6 @@ const AboutInstitutePageDesktop = memo((props: AboutInstitutePageDesktopProps) =
             <VStack
                 maxW
                 maxH
-                paddingB={100}
             >
                 <CoverDesktop
                     size={CoverDesktopSize.SMALL}
@@ -38,6 +37,7 @@ const AboutInstitutePageDesktop = memo((props: AboutInstitutePageDesktopProps) =
                 />
                 <HStack
                     maxW
+                    className={cls.content}
                 >
                     <AboutInstitutePageLeftDesktop />
                     <AboutInstitutePageRightDesktop />

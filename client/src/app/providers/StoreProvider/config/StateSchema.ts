@@ -13,6 +13,10 @@ import { AdministrationPageSchema } from 'pages/AdministrationPage';
 import { AcademicCouncilPageSchema } from 'pages/AcademicCouncilPage';
 import { CouncilYoungScientistsPageSchema } from 'pages/CouncilYoungScientistsPage';
 import { ScienceDepartmentsPageSchema } from 'pages/ScienceDepartmentsPage';
+import { CompetitionsPageSchema } from 'pages/CompetitionsPage';
+import { VacanciesPageSchema } from 'pages/VacanciesPage';
+import { ActsPageSchema } from 'pages/ActsPage';
+import { ServicesPageSchema } from 'pages/ServicesPage';
 
 export interface StateSchema {
     ui: UISchema;
@@ -26,6 +30,10 @@ export interface StateSchema {
     academicCouncilPage?: AcademicCouncilPageSchema,
     councilYoungScientistsPage?: CouncilYoungScientistsPageSchema,
     scienceDepartmentsPage?: ScienceDepartmentsPageSchema,
+    competitionsPage?: CompetitionsPageSchema,
+    vacanciesPage?: VacanciesPageSchema,
+    actsPage?: ActsPageSchema,
+    servicesPage?: ServicesPageSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema;

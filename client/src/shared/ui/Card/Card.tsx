@@ -1,7 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    CSSProperties, FC, HTMLAttributes, memo,
-} from 'react';
+import { FC, HTMLAttributes, memo } from 'react';
 import cls from './Card.module.scss';
 
 type CardNumbers =
@@ -236,6 +234,11 @@ const paddingLClasses: Record<CardNumbers, string> = {
     120: cls.paddingL120,
 };
 
+export enum CardTheme {
+    CLEAN = 'clean',
+    BLUE_LIGHT = 'blue_light',
+}
+
 interface CardProps extends HTMLAttributes<HTMLDivElement>{
     borderR?: CardNumbers;
     borderRtl?: CardNumbers;
@@ -248,6 +251,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement>{
     paddingB?: CardNumbers;
     paddingL?: CardNumbers;
     maxW?: boolean;
+    theme?: CardTheme;
 }
 
 export const Card: FC<CardProps> = memo((props) => {
@@ -265,6 +269,7 @@ export const Card: FC<CardProps> = memo((props) => {
         paddingL,
         children,
         maxW,
+        theme = CardTheme.CLEAN,
         ...otherProps
     } = props;
 
@@ -283,6 +288,7 @@ export const Card: FC<CardProps> = memo((props) => {
         paddingB && paddingBClasses[paddingB],
         paddingL && paddingLClasses[paddingL],
         maxW ? cls.maxW : undefined,
+        cls[theme],
     ];
 
     return (

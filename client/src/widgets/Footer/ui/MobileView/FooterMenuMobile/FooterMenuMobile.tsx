@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { AppLinkMobile, AppLinkMobileTheme } from 'shared/ui/AppLink/MobileView/AppLinkMobile';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './FooterMenuMobile.module.scss';
 
 interface FooterMenuMobileProps {
@@ -31,13 +32,13 @@ export const FooterMenuMobile = memo((props: FooterMenuMobileProps) => {
                 maxW
             >
                 <AppLinkMobile
-                    to="#"
+                    to={RoutePath.about_institute}
                     theme={AppLinkMobileTheme.GREY}
                 >
                     {t('Об институте')}
                 </AppLinkMobile>
                 <AppLinkMobile
-                    to="#"
+                    to={RoutePath.science_education_activity}
                     theme={AppLinkMobileTheme.GREY}
                 >
                     {t('Научная и образовательная деятельность')}

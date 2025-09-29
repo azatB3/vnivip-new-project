@@ -30,19 +30,19 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             text: t('Администрация'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.competitions,
             text: t('Объявления о конкурсах'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.acts,
             text: t('Нормативно-правовые акты'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.procurement_info,
             text: t('Информация о закупках'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.vacancies,
             text: t('Вакансии'),
         },
         {
@@ -65,18 +65,18 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
             text: t('Совет молодых ученых'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.education,
             text: t('Образование'),
         },
         {
-            path: RoutePath.main,
+            path: RoutePath.science_library,
             text: t('Научная библиотека'),
         },
     ];
 
     const servicesLinks: DropdownData[] = [
         {
-            path: RoutePath.main,
+            path: RoutePath.services,
             text: t('Корзина'),
         },
     ];
@@ -114,13 +114,13 @@ export const HeaderDesktop = memo((props: HeaderDesktopProps) => {
                 />
                 <Dropdown
                     sectionName={t('Научная и образовательная деятельность')}
-                    sectionPath={RoutePath.main}
+                    sectionPath={RoutePath.science_education_activity}
                     data={educationLinks}
                     key={2}
                 />
                 <Dropdown
                     sectionName={t('Услуги')}
-                    sectionPath={RoutePath.main}
+                    sectionPath={RoutePath.services}
                     data={servicesLinks}
                     key={3}
                 />

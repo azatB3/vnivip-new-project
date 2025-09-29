@@ -15,7 +15,7 @@ import { TabsDesktop } from 'shared/ui/Tabs/DesktopView/TabsDesktop';
 import { fetchNews } from '../../../model/services/fetchNews';
 import { fetchNewsNextPage } from '../../../model/services/fetchNewsNextPage';
 import cls from './NewsPageListDesktop.module.scss';
-import { getNewsPageListIsLoading, getNewsPageOrder } from '../../../model/selectors/getNewsPage';
+import { getNewsPageListIsLoading, getNewsPageMainNews, getNewsPageOrder } from '../../../model/selectors/getNewsPage';
 import { getNews, NewsPageActions } from '../../../model/slices/NewsPageSlice';
 
 interface NewsPageListDesktopProps {
@@ -49,6 +49,7 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
     const news = useSelector(getNews.selectAll);
     const isLoading = useSelector(getNewsPageListIsLoading);
     const order = useSelector(getNewsPageOrder);
+    const mainNews = useSelector(getNewsPageMainNews);
 
     const fetchNewsFunc = useCallback(() => {
         dispatch(fetchNews());
@@ -142,7 +143,7 @@ export const NewsPageListDesktop = memo((props: NewsPageListDesktopProps) => {
                     ]}
                 />
             </HStack>
-            {!news.length && !isLoading
+            {!mainNews && !isLoading
                 ? (
                     <HStack
                         maxH

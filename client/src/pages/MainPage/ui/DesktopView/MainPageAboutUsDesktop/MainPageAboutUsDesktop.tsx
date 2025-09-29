@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ImageDesktop } from 'shared/ui/Image';
 import laboratoryImg from 'shared/assets/images/laboratory1.webp';
@@ -22,6 +22,7 @@ export const MainPageAboutUsDesktop = memo(() => {
                 borderRbl={50}
                 borderRtl={50}
                 maxW
+                theme={CardTheme.BLUE_LIGHT}
             >
                 <VStack
                     gap={30}

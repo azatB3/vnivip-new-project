@@ -1,5 +1,6 @@
 .AboutInstitutePageLeftDesktop {
-    width: 70%;
+    width: 67%;
+    z-index: 2;
 }
 
 .instituteName {
@@ -9,4 +10,21 @@
 
 .historyText {
     width: 100%;
+}
+
+.quoteWrapper {
+    width: 90vw;
+    position: relative;
+}
+
+.quote {
+    border-top: 50px solid var(--white);
+    border-right: 50px solid var(--white);
+    border-bottom: 50px solid var(--white);
+    background: var(--white);
+    min-width: 1050px;
+}
+
+.paragraphsWrapper {
+    max-width: 1070px;
 }

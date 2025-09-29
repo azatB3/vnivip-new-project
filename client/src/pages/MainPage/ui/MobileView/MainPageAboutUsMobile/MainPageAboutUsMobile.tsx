@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { useTranslation } from 'react-i18next';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from 'shared/ui/Card/Card';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
@@ -31,6 +31,7 @@ export const MainPageAboutUsMobile = memo((props: MainPageAboutUsMobileProps) =>
                 borderRbl={50}
                 borderRtl={50}
                 maxW
+                theme={CardTheme.BLUE_LIGHT}
             >
                 <VStack
                     gap={20}

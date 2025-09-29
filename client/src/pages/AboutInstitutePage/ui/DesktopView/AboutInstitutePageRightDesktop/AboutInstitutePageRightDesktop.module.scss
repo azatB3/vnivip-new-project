@@ -1,4 +1,28 @@
 .AboutInstitutePageRightDesktop {
-    width: 30%;
-    background: var(--grey4);
+    width: 33%;
+    background: var(--grey-light);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+}
+
+.directorImage {
+    height: 355px;
+    width: 230px;
+}
+
+.elementsBeforeQuote {
+    height: 160vh;
+    max-height: 1100px;
+}
+
+.elementsAfterQuote {
+    height: 160vh;
+    max-height: 800px;
+}
+
+.img {
+    width: 400px;
+    height: 250px;
 }

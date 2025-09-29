@@ -3,7 +3,7 @@ import React, {
     memo, MutableRefObject, useCallback, useRef, useState,
 } from 'react';
 import PlayIcon from 'shared/assets/icons/play-80-80.svg';
-import cls from './Video.module.scss';
+import cls from './VideoMobile.module.scss';
 
 type VideoNumbers =
     4
@@ -46,13 +46,13 @@ const borderRClasses: Record<VideoNumbers, string> = {
     120: cls.borderR120,
 };
 
-interface VideoProps extends React.VideoHTMLAttributes<HTMLVideoElement>{
+interface VideoMobileProps extends React.VideoHTMLAttributes<HTMLVideoElement>{
     borderR?: VideoNumbers;
     src: string;
     poster: string;
 }
 
-export const Video = memo((props: VideoProps) => {
+export const VideoMobile = memo((props: VideoMobileProps) => {
     const {
         className,
         src = '#',
@@ -82,7 +82,6 @@ export const Video = memo((props: VideoProps) => {
                 videoPlayers[i].pause();
             }
         }
-        console.log(videoPlayers);
         setIsPlaying(true);
     }, []);
 
@@ -92,7 +91,7 @@ export const Video = memo((props: VideoProps) => {
 
     return (
         <div
-            className={classNames(cls.Video, {}, classes)}
+            className={classNames(cls.VideoMobile, {}, classes)}
             onClick={initPlaying}
         >
             {isInitPlaying && (
@@ -114,7 +113,7 @@ export const Video = memo((props: VideoProps) => {
                     className={cls.poster}
                 />
             )}
-            {!isPlaying && (
+            {!isInitPlaying && (
                 <PlayIcon
                     className={cls.playIcon}
                     onClick={(e: any) => ref.current?.play()}

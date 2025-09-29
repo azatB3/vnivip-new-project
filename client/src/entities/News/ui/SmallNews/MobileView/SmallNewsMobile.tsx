@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
@@ -32,6 +32,7 @@ export const SmallNewsMobile = memo((props: SmallNewsMobileProps) => {
             paddingB={20}
             borderR={10}
             onClick={() => navigate(`${RoutePath.news}/${data.id}`)}
+            theme={CardTheme.BLUE_LIGHT}
         >
             <HStack
                 maxW

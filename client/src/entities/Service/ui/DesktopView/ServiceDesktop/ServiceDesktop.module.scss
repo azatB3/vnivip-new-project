@@ -1,0 +1,7 @@
+.ServiceDesktop {
+    background: var(--grey-light2);
+    width: calc((100% - 30px) / 2);
+    min-width: calc((100% - 30px) / 2);
+    border-radius: 5px;
+    cursor: pointer;
+}

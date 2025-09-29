@@ -2,7 +2,7 @@ export
 {
     ScienceDepartmentsPageDesktopAsync
     as ScienceDepartmentsPageDesktop,
-} from 'pages/ScienceDepartmentsPage/ui/DesktopView/ScienceDepartmentsPageDesktop/ScienceDepartmentsPageDesktop.async';
+} from './ui/DesktopView/ScienceDepartmentsPageDesktop/ScienceDepartmentsPageDesktop.async';
 export
 {
     ScienceDepartmentsPageMobileAsync

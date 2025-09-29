@@ -5,7 +5,7 @@ import {
     Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { ImageDesktop } from 'shared/ui/Image';
-import { Video } from 'shared/ui/Video/Video';
+import { VideoDesktop } from 'shared/ui/Video/DesktopView/VideoDesktop';
 import cls from './ParagraphDesktop.module.scss';
 import { Paragraph } from '../../../model/types/Paragraph';
 
@@ -69,7 +69,7 @@ export const ParagraphDesktop = memo((props: ParagraphDesktopProps) => {
                 />
             )}
             {!!data.video && (
-                <Video
+                <VideoDesktop
                     src={`${__API__}/static/videos/${data.video}`}
                     poster={`${__API__}/static/videos/${data.videoPoster}`}
                     borderR={10}
